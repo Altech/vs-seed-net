@@ -25,3 +25,5 @@
 /tmp/*
 /db/*.sqlite3
 /spec/tmp/*
+
+Gemfile.lock
