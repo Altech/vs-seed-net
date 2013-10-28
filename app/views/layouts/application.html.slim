@@ -6,4 +6,11 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
+    nav.navbar role="navigation"
+      div.navbar-header
+        a.navbar-brand VS-SEED.net
+      ul.nav class="nav-tabs"
+        li.active: a href="#" Home
+        li: a href="#" Profile
+        li: a href="#" Messages
     = yield
