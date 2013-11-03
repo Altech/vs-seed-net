@@ -6,11 +6,74 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
-    nav.navbar role="navigation"
-      div.navbar-header
-        a.navbar-brand VS-SEED.net
-      ul.nav class="nav-tabs"
-        li.active: a href="#" Home
-        li: a href="#" Profile
-        li: a href="#" Messages
-    = yield
+    .navbar-wrapper
+      .container
+        .navbar.navbar-inverse.navbar-static-top
+          .container
+            .navbar-header
+              button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand href="#"　VS-SEED.net
+            .navbar-collapse.collapse
+              ul.nav.navbar-nav
+                / li.active
+                /   a href="#" Home
+                li
+                  a href="#about" 対戦会
+                li
+                  a hre="#" 機体
+                li.dropdown
+                  a.dropdown-toggle data-toggle="dropdown" href="#"
+                    | 情報
+                    b.caret
+                  ul.dropdown-menu
+                    / li
+                    /   a href="#" 大会情報
+                    li
+                      a href="http://www8.atwiki.jp/destiny/" Wiki
+                    li
+                      a href="http://twitter.com/vs_seed_2ch" 連ザスレ
+                    li.divider
+                    li.dropdown-header 運営
+                    li
+                      a href="http://twitter.com/vs_seed_net" Twitterアカウント
+                    li
+                      a href="http://www.youtube.com/user/vsseed" Youtubeチャンネル
+                form.navbar-form.navbar-right
+                  .form-group
+                    input.form-control type="text" placeholder="検索"
+    .container
+      / 
+      .carousel-caption style="bottom:auto;"
+        h1 津田沼エース対戦会
+        h2 2013-11-02
+        div
+          - 1.upto(100) do |i|
+            img.pull-right src="assets/vol#{'%03d' % i}_thumb_vs_seed_net.jpg" style="width:200px; margin: 12px; -webkit-box-shadow: 3px 3px 3px #333;"
+    / #myCarousel.carousel
+    /   .carousel-inner
+    /     .item.active
+    /       / img src="assets/bg1.png"
+    /       .container
+    /         .carousel-caption
+    /           | test
+    /           h1 Example headline.
+    /           p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+    /   a.left.carousel-control data-slide="prev" href="#myCarousel"
+    /     span.glyphicon.glyphicon-chevron-left
+    /   a.right.carousel-control data-slide="next" href="#myCarousel"
+    /     span.glyphicon.glyphicon-chevron-right
+    / .container
+    /   | test
+      
+
+  = javascript_include_tag "http://www.go2web20.net/twitterfollowbadge/1.0/badge.js"
+  javascript:
+    tfb.account = 'vs_seed_net';
+    tfb.label = 'follow';
+    tfb.color = '#35ccff';
+    tfb.side = 'r';
+    tfb.top = 136;
+    tfb.showbadge();
