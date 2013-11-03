@@ -11,17 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103063554) do
+ActiveRecord::Schema.define(version: 20131103085821) do
 
   create_table "events", force: true do |t|
     t.datetime "held_at",             null: false
-    t.string   "location",            null: false
     t.string   "youtube_playlist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "game_center_id"
   end
 
   add_index "events", ["youtube_playlist_id"], name: "index_events_on_youtube_playlist_id", unique: true, using: :btree
+
+  create_table "game_centers", force: true do |t|
+    t.string "station",  null: false
+    t.string "name",     null: false
+    t.string "location", null: false
+  end
+
+  add_index "game_centers", ["location"], name: "index_game_centers_on_location", unique: true, using: :btree
 
   create_table "mecha_names", force: true do |t|
     t.string   "name",       null: false
