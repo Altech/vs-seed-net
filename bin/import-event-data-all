@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require 'pathname'
+
+data_dir = Pathname.new(ARGV.first)
+abort "The directory was not found." if not data_dir.exist?
+
+dirs = Pathname.glob(data_dir.to_s + "/renza-*")
+include Process
+
+dirs.each do |dir|
+  puts "Dir:#{dir}"
+  fork {
+    exec "rails runner #{Rails.root + 'bin' + 'import-event-data'} #{dir}"
+  }
+  wait
+end
