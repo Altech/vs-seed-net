@@ -51,7 +51,8 @@ html
         h2 2013-11-02
         div
           - 1.upto(100) do |i|
-            img.pull-right src="assets/vol#{'%03d' % i}_thumb_vs_seed_net.jpg" style="width:200px; margin: 12px; -webkit-box-shadow: 3px 3px 3px #333;"
+            / img.pull-right src="assets/vol#{'%03d' % i}_thumb_vs_seed_net.jpg" style="width:200px; margin: 12px; -webkit-box-shadow: 3px 3px 3px #333;"
+            == image_tag Video.find(i).thumbnail.url, style: "width:200px; margin: 12px; -webkit-box-shadow: 3px 3px 3px #333;"
     / #myCarousel.carousel
     /   .carousel-inner
     /     .item.active
@@ -77,3 +78,7 @@ html
     tfb.side = 'r';
     tfb.top = 136;
     tfb.showbadge();
+
+    / == form_for @video, :url => '/upload_test', :html => { :multipart => true } do |form|
+    /   == form.file_field :thumbnail
+    /   == form.submit "upload"
