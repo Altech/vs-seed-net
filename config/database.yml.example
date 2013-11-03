@@ -1,0 +1,23 @@
+development:
+  adapter: mysql2
+  host: localhost
+  username: user
+  password: pass
+  database: db_development
+  encoding: utf8
+
+test:
+  adapter: mysql2
+  host: localhost
+  username: user
+  password: pass
+  database: db_test
+  encoding: utf8
+
+production:
+  adapter: mysql2
+  host: localhost
+  username: user
+  password: pass
+  database: db_production
+  encoding: utf8
