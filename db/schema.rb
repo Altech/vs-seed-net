@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103085821) do
+ActiveRecord::Schema.define(version: 20131103112045) do
 
   create_table "events", force: true do |t|
     t.datetime "held_at",             null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20131103085821) do
   add_index "players", ["name"], name: "index_players_on_name", unique: true, using: :btree
 
   create_table "videos", force: true do |t|
-    t.string   "youtube_video_id",    null: false
+    t.string   "youtube_video_id",       null: false
     t.integer  "event_id"
     t.boolean  "win_or_lose"
     t.integer  "mecha_view_point_id"
@@ -73,6 +73,10 @@ ActiveRecord::Schema.define(version: 20131103085821) do
     t.integer  "player_enemy2_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
   end
 
   add_index "videos", ["event_id"], name: "index_videos_on_event_id", using: :btree

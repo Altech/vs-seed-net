@@ -56,3 +56,7 @@ end
 group :development do
   gem 'pry'
 end
+
+# for thumbnails
+gem 'paperclip'
+gem 'aws-sdk'
