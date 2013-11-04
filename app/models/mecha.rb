@@ -1,3 +1,4 @@
 class Mecha < ActiveRecord::Base
-  # belongs_to :mecha_name
+  has_many :mecha_names
+  has_many :videos
 end
