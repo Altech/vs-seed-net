@@ -2,6 +2,7 @@ VsSeed::Application.routes.draw do
   get "/" => 'top#index'
   resources :videos, only: %i[show]
   resources :events, only: %i[index show]
+  resources :mechas, only: %i[index show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

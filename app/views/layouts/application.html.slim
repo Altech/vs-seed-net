@@ -22,8 +22,8 @@ html
                 /   a href="#" Home
                 li class=activate_if_controller(:events)
                   a href=events_path 対戦会
-                li
-                  a href="#" 機体
+                li class=activate_if_controller(:mechas)
+                  a href=mechas_path 機体
                 li.dropdown
                   a.dropdown-toggle data-toggle="dropdown" href="#"
                     | 情報
