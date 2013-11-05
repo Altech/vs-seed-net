@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103112045) do
+ActiveRecord::Schema.define(version: 20131105165807) do
 
   create_table "events", force: true do |t|
     t.datetime "held_at",             null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20131103112045) do
     t.integer  "nickname_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cost"
   end
 
   add_index "mechas", ["full_name_id"], name: "index_mechas_on_full_name_id", using: :btree
