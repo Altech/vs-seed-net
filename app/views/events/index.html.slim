@@ -1,0 +1,6 @@
+h1 style="color: #fff" 対戦会・大会
+- @events.each do |event|
+  div
+    h2
+      a href=event_path(event.id) style="color: #fff"
+        | #{event.held_at.strftime("%Y年%m月%d日")} #{event.game_center.location}対戦会

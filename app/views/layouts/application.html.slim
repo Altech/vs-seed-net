@@ -15,15 +15,15 @@ html
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-              a.navbar-brand href="#"　VS-SEED.net
+              a.navbar-brand href="/"　VS-SEED.net
             .navbar-collapse.collapse
               ul.nav.navbar-nav
                 / li.active
                 /   a href="#" Home
+                li class=activate_if_controller(:events)
+                  a href=events_path 対戦会
                 li
-                  a href="#about" 対戦会
-                li
-                  a hre="#" 機体
+                  a href="#" 機体
                 li.dropdown
                   a.dropdown-toggle data-toggle="dropdown" href="#"
                     | 情報
@@ -32,9 +32,9 @@ html
                     / li
                     /   a href="#" 大会情報
                     li
-                      a href="http://www8.atwiki.jp/destiny/" Wiki
-                    li
                       a href="http://twitter.com/vs_seed_2ch" 連ザスレ
+                    li
+                      a href="http://www8.atwiki.jp/destiny/" Wiki
                     li.divider
                     li.dropdown-header 運営
                     li
