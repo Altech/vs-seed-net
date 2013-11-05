@@ -55,6 +55,7 @@ end
 
 group :development do
   gem 'pry'
+  gem 'pry-rails'
 end
 
 # for thumbnails
