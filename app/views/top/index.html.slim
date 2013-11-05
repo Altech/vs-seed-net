@@ -1,1 +1,11 @@
-submit.btn class="btn-success" test
+.carousel-caption style="left: 7%; right: 7%; bottom:auto;"
+  h1 #{@game_center.location}対戦会
+  h2 #{@event.held_at.strftime("%Y年%m月%d日")}
+  div
+    - @videos.each do |video|
+      / img.pull-right src="assets/vol#{'%03d' % i}_thumb_vs_seed_net.jpg" style="width:200px; margin: 12px; -webkit-box-shadow: 3px 3px 3px #333;"
+      a data-toggle="modal" href=video_path(video.id) data-target="##{video.youtube_video_id}"
+        == image_tag video.thumbnail.url, style: "width:200px; height:150px; margin: 12px; -webkit-box-shadow: 3px 3px 3px #333;"
+      
+- @videos.each do |video|
+  div class="modal fade" id=video.youtube_video_id tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position: absolute; top: 100px"

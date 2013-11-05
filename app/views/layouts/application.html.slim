@@ -45,14 +45,7 @@ html
                   .form-group
                     input.form-control type="text" placeholder="検索"
     .container
-      / 
-      .carousel-caption style="bottom:auto;"
-        h1 津田沼エース対戦会
-        h2 2013-11-02
-        div
-          - 1.upto(100) do |i|
-            / img.pull-right src="assets/vol#{'%03d' % i}_thumb_vs_seed_net.jpg" style="width:200px; margin: 12px; -webkit-box-shadow: 3px 3px 3px #333;"
-            == image_tag Video.find(i).thumbnail.url, style: "width:200px; margin: 12px; -webkit-box-shadow: 3px 3px 3px #333;"
+      == yield
     / #myCarousel.carousel
     /   .carousel-inner
     /     .item.active
