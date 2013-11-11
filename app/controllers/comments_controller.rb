@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 class CommentsController < ApplicationController
   def create
-    if (1..60).include? params[:comment][:text].size
-      Comment.create! comment_params
-      render json: {comment_post: 'success'}
+    # [TODO] forbid duplicate of triple: (player_id, video_id, text)
+    if (1..60).include? params[:comment][:text].size 
+      comment = Comment.create! comment_params
+      render json: {comment_post: 'success', comment: comment.attributes}
     else
       render json: {comment_post: 'failure', message: 'コメントは1文字以上60文字以内です'}
     end

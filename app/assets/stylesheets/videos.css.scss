@@ -9,10 +9,29 @@
     width: 420px;
     height: 320px;
     background-color: black;
+    #player {
+      width: 400px;
+      height: 300px;
+    }
   }
 
   #comment_text {
     width: 338px;
   }
+  
+  #comment-region {
+    width: 400px;
+    height: 300px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  #alert-message {
+    color: red;
+    margin-top: 30px;
+    width: 420px;
+    display: none;
+  }
+
 }
 

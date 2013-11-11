@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111154428) do
+ActiveRecord::Schema.define(version: 20131111211700) do
 
   create_table "comments", force: true do |t|
     t.integer  "video_id",   null: false
-    t.integer  "time",       null: false
+    t.float    "time",       null: false
     t.string   "text",       null: false
     t.integer  "player_id"
     t.datetime "created_at"
