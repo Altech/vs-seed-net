@@ -50,6 +50,7 @@ begin
     j['video_ids'].each_with_index do |video_id,i|
       video_record = {
         youtube_video_id: video_id,
+        index_of_event: i,
         event_id: event.id,
         win_or_lose: case j['win_or_lose'][i]
                      when 'win'

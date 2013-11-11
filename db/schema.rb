@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105165807) do
+ActiveRecord::Schema.define(version: 20131111090204) do
 
   create_table "events", force: true do |t|
     t.datetime "held_at",             null: false
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20131105165807) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.integer  "index_of_event"
   end
 
   add_index "videos", ["event_id"], name: "index_videos_on_event_id", using: :btree
