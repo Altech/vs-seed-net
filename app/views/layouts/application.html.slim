@@ -18,8 +18,6 @@ html
               a.navbar-brand href="/"　VS-SEED.net
             .navbar-collapse.collapse
               ul.nav.navbar-nav
-                / li.active
-                /   a href="#" Home
                 li class=activate_if_controller(:events)
                   a href=events_path 対戦会
                 li class=activate_if_controller(:mechas)
@@ -44,24 +42,8 @@ html
                 form.navbar-form.navbar-right
                   .form-group
                     input.form-control type="text" placeholder="検索"
-    .container
+    .container class=params[:controller]
       == yield
-    / #myCarousel.carousel
-    /   .carousel-inner
-    /     .item.active
-    /       / img src="assets/bg1.png"
-    /       .container
-    /         .carousel-caption
-    /           | test
-    /           h1 Example headline.
-    /           p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-    /   a.left.carousel-control data-slide="prev" href="#myCarousel"
-    /     span.glyphicon.glyphicon-chevron-left
-    /   a.right.carousel-control data-slide="next" href="#myCarousel"
-    /     span.glyphicon.glyphicon-chevron-right
-    / .container
-    /   | test
-      
 
   = javascript_include_tag "http://www.go2web20.net/twitterfollowbadge/1.0/badge.js"
   javascript:
@@ -71,7 +53,3 @@ html
     tfb.side = 'r';
     tfb.top = 136;
     tfb.showbadge();
-
-    / == form_for @video, :url => '/upload_test', :html => { :multipart => true } do |form|
-    /   == form.file_field :thumbnail
-    /   == form.submit "upload"

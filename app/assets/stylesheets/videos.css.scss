@@ -1,3 +1,18 @@
 // Place all the styles related to the Videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.videos {
+  #player-container {
+    text-align: center;
+    padding-top: 10px;
+    width: 420px;
+    height: 320px;
+    background-color: black;
+  }
+
+  #comment_text {
+    width: 338px;
+  }
+}
+
