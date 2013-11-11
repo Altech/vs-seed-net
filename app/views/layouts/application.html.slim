@@ -44,12 +44,3 @@ html
                     input.form-control type="text" placeholder="検索"
     .container class=params[:controller]
       == yield
-
-  = javascript_include_tag "http://www.go2web20.net/twitterfollowbadge/1.0/badge.js"
-  javascript:
-    tfb.account = 'vs_seed_net';
-    tfb.label = 'follow';
-    tfb.color = '#35ccff';
-    tfb.side = 'r';
-    tfb.top = 136;
-    tfb.showbadge();
