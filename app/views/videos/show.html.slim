@@ -33,3 +33,5 @@ javascript:
       }
     });
   }
+  // onYouTubeIframeAPIReady is not called if IFrameAPI is cached. So we must call explicitly.
+  try{ onYouTubeIframeAPIReady() }catch(e){}
