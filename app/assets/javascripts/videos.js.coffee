@@ -21,7 +21,7 @@ commentTimers = []
 window.onPlayerStateChange = (event) ->
   # NON_PLAYING -> PLAYING
   if event.data == YT.PlayerState.PLAYING
-    console.log("case1")
+    commentDrawer.init()
     time = player.getCurrentTime()
     for c in comments
       if c['time'] > time
@@ -31,7 +31,6 @@ window.onPlayerStateChange = (event) ->
           commentTimers.push timer)()
   # PLAYING -> NON_PLAYING
   else
-    console.log("case2")
     for timer in commentTimers
       clearTimeout timer
     commentTimers = []
