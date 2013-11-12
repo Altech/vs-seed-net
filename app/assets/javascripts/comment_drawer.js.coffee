@@ -1,8 +1,8 @@
 window.commentDrawer =
   env:
     color: "white"
-    speed: 6500
-    font_size: "30px"
+    speed: 6800
+    font_size: "18pt"
     height: ""
     width: ""
 
@@ -10,8 +10,6 @@ window.commentDrawer =
     elm = $("#comment-region")
     @elm = elm
     @elm.css "position", "relative"
-    
-    # this.elm.css("border", "solid 1px gray");
     @elm.css "overflow", "hidden"
     @elm.bind "selectstart", ->
       false
@@ -29,14 +27,15 @@ window.commentDrawer =
     top_pos = Math.floor(Math.random() * (parseInt(n.env.height) * 0.85))
     end_left = (parseInt(n.env.width)) * -1
     cmid = "comment-" + id + ""
-    com_obj = $("<div id='" + cmid + "' style='left:" + (n.env.width - 60) + "px; position:absolute;top:" + top_pos + "px;color:" + n.env.color + ";font-size:" + n.env.font_size + ";font-weight:bold;text-shadow: black 1px 1px 1px;width:100%;z-index:99999;cursor:default'>" + text + "</div>")
+    com_obj = $("<div id='" + cmid + "' style='left:" + (n.env.width) + "px; position:absolute;top:" + top_pos + "px;color:" + n.env.color + ";font-size:" + n.env.font_size + ";font-weight:bold;text-shadow: black 1px 1px 1px;width:800px;text-align:left; z-index:99999;cursor:default'>" + text + "</div>")
     $("#comment-region").append com_obj
     ((that) ->
       tmp_cmid = cmid
       com_obj.animate
-        left: end_left
+        left: end_left - 600
       ,
-        duration: n.env.speed
+        duration: n.env.speed,
+        easing: 'linear',
         complete: ->
           elm_id = "#" + tmp_cmid
           $("#comment-region").remove elm_id
