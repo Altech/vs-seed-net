@@ -6,8 +6,5 @@ class VideosController < ApplicationController
 
     @new_comment = Comment.new
     @new_comment.video_id = @video.id
-
-    # [TODO]
-    # handle cases of modal window
   end
 end

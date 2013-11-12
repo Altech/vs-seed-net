@@ -64,3 +64,22 @@
 
 
 @import "bootstrap/carousel";
+
+@media (max-width: $screen-xs-max) {
+  .show-xs {
+    display: block;
+  }
+  .show-non-xs {
+    display: none;
+  }
+}
+
+@media (min-width: $screen-xs-max) {
+  .show-xs {
+    display: none;
+  }
+  .show-non-xs {
+    display: block;
+  }
+}
+

@@ -1,20 +1,26 @@
 javascript:
   var comments = #{raw @comments.to_json}
 
+
+h1.title #{@event.held_at.strftime("%Y年%m月%d日")} #{@event.game_center.location} Vol.#{@video.index_of_event + 1}
+
 #player-container
   #comment-region
     #player
 
-/* comment.time will be added before sending. */
-- @new_comment.player_id = 1 # [TODO]
-== form_for(@new_comment, remote: true) do |c|
-  == c.text_field :text
-  == c.hidden_field :video_id
-  == c.hidden_field :player_id
-  == c.submit "コメント", class: "btn"
+#comment-container
+  /* comment.time will be added before sending. */
+  - @new_comment.player_id = 1 # [TODO]
+  == form_for(@new_comment, remote: true) do |c|
+    == c.text_field :text
+    == c.hidden_field :video_id
+    == c.hidden_field :player_id
+    == c.submit "コメント", class: "btn"
 
 #alert-message.alert.alert-danger
-  
+
+
+
 javascript:
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";

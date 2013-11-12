@@ -7,5 +7,5 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @videos = @event.videos
     @game_center = @event.game_center
-  end
-end
+   end
+ end
