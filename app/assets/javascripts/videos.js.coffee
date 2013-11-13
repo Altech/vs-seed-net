@@ -1,3 +1,4 @@
+##  ============ handle comments (add time) ============
 $ ($) ->
   $('#new_comment').bind 'ajax:success', (data, response, _) ->
     switch response['comment_post']
@@ -34,3 +35,11 @@ window.onPlayerStateChange = (event) ->
     for timer in commentTimers
       clearTimeout timer
     commentTimers = []
+
+## ============ persuade login ============
+$ ($) ->
+  $('.disabled-comment').popover
+    html: "testmsg",
+    placement: 'bottom',
+    content: 'コメントするには<a href="/login">ログイン</a><br>する必要がありますです。'
+  

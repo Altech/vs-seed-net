@@ -10,13 +10,18 @@ h1.title #{@event.held_at.strftime("%Y年%m月%d日")} #{@event.game_center.loca
 
 #comment-container
   /* comment.time will be added before sending. */
-  - @new_comment.player_id = 1 # [TODO]
-  == form_for(@new_comment, remote: true) do |c|
-    == c.text_field :text
-    == c.hidden_field :video_id
-    == c.hidden_field :player_id
-    == c.submit "コメント", class: "btn"
-
+  - if current_player
+    == form_for(@new_comment, remote: true) do |c|
+      == c.text_field :text
+      == c.hidden_field :video_id
+      == c.submit "コメント", class: "btn"
+  - else
+    .disabled-comment
+      == form_for(@new_comment, remote: true) do |c|
+        == c.text_field :text, disabled: 'disabled'
+        == c.hidden_field :video_id
+        == c.submit "コメント", class: "btn", disabled: 'disabled'
+      
 #alert-message.alert.alert-danger
 
 

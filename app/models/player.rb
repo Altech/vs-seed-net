@@ -8,4 +8,6 @@ class Player < ActiveRecord::Base
     email_format: true
   has_secure_password
   validates :password, length: { minimum: 8, maximum: 20 }
+
+  has_many :comments
 end
