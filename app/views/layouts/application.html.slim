@@ -23,8 +23,8 @@ html
               ul.nav.navbar-nav
                 li class=activate_if_controller(:events)
                   a href=events_path 対戦会
-                li class=activate_if_controller(:mechas)
-                  a href=mechas_path 機体
+                / li class=activate_if_controller(:mechas)
+                /   a href=mechas_path 機体
                 - if current_player
                   li.dropdown
                     a.dropdown-toggle data-toggle="dropdown" href="#"
@@ -61,8 +61,8 @@ html
                       a href="http://twitter.com/vs_seed_net" target="_blank" Twitterアカウント
                     li
                       a href="http://www.youtube.com/user/vsseed" target="_blank" Youtubeチャンネル
-                form.navbar-form.navbar-right
-                  .form-group
-                    input.form-control type="text" placeholder="検索"
+                / form.navbar-form.navbar-right
+                /   .form-group
+                /     input.form-control type="text" placeholder="検索"
     .container class=params[:controller]
       == yield
