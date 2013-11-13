@@ -8,4 +8,12 @@ class Video < ActiveRecord::Base
     :s3_credentials => "#{Rails.root}/config/s3.yml",
     :path => "videos/:attachment/:id/:style.:extension"
 
+
+  # [TODO]
+  # impl proxy as Youtube DATA API
+
+  def uri
+    "http://www.youtube.com/watch?v=#{youtube_video_id}"
+  end
+
 end
