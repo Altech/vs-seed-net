@@ -10,7 +10,10 @@
  *
  *= require_self
  *= require_tree .
- */
+ *= require font-awesome
+*/
+
+@import "font-awesome";
 
 // Core variables and mixins
 @import "bootstrap/variables";

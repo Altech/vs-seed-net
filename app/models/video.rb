@@ -8,6 +8,21 @@ class Video < ActiveRecord::Base
     :s3_credentials => "#{Rails.root}/config/s3.yml",
     :path => "videos/:attachment/:id/:style.:extension"
 
+  def next_video
+    if event_id
+      Video.where(index_of_event: index_of_event+1, event_id: event_id).first
+    end
+  end
+
+  def previous_video
+    if event_id
+      Video.where(index_of_event: index_of_event-1, event_id: event_id).first
+    end
+  end
+
+  def is_last_video_of_event
+    next_video ? false : true
+  end
 
   # [TODO]
   # impl proxy as Youtube DATA API

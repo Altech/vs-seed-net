@@ -13,6 +13,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem "slim-rails"
 
 gem 'bootstrap-sass', '~> 3.0.0.0.rc'
+gem "font-awesome-rails"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

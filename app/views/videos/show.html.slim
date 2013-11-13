@@ -4,27 +4,38 @@ javascript:
 
 h1.title #{@event.held_at.strftime("%Y年%m月%d日")} #{@event.game_center.location} Vol.#{@video.index_of_event + 1}
 
-#player-container
-  #comment-region
-    #player
-
-#comment-container
-  /* comment.time will be added before sending. */
-  - if current_player
-    == form_for(@new_comment, remote: true) do |c|
-      == c.text_field :text
-      == c.hidden_field :video_id
-      == c.submit "コメント", class: "btn"
-  - else
-    .disabled-comment
-      == form_for(@new_comment, remote: true) do |c|
-        == c.text_field :text, disabled: 'disabled'
-        == c.hidden_field :video_id
-        == c.submit "コメント", class: "btn", disabled: 'disabled'
-      
-#alert-message.alert.alert-danger
-
-
+.centering
+  .event-video-nav.previous-video
+    == link_to_previous_video_if_exists @video
+      i class="fa fa-arrow-circle-o-left"
+  .player-and-comment
+    #player-container
+      #comment-region
+        #player
+    
+    #comment-container
+      /* comment.time will be added before sending. */
+      - if current_player
+        == form_for(@new_comment, remote: true) do |c|
+          == c.text_field :text
+          == c.hidden_field :video_id
+          == c.submit "コメント", class: "btn"
+      - else
+        .disabled-comment
+          == form_for(@new_comment, remote: true) do |c|
+            == c.text_field :text, disabled: 'disabled'
+            == c.hidden_field :video_id
+            == c.submit "コメント", class: "btn", disabled: 'disabled'
+          
+    #alert-message.alert.alert-danger
+  .event-video-nav.next-video
+    == link_to_next_video_if_exists @video
+      i class="fa fa-arrow-circle-o-right"
+.event-video-nav-less-than-420
+  == link_to_previous_video_if_exists @video
+    i class="fa fa-arrow-circle-o-left" style="margin-right: 8pt;"
+  == link_to_next_video_if_exists @video
+    i class="fa fa-arrow-circle-o-right"
 
 javascript:
   var tag = document.createElement('script');
@@ -34,15 +45,15 @@ javascript:
 
   var player;
   function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '300',
-      width: '400',
-      videoId: "#{@video.youtube_video_id}",
-      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
-      }
-    });
+  player = new YT.Player('player', {
+  height: '300',
+  width: '400',
+  videoId: "#{@video.youtube_video_id}",
+  events: {
+  'onReady': onPlayerReady,
+  'onStateChange': onPlayerStateChange
+  }
+  });
   }
   // onYouTubeIframeAPIReady is not called if IFrameAPI is cached. So we must call explicitly.
   try{ onYouTubeIframeAPIReady() }catch(e){}

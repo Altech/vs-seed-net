@@ -44,4 +44,85 @@
     margin-left:auto;
     margin-right:auto;
   }
+
+  .centering {
+    margin-left:auto;
+    margin-right:auto;
+    width: 820px;
+    .player-and-comment {
+      float: left;
+      width: 420px;
+    }
+    .previous-video {
+      float:left;
+      text-align: left;
+    }
+    .next-video {
+      float:left;
+      text-align: right;
+    }
+  }
+
+  @media (min-width: 1064px) {
+    .previous-video {
+      font-size: 130pt;
+      padding-top: 44px;
+      width: 23%;
+    }
+    .next-video {
+      font-size: 130pt;
+      padding-top: 44px;
+      width: 23%;
+    }
+  }
+  @media (min-width: 780px) AND (max-width: 1064px) {
+    .previous-video {
+      font-size: 100pt;
+      padding-top: 60px;
+      width: 17%;
+    }
+    .next-video {
+      font-size: 100pt;
+      padding-top: 60px;
+      width: 17%;
+    }
+  }
+  @media (min-width: 630px) and (max-width: 780px) {
+    .centering {
+      width: 620px;
+    }
+    .previous-video {
+      font-size: 80pt;
+      padding-top: 60px;
+      width: 100px;
+    }
+    .next-video {
+      font-size: 80pt;
+      padding-top: 60px;
+      width: 100px;
+    }
+  }
+  .event-video-nav-less-than-420 {
+    display: none;
+    clear: both;
+    font-size: 30pt;
+    text-align: center;
+  }
+  @media (max-width: 630px) {
+    .centering {
+      width: 420px;
+    }
+    .previous-video {
+      display: none;
+    }
+    .next-video {
+      display: none;
+    }
+    .player-and-comment {
+      width: 420px;
+    }
+    .event-video-nav-less-than-420 {
+      display: block;
+    }
+  }  
 }
