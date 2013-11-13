@@ -1,0 +1,54 @@
+ja:
+  activerecord:
+    models:
+      comment: comment  #g
+      event: event  #g
+      game_center: game_center  #g
+      mecha: mecha  #g
+      mecha_name: mecha_name  #g
+      player: player  #g
+      video: video  #g
+
+    attributes:
+      comment:
+        text: text  #g
+        time: time  #g
+        video: :activerecord.models.video  #g
+
+      event:
+        game_center: :activerecord.models.game_center  #g
+        held_at: held_at  #g
+        videos: videos  #g
+
+      game_center:
+        events: events  #g
+        location: location  #g
+        name: name  #g
+        station: station  #g
+
+      mecha:
+        cost: cost  #g
+        mecha_names: mecha_names  #g
+        videos: videos  #g
+
+      mecha_name:
+        mecha: :activerecord.models.mecha  #g
+        name: name  #g
+
+      player:
+        mail: メールアドレス  #g
+        name: 名前  #g
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        password_digest: password_digest  #g
+
+      video:
+        comments: comments  #g
+        event: :activerecord.models.event  #g
+        index_of_event: index_of_event  #g
+        mecha: :activerecord.models.mecha  #g
+        thumbnail_content_type: thumbnail_content_type  #g
+        thumbnail_file_name: thumbnail_file_name  #g
+        thumbnail_file_size: thumbnail_file_size  #g
+        thumbnail_updated_at: thumbnail_updated_at  #g
+        win_or_lose: win_or_lose  #g

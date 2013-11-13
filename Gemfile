@@ -61,3 +61,8 @@ end
 # for thumbnails
 gem 'paperclip'
 gem 'aws-sdk'
+
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'validates_email_format_of'
+
+gem 'i18n_generators'

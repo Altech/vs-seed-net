@@ -1,0 +1,19 @@
+== form_for(@player) do |p|
+  .form-group
+    == p.label :name, '名前（HN）'
+    == p.text_field :name, class: 'form-control'
+  .form-group
+    == p.label :mail, 'メールアドレス'
+    == p.text_field :mail, class: 'form-control'
+  .form-group
+    == p.label :password, 'パスワード'
+    == p.password_field :password, size: 40, class: 'form-control'
+  .form-group
+    == p.label :password, 'パスワード（確認）'
+    == p.password_field :password_confirmation, size: 40, class: 'form-control'
+  .form-group
+    == p.submit class: 'btn'
+
+- if flash[:alert]
+  .alert.alert-danger
+    == 

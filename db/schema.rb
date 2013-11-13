@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111211700) do
+ActiveRecord::Schema.define(version: 20131113012119) do
 
   create_table "comments", force: true do |t|
     t.integer  "video_id",   null: false
@@ -62,9 +62,11 @@ ActiveRecord::Schema.define(version: 20131111211700) do
   add_index "mechas", ["nickname_id"], name: "index_mechas_on_nickname_id", using: :btree
 
   create_table "players", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mail"
+    t.string   "password_digest"
   end
 
   add_index "players", ["name"], name: "index_players_on_name", unique: true, using: :btree

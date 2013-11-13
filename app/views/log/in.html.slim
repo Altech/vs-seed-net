@@ -1,0 +1,17 @@
+== form_tag login_path do
+  .form-group
+    == label_tag :mail, 'メールアドレス'
+    == text_field_tag :mail, nil, class: 'form-control'
+  .form-group
+    == label_tag :password, 'パスワード'
+    == password_field_tag :password, nil, class: 'form-control'
+  .form-group
+    == submit_tag 'ログイン', class: 'btn'
+
+- if flash[:alert]
+  .alert.alert-danger
+    == flash[:alert]
+
+.to-new-player
+  | →ユーザー登録は
+  == link_to 'こちら', new_player_path
