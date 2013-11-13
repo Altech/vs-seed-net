@@ -31,10 +31,11 @@ h1.title #{@event.held_at.strftime("%Y年%m月%d日")} #{@event.game_center.loca
   .event-video-nav.next-video
     == link_to_next_video_if_exists @video
       i class="fa fa-arrow-circle-o-right"
-.event-video-nav-less-than-420
-  == link_to_previous_video_if_exists @video
-    i class="fa fa-arrow-circle-o-left" style="margin-right: 8pt;"
-  == link_to_next_video_if_exists @video
+.control-panel.event-video-nav-less-than-420
+  == link_to_previous_video_if_exists @video, class: 'previous-video'
+    i class="fa fa-arrow-circle-o-left"
+  i class="fa fa-pause play-and-pause"
+  == link_to_next_video_if_exists @video, class: 'next-video'
     i class="fa fa-arrow-circle-o-right"
 
 javascript:
@@ -45,15 +46,16 @@ javascript:
 
   var player;
   function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-  height: '300',
-  width: '400',
-  videoId: "#{@video.youtube_video_id}",
-  events: {
-  'onReady': onPlayerReady,
-  'onStateChange': onPlayerStateChange
-  }
-  });
+    player = new YT.Player('player', {
+      height: '300',
+      width: '400',
+      videoId: "#{@video.youtube_video_id}",
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+    setupControlPanel($);
   }
   // onYouTubeIframeAPIReady is not called if IFrameAPI is cached. So we must call explicitly.
   try{ onYouTubeIframeAPIReady() }catch(e){}
