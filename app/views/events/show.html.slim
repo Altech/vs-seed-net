@@ -5,9 +5,5 @@
     .row
     - @videos.each do |video|
       .col-md-3.col-xs-12.col-sm-6.thumbnail-container
-        / a.show-non-xs href=video_path(video.id)
-        /   == image_tag video.thumbnail.url, class: 'video_thumbnail'
-        a.show-xs href=video_path(video.id) target='_blank'
-          == image_tag video.thumbnail.url, class: 'video_thumbnail'
-        a.show-non-xs href=video_path(video.id)
+        a href=video_path(video.id)
           == image_tag video.thumbnail.url, class: 'video_thumbnail'

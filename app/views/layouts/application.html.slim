@@ -5,10 +5,8 @@ html
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    meta name="viewport" content="width=420"
   body
-    - unless session[:player_id]
-      #login-button
-        == link_to 'ログイン', login_path
     .navbar-wrapper
       .container
         .navbar.navbar-inverse.navbar-static-top
@@ -32,16 +30,16 @@ html
                       b.caret
                     ul.dropdown-menu
                       li.myname #{current_player.name}
-                      li
-                        a
-                          span.unlink 動画
-                      li
-                        a
-                          span.unlink 統計
-                      li
-                        a
-                          span.unlink プロフィール
-                      li.divider
+                      / li
+                      /   a
+                      /     span.unlink 動画
+                      / li
+                      /   a
+                      /     span.unlink 統計
+                      / li
+                      /   a
+                      /     span.unlink プロフィール
+                      / li.divider
                       li
                         == link_to 'ログアウト', logout_path
                 li.dropdown
@@ -61,6 +59,9 @@ html
                       a href="http://twitter.com/vs_seed_net" target="_blank" Twitterアカウント
                     li
                       a href="http://www.youtube.com/user/vsseed" target="_blank" Youtubeチャンネル
+                - unless current_player
+                  li class=activate_if_controller(:log)
+                    a href=login_path ログイン
                 / form.navbar-form.navbar-right
                 /   .form-group
                 /     input.form-control type="text" placeholder="検索"

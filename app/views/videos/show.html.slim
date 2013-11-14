@@ -2,7 +2,10 @@ javascript:
   var comments = #{raw @comments.to_json}
 
 
-h1.title #{@event.held_at.strftime("%Y年%m月%d日")} #{@event.game_center.location} Vol.#{@video.index_of_event + 1}
+h1.title
+  |#{@event.held_at.strftime("%Y年%m月%d日")}
+  br.show-xs
+  | #{@event.game_center.location} Vol.#{@video.index_of_event + 1}
 
 .centering
   .event-video-nav.previous-video
@@ -19,13 +22,13 @@ h1.title #{@event.held_at.strftime("%Y年%m月%d日")} #{@event.game_center.loca
         == form_for(@new_comment, remote: true) do |c|
           == c.text_field :text
           == c.hidden_field :video_id
-          == c.submit "コメント", class: "btn"
+          == c.submit "コメント", class: "btn btn-fix-for-mobile"
       - else
         .disabled-comment
           == form_for(@new_comment, remote: true) do |c|
             == c.text_field :text, disabled: 'disabled'
             == c.hidden_field :video_id
-            == c.submit "コメント", class: "btn", disabled: 'disabled'
+            == c.submit "コメント", class: "btn btn-fix-for-mobile", disabled: 'disabled'
           
     #alert-message.alert.alert-danger
   .event-video-nav.next-video
