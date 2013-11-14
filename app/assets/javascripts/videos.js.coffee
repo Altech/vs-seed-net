@@ -26,7 +26,9 @@ window.onPlayerStateChange = (event) ->
     commentDrawer.init()
     time = player.getCurrentTime()
     for c in comments
-      if c['time'] > time
+      if c['time'] == 0
+        commentDrawer.draw c['id'], c['text']
+      else if c['time'] > time
         (-> # create new scope for the external reference of following closure
           comment = c
           timer = setTimeout((-> commentDrawer.draw comment['id'], comment['text']), (comment['time']-time)*1000)
