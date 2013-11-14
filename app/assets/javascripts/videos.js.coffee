@@ -10,7 +10,8 @@ $ ($) ->
         setTimeout (->
           $('#alert-message').text(""); $('#alert-message').hide()), 3000
   $('#new_comment').bind 'ajax:beforeSend', (_, __, settings) ->
-    settings.data += "&comment%5Btime%5D=" + player.getCurrentTime()
+    t = player.getCurrentTime()
+    settings.data += "&comment%5Btime%5D=" + (if t != 0 then t else window.currentPlayerTime)
 
 window.onPlayerReady = (event) ->
   if window.navigator.userAgent.toLowerCase().indexOf('iphone') == -1
@@ -67,3 +68,15 @@ window.setupControlPanel = ($) ->
         btn.removeClass 'fa-play'
         btn.addClass 'fa-pause'
     return false
+
+## ============ fix for iPhone ============
+# getCurrentTime() is available only playing in iPhone
+window.currentPlayerTime = 0
+getCurrentTimeLoop = ->
+  if player and player.getPlayerState() == YT.PlayerState.PLAYING
+    t = player.getCurrentTime()
+    if t != 0 
+      window.currentPlayerTime = t
+  setTimeout(getCurrentTimeLoop, 500)
+  
+setTimeout(getCurrentTimeLoop, 3000)
