@@ -37,7 +37,8 @@ h1.title
 .control-panel.event-video-nav-less-than-420
   == link_to_previous_video_if_exists @video
     i class="fa fa-arrow-circle-o-left previous-video"
-  i class="fa fa-pause play-and-pause"
+  .show-non-xs
+    i.fa.fa-pause.play-and-pause
   == link_to_next_video_if_exists @video
     i class="fa fa-arrow-circle-o-right next-video"
 

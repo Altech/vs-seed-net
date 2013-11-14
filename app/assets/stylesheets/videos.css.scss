@@ -1,3 +1,4 @@
+@import "bootstrap/variables";
 .videos {
   .title {
     font-size: 18pt;
@@ -64,12 +65,15 @@
       color: #2a6496;
       cursor: pointer;
     }
-    @media (max-width: 630px) {
+    @media (min-width: $screen-xs-max) and (max-width: 630px){
       width: 170px;
       i.play-and-pause {
 	margin-right:6px;
 	margin-left:6px;
       }
+    }
+    @media (max-width: $screen-xs-max) {
+      width: 110px;
     }
   }
 

@@ -13,7 +13,8 @@ $ ($) ->
     settings.data += "&comment%5Btime%5D=" + player.getCurrentTime()
 
 window.onPlayerReady = (event) ->
-  event.target.playVideo()
+  if window.navigator.userAgent.toLowerCase().indexOf('iphone') == -1
+    event.target.playVideo()
 
 ## ============ show comments ============
 $ () -> commentDrawer.init()
