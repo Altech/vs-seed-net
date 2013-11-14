@@ -2,7 +2,7 @@
 class CommentsController < ApplicationController
   def create
     # [TODO] forbid duplicate of triple: (player_id, video_id, text)
-    if (1..60).include? params[:comment][:text].size and current_player
+    if (1..30).include? params[:comment][:text].size and current_player
       comment = Comment.new comment_params
       comment.player_id = current_player.id
       comment.save
