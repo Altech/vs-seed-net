@@ -26,7 +26,7 @@ module VideosHelper
 
   def link_to_previous_video_if_exists(video, opt = {}, &block)
     if @video.previous_video
-      content_tag(:a, capture(&block), opt.merge(href: next_video_path(@video)))
+      content_tag(:a, capture(&block), opt.merge(href: previous_video_path(@video)))
     else
       capture(&block)
     end

@@ -32,11 +32,11 @@ h1.title #{@event.held_at.strftime("%Y年%m月%d日")} #{@event.game_center.loca
     == link_to_next_video_if_exists @video
       i class="fa fa-arrow-circle-o-right"
 .control-panel.event-video-nav-less-than-420
-  == link_to_previous_video_if_exists @video, class: 'previous-video'
-    i class="fa fa-arrow-circle-o-left"
+  == link_to_previous_video_if_exists @video
+    i class="fa fa-arrow-circle-o-left previous-video"
   i class="fa fa-pause play-and-pause"
-  == link_to_next_video_if_exists @video, class: 'next-video'
-    i class="fa fa-arrow-circle-o-right"
+  == link_to_next_video_if_exists @video
+    i class="fa fa-arrow-circle-o-right next-video"
 
 javascript:
   var tag = document.createElement('script');
