@@ -10,4 +10,8 @@ class Player < ActiveRecord::Base
   validates :password, length: { minimum: 8, maximum: 20 }
 
   has_many :comments
+
+  def admin?
+    id == 1
+  end
 end

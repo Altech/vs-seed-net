@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   before_filter :logging_access
 
   def logging_access
-    return unless Rails.env.production?
+    return if not Rails.env.production?
+    return if current_player and current_player.admin?
     logger = Fluent::Logger::FluentLogger.new(nil, :host => 'localhost')
     logger.post('production.vs_seed.access',
                 method: request.method,
