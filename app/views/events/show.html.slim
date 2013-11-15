@@ -1,5 +1,8 @@
 .carousel-caption
-  h1 #{@game_center.location}対戦会
+  h1
+    == @game_center.location
+    br.show-xs
+    | 対戦会
   h2 #{@event.held_at.strftime("%Y年%m月%d日")}
   #thumbnails
     .row
