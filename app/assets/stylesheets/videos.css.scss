@@ -47,33 +47,27 @@
   }
 
   .control-panel {
-    border-radius: 10px;
-    border: 1px solid #666;
-    width: 70px;
-    margin-top: 10px;
-    margin-left:auto;
-    margin-right:auto;
-    i {
-      margin-right: 4pt;
-      margin-left: 4pt;
-    }
-    i.play-and-pause {
-      color: #428bca;
-      margin-left:6px;
-    }
-    i.play-and-pause:hover {
-      color: #2a6496;
-      cursor: pointer;
-    }
-    @media (min-width: $screen-xs-max) and (max-width: 630px){
-      width: 170px;
-      i.play-and-pause {
-	margin-right:6px;
-	margin-left:6px;
+    clear: both;
+    padding-top: 10px;
+    ul {
+      display: inline;
+      padding: 5px;
+      padding-left: 9px;
+      border-radius: 10px;
+      border: 1px solid #666;
+      font-size: 40px;
+      li {
+	display: inline;
+	i {
+	  width: 40px;
+	  height: 40px;
+	  margin: 3px;
+	}
       }
-    }
-    @media (max-width: $screen-xs-max) {
-      width: 110px;
+      .for-popover-font-size {
+	font-size: 14px;
+	li {font-size: 40px;}
+      }
     }
   }
 

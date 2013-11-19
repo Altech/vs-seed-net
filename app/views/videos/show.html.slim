@@ -34,13 +34,26 @@ h1.title
   .event-video-nav.next-video
     == link_to_next_video_if_exists @video
       i class="fa fa-arrow-circle-o-right"
-.control-panel.event-video-nav-less-than-420
-  == link_to_previous_video_if_exists @video
-    i class="fa fa-arrow-circle-o-left previous-video"
-  .show-non-xs
-    i.fa.fa-pause.play-and-pause
-  == link_to_next_video_if_exists @video
-    i class="fa fa-arrow-circle-o-right next-video"
+.control-panel.text-centering
+  ul
+    == link_to_previous_video_if_exists @video
+      li
+        i.fa.fa-arrow-circle-o-left
+    li.link-color.show-non-xs
+      i.fa.fa-pause.play-and-pause
+    - if current_player      
+      li.link-color.favorite-video.enabled data-video-id=@video.id
+        - if current_player.favorite?(@video)
+          i.fa.fa-star
+        - else
+          i.fa.fa-star-o
+    - else
+      span.for-popover-font-size
+        li.favorite-video.disabled
+          i.fa.fa-star-o
+    == link_to_next_video_if_exists @video
+      li
+        i.fa.fa-arrow-circle-o-right
 
 javascript:
   var tag = document.createElement('script');
@@ -59,7 +72,8 @@ javascript:
         'onStateChange': onPlayerStateChange
       }
     });
-    setupControlPanel($);
   }
   // onYouTubeIframeAPIReady is not called if IFrameAPI is cached. So we must call explicitly.
   try{ onYouTubeIframeAPIReady() }catch(e){}
+  // for iPhone
+  setTimeout(getCurrentPlayerTimeLoop, 3000)

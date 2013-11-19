@@ -8,5 +8,7 @@ VsSeed::Application.routes.draw do
   resources :events, only: %i[index show]
   resources :mechas, only: %i[index show]
   resources :comments, only: %i[create]
+  resources :favorites, only: %i[index create]
+  delete "favorites" => 'favorites#destroy'
   resources :players, only: %i[create new]
 end

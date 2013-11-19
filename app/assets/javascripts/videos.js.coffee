@@ -43,11 +43,11 @@ window.onPlayerStateChange = (event) ->
 ## ============ persuade login ============
 $ ($) ->
   $('.disabled-comment').popover
-    html: "testmsg",
+    html: true,
     placement: 'bottom',
     content: 'コメントするには<a href="/login">ログイン</a><br>する必要がありますです。'
 ## ============ control panel ============
-window.setupControlPanel = ($) ->
+$ ($) ->
   $('.play-and-pause').click ->
     switch player.getPlayerState()
       when YT.PlayerState.PLAYING
@@ -68,15 +68,25 @@ window.setupControlPanel = ($) ->
         btn.removeClass 'fa-play'
         btn.addClass 'fa-pause'
     return false
+  # favorite
+  $('.favorite-video.disabled').popover
+    html: true,
+    placement: 'right',
+    content: 'お気に入りは<a href="/login">ログイン</a><br>しないと使えません。'
+  $('.favorite-video.enabled').click ->
+    if $('.favorite-video.enabled i').hasClass('fa-star-o')
+      $.post('/favorites', {video_id: $(this).attr('data-video-id')},)
+       .done(-> i = $('.favorite-video.enabled i'); i.removeClass('fa-star-o'); i.addClass('fa-star'))
+    else
+      $.ajax({type: 'DELETE', url: '/favorites', data: {video_id: $(this).attr('data-video-id')}})
+       .done(-> i = $('.favorite-video.enabled i'); i.removeClass('fa-star'); i.addClass('fa-star-o'))
 
 ## ============ fix for iPhone ============
 # getCurrentTime() is available only playing in iPhone
 window.currentPlayerTime = 0
-getCurrentTimeLoop = ->
+window.getCurrentPlayerTimeLoop = ->
   if player and player.getPlayerState() == YT.PlayerState.PLAYING
     t = player.getCurrentTime()
     if t != 0 
       window.currentPlayerTime = t
-  setTimeout(getCurrentTimeLoop, 500)
-  
-setTimeout(getCurrentTimeLoop, 3000)
+  setTimeout(getCurrentPlayerTimeLoop, 500)

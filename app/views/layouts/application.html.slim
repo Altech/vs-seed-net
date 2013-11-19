@@ -30,6 +30,8 @@ html
                       b.caret
                     ul.dropdown-menu
                       li.myname #{current_player.name}
+                      li
+                        == link_to 'お気に入り', favorites_path
                       / li
                       /   a
                       /     span.unlink 動画

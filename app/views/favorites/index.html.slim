@@ -1,0 +1,8 @@
+.carousel-caption
+  h1　お気に入り
+  #thumbnails
+    .row
+    - @favorites.each do |fav|
+      .col-md-3.col-xs-12.col-sm-6.thumbnail-container
+        a href=video_path(fav.video.id)
+          == image_tag fav.video.thumbnail.url, class: 'video_thumbnail'
