@@ -38,7 +38,7 @@ h1.title
   ul
     == link_to_previous_video_if_exists @video
       li
-        i.fa.fa-arrow-circle-o-left
+        i.fa.fa-arrow-circle-o-left.previous-video
     - if current_player      
       li.link-color.favorite-video.enabled data-video-id=@video.id
         - if current_player.favorite?(@video)
@@ -51,7 +51,7 @@ h1.title
           i.fa.fa-star-o
     == link_to_next_video_if_exists @video
       li
-        i.fa.fa-arrow-circle-o-right
+        i.fa.fa-arrow-circle-o-right.next-video
 
 javascript:
   var tag = document.createElement('script');
