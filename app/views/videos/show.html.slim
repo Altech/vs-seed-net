@@ -39,8 +39,6 @@ h1.title
     == link_to_previous_video_if_exists @video
       li
         i.fa.fa-arrow-circle-o-left
-    li.link-color.show-non-xs
-      i.fa.fa-pause.play-and-pause
     - if current_player      
       li.link-color.favorite-video.enabled data-video-id=@video.id
         - if current_player.favorite?(@video)

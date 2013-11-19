@@ -48,27 +48,6 @@ $ ($) ->
     content: 'コメントするには<a href="/login">ログイン</a><br>する必要がありますです。'
 ## ============ control panel ============
 $ ($) ->
-  $('.play-and-pause').click ->
-    switch player.getPlayerState()
-      when YT.PlayerState.PLAYING
-        player.pauseVideo()
-        btn = $('.play-and-pause')
-        btn.removeClass 'fa-pause'
-        btn.addClass 'fa-play'
-      when YT.PlayerState.PAUSED
-        player.playVideo()
-        btn = $('.play-and-pause')
-        btn.removeClass 'fa-play'
-        btn.addClass 'fa-pause'
-      when YT.PlayerState.BUFFERING
-        null
-      else
-        player.playVideo()
-        btn = $('.play-and-pause')
-        btn.removeClass 'fa-play'
-        btn.addClass 'fa-pause'
-    return false
-  # favorite
   $('.favorite-video.disabled').popover
     html: true,
     placement: 'right',
