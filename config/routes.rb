@@ -11,4 +11,6 @@ VsSeed::Application.routes.draw do
   resources :favorites, only: %i[index create]
   delete "favorites" => 'favorites#destroy'
   resources :players, only: %i[create new]
+
+  match '*not_found' => 'application#render_404', via: [:get, :post]
 end

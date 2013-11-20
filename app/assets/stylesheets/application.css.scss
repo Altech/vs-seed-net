@@ -68,6 +68,9 @@
 
 @import "bootstrap/carousel";
 
+// Application
+@import "errors";
+
 @media (max-width: $screen-xs-max) {
   .show-xs {
     display: block;

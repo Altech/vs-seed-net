@@ -1,0 +1,13 @@
+.error-msg {
+  margin-top: 150px;
+  text-align: center;
+  font-size: 30pt;
+  span.border {
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: double 3px white;
+    background-color: darkblue;
+    color: white;
+  }
+}
