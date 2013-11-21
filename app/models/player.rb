@@ -13,6 +13,10 @@ class Player < ActiveRecord::Base
   has_many :favorites
   has_and_belongs_to_many :events, join_table: :event_participants
 
+  def to_param
+    name
+  end
+
   def favorite?(video)
     id = case video
          when Video

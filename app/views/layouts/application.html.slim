@@ -31,6 +31,8 @@ html
                     ul.dropdown-menu
                       li.myname #{current_player.name}
                       li
+                        == link_to '公開ページ', player_path(current_player)
+                      li
                         == link_to 'お気に入り', favorites_path
                       / li
                       /   a

@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 class PlayersController < ApplicationController
+  def show
+    @player = Player.find_by_name(params[:id]) or raise ActiveRecord::RecordNotFound
+  end
+
   def new
     @player = Player.new
   end

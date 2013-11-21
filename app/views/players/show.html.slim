@@ -1,0 +1,8 @@
+.profile
+  h1.name
+    == @player.name
+  
+  h2 過去に参加した対戦会
+  - @player.events.each do |event|
+    a href=event_path(event) style="color:white;"
+      == "#{event.game_center.location} 対戦会 #{event.held_at.strftime('%Y年%m月%d日')}"
