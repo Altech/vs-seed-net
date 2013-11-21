@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131119172627) do
+ActiveRecord::Schema.define(version: 20131121072211) do
 
   create_table "comments", force: true do |t|
     t.integer  "video_id",   null: false
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20131119172627) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "event_participants", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_participants", ["event_id"], name: "index_event_participants_on_event_id", using: :btree
+  add_index "event_participants", ["player_id"], name: "index_event_participants_on_player_id", using: :btree
 
   create_table "events", force: true do |t|
     t.datetime "held_at",             null: false

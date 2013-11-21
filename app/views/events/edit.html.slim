@@ -1,0 +1,7 @@
+| 対戦会に参加したプレイヤー（ユーザー登録済み）を追加してください。
+.add-participants
+  h3 参加者一覧
+  == @participants.map(&:name).join("、")
+  == form_tag(event_path(@event), method: :put) do |p|
+    == text_field_tag :mail, nil, size: 30, placeholder: 'メールアドレス（,で区切る）'
+    == submit_tag '参加者を追加'

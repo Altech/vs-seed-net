@@ -11,15 +11,25 @@ class Player < ActiveRecord::Base
 
   has_many :comments
   has_many :favorites
+  has_and_belongs_to_many :events
 
-  def favorite?(video_or_video_id)
-    id = case video_or_video_id
+  def favorite?(video)
+    id = case video
          when Video
-           video_or_video_id.id
+           video.id
          else
-           video_or_video_id.id
+           video
          end
     favorites.any?{|f| f.video_id == id}
+  end
+
+  def participate?(event)
+    event = case event
+            when Event then event
+            when /\d\d\d\d-\d\d-\d\d/ then Event.find_by_date event
+            when /\d+/ then Event.find event
+            else raise ArgumentError end
+    events.include? event
   end
 
   def admin?
