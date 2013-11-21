@@ -11,7 +11,7 @@ class Player < ActiveRecord::Base
 
   has_many :comments
   has_many :favorites
-  has_and_belongs_to_many :events
+  has_and_belongs_to_many :events, join_table: :event_participants
 
   def favorite?(video)
     id = case video
