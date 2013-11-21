@@ -27,6 +27,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_logined
+    unless current_player
+      redirect_to '/login'
+    end
+  end
+
   if Rails.env.production?
     rescue_from Exception, with: :render_500
     rescue_from ActiveRecord::RecordNotFound, with: :render_404

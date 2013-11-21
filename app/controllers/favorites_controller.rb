@@ -1,11 +1,10 @@
 class FavoritesController < ApplicationController
+  before_action :check_logined
+
   def index
-    if current_player
-      @favorites = current_player.favorites
-    else
-      redirect_to '/login'
-    end
+    @favorites = current_player.favorites
   end
+
   def create
     Favorite.create!(video_id: params['video_id'], player_id: current_player.id)
     render json: {result: 'success'}
