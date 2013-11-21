@@ -27,17 +27,20 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  rescue_from Exception, with: :render_500
-  rescue_from ActiveRecord::RecordNotFound, with: :render_404
-  rescue_from ActionController::RoutingError, with: :render_404
+  if Rails.env.production?
+    rescue_from Exception, with: :render_500
+    rescue_from ActiveRecord::RecordNotFound, with: :render_404
+    rescue_from ActionController::RoutingError, with: :render_404
 
-  def render_404(exception = nil)
-    logger.error "Rendering 404 with exception: #{exception.message} (#{exception.class})" if exception
-    render template: "errors/error_404", status: 404, content_type: 'text/html'
-  end
+    def render_404(exception = nil)
+      logger.error "Rendering 404 with exception: #{exception.message} (#{exception.class})" if exception
+      render template: "errors/error_404", status: 404, content_type: 'text/html'
+    end
 
-  def render_500(exception = nil)
-    logger.error "Rendering 500 with exception: #{exception.message} (#{exception.class})" if exception
-    render template: "errors/error_500", status: 404, content_type: 'text/html'
+    def render_500(exception = nil)
+      binding.pry
+      logger.error "Rendering 500 with exception: #{exception.message} (#{exception.class})" if exception
+      render template: "errors/error_500", status: 404, content_type: 'text/html'
+    end
   end
 end
