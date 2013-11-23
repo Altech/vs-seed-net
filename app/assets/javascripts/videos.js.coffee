@@ -14,7 +14,8 @@ $ ($) ->
     settings.data += "&comment%5Btime%5D=" + (if t != 0 then t else window.currentPlayerTime)
 
 window.onPlayerReady = (event) ->
-  if window.navigator.userAgent.toLowerCase().indexOf('iphone') == -1
+  ua = window.navigator.userAgent.toLowerCase()
+  if ua.indexOf('iphone') == -1 and ua.indexOf('ipad') == -1 and ua.indexOf('android') == -1
     event.target.playVideo()
 
 ## ============ show comments ============
