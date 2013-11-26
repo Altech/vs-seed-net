@@ -46,13 +46,13 @@ $ ($) ->
   $('.disabled-comment').popover
     html: true,
     placement: 'bottom',
-    content: 'コメントするには<a href="/login">ログイン</a><br>する必要がありますです。'
+    content: 'コメントするには<a href="/login">ログイン</a><br>する必要があります。'
 ## ============ control panel ============
 $ ($) ->
   $('.favorite-video.disabled').popover
     html: true,
     placement: 'right',
-    content: 'お気に入りは<a href="/login">ログイン</a><br>しないと使えません。'
+    content: 'お気に入りは<a href="/login">ログイン</a><br>すると使えます。'
   $('.favorite-video.enabled').click ->
     if $('.favorite-video.enabled i').hasClass('fa-star-o')
       $.post('/favorites', {video_id: $(this).attr('data-video-id')},)
