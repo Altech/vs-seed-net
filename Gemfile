@@ -45,6 +45,9 @@ end
 # Use unicorn as the app server
 gem 'unicorn'
 
+# Use ActiveRecord for session
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
