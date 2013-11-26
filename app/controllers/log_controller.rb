@@ -2,7 +2,11 @@
 class LogController < ApplicationController
 
   def in
-    @player = Player.new
+    if not current_player
+      @player = Player.new
+    else
+      redirect_to '/'
+    end
   end
 
   def auth
