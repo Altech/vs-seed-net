@@ -44,7 +44,6 @@ class ApplicationController < ActionController::Base
     end
 
     def render_500(exception = nil)
-      binding.pry
       logger.error "Rendering 500 with exception: #{exception.message} (#{exception.class})" if exception
       render template: "errors/error_500", status: 404, content_type: 'text/html'
     end
