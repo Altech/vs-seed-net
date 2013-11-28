@@ -1,22 +1,15 @@
 .events {
-  .carousel-caption {
-    left: 7%;
-    right: 7%;
-    bottom:auto;
-    #thumbnails {
-      img.video_thumbnail {
-	width: 100%;
-	height: auto;
-	/* margin: 12px; */
-	-webkit-box-shadow: 3px 3px 3px #333;
-      }
-      .thumbnail-container {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	/* background-color: red; */
-	/* border: 1px solid green; */
-      }
-    }
+  .contents-container.show {
+    text-align: center;
+  }
+
+  h1 {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  }
+  
+  .participants {}
+  .add-participants-link {
+    text-align: right;
   }
 
   .add-participants {

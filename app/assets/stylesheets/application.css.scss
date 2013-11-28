@@ -15,6 +15,10 @@
 
 @import "font-awesome";
 
+// override 
+$text-color: white;
+$table-bg-hover: #555;
+
 // Core variables and mixins
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
@@ -123,4 +127,34 @@
 
 .link-color:hover {
   color: #2a6496;
+}
+
+a.no-decoration {
+  text-decoration: none;
+  color: white;
+}
+
+a.no-decoration:hover {
+  text-decoration: underline;
+}
+
+.contents-container {
+  padding-left: 2%;
+  padding-right: 2%;
+  bottom:auto;
+}
+
+#thumbnails {
+  img.video_thumbnail {
+	width: 100%;
+	height: auto;
+	/* margin: 12px; */
+	-webkit-box-shadow: 3px 3px 3px #333;
+  }
+  .thumbnail-container {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	/* background-color: red; */
+	/* border: 1px solid green; */
+  }
 }
