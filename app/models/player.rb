@@ -11,6 +11,7 @@ class Player < ActiveRecord::Base
 
   has_many :comments
   has_many :favorites
+  has_many :videos, foreign_key: :player_viewpoint_id
   has_and_belongs_to_many :events, join_table: :event_participants
 
   def to_param
