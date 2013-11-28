@@ -1,9 +1,8 @@
-div style="color: #fff"
-  h1 機体
-  - @mechas_of_costs.each do |cost, mechas|
-    h2
-      == cost
-    - mechas.each do |mecha|
-      p
-        a href=mecha_path(mecha.id) style="color: #fff"
-          == mecha.full_name
+h1 機体
+- @mechas_of_costs.each do |cost, mechas|
+  h2
+    == cost
+  - mechas.each do |mecha|
+    p
+      a href=mecha_path(mecha) class="no-decoration"
+        == mecha.full_name + "（#{mecha.videos.size}）"

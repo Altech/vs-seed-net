@@ -1,3 +1,9 @@
-h1 style="color:white"
-  == @mecha.full_name
-p Find me in app/views/mechas/show.html.slim
+.contents-container
+  h1 style="color:white"
+    == @mecha.full_name
+  #thumbnails
+    .row
+    - @videos.each do |video|
+      .col-md-3.col-xs-12.col-sm-6.thumbnail-container
+        a href=video_path(video.id)
+          == image_tag video.thumbnail.url, class: 'video_thumbnail'

@@ -4,6 +4,7 @@ class MechasController < ApplicationController
   end
 
   def show
-    @mecha = Mecha.find(params[:id])
+    @mecha = Mecha.find_by_name(params[:id])
+    @videos = @mecha.videos
   end
 end
