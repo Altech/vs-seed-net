@@ -18,6 +18,9 @@
 // override 
 $text-color: white;
 $table-bg-hover: #555;
+.popover {
+  color: #5c5c5c;
+}
 
 // Core variables and mixins
 @import "bootstrap/variables";

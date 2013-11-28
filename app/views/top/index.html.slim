@@ -4,12 +4,12 @@
       == @game_center.location
       br.show-xs
       | 対戦会
+    .participants
+      | 参加者：
+      - @event.players.each_with_index do |player,i|
+        == link_to player.name, player_path(player), class: 'no-decoration'
+        == i+1 != @event.players.size ? "、" : nil
     - if current_player and (current_player.admin? or current_player.participate?(@event))
-      .participants
-        | 参加者：
-        - @event.players.each_with_index do |player,i|
-          == link_to player.name, player_path(player), class: 'no-decoration'
-          == i+1 != @event.players.size ? "、" : nil
       .add-participants-link
         == link_to '▶参加者を追加', edit_event_path(@event), class: 'no-decoration'
     h2 #{@event.held_at.strftime("%Y年%m月%d日")}
