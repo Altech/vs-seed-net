@@ -24,6 +24,14 @@ class Video < ActiveRecord::Base
     next_video ? false : true
   end
 
+  def player
+    Player.find_by_id(player_viewpoint_id)
+  end
+
+  def mecha
+    Mecha.find_by_id(mecha_viewpoint_id)
+  end
+
   # [TODO]
   # impl proxy as Youtube DATA API
 

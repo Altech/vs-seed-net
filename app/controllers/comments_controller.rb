@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
       comment = Comment.new comment_params
       comment.player_id = current_player.id
       comment.save
-      render json: {comment_post: 'success', comment: comment.attributes}
+      render json: {result: 'success', comment: comment.attributes}
     else
-      render json: {comment_post: 'failure', message: 'コメントは1文字以上60文字以内です'}
+      render json: {result: 'failure', message: 'コメントは1文字以上60文字以内です'}
     end
   end
 

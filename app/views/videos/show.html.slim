@@ -10,7 +10,7 @@ h1.title
 .centering
   .event-video-nav.previous-video
     == link_to_previous_video_if_exists @video
-      i class="fa fa-arrow-circle-o-left"
+      i.fa.fa-arrow-circle-o-left
   .player-and-comment
     #player-container
       #comment-region
@@ -33,12 +33,12 @@ h1.title
     #alert-message.alert.alert-danger
   .event-video-nav.next-video
     == link_to_next_video_if_exists @video
-      i class="fa fa-arrow-circle-o-right"
+      i.fa.fa-arrow-circle-o-right
 .control-panel.text-centering
   ul
-    == link_to_previous_video_if_exists @video
-      li
-        i.fa.fa-arrow-circle-o-left.previous-video
+    li.previous-video
+      == link_to_previous_video_if_exists @video
+        i.fa.fa-arrow-circle-o-left
     - if current_player      
       li.link-color.favorite-video.enabled data-video-id=@video.id
         - if current_player.favorite?(@video)
@@ -49,9 +49,46 @@ h1.title
       span.for-popover-font-size
         li.favorite-video.disabled
           i.fa.fa-star-o
-    == link_to_next_video_if_exists @video
-      li
-        i.fa.fa-arrow-circle-o-right.next-video
+    li.next-video
+      == link_to_next_video_if_exists @video
+        i.fa.fa-arrow-circle-o-right
+
+table.table.table-hover.info
+  thead
+    tr
+      td.column_name 動画情報
+      td.column_contents
+  tbody
+    tr.player
+      td プレイヤー
+      td
+        span.contents
+          == @video.player ? link_to(@video.player.name, player_path(@video.player), class: 'no-decoration') : ''
+        == form_tag video_path(@video), style: display_unless(@video.player) do
+          == select_tag 'video[player_viewpoint_id]', options_for_select(Player.all.map{|p| [p.name,p.id]}), include_blank: true
+          button.save 保存
+        button.edit style=display_if(@video.player&&player_info_editable(@video)) 編集
+    tr.mecha
+      td 機体
+      td
+        span.contents
+          == @video.mecha ? (link_to @video.mecha.nickname, mecha_path(@video.mecha), class: 'no-decoration') : ''
+        == form_tag video_path(@video), style: display_unless(@video.mecha) do
+          == select_tag 'video[mecha_viewpoint_id]', options_for_select(Mecha.all.map{|m| ["#{m.cost} - #{m.nickname}",m.id]}), include_blank: true
+          button.save 保存
+        button.edit style=display_if(@video.mecha&&mecha_info_editable(@video)) 編集
+
+table.table.table-hover.comments
+  - if @comments.size > 0
+    thead
+      tr
+        td.time 時間
+        td.comment コメント
+    tbody
+      - @comments.each do |comment|
+        tr
+          td #{"%01d" % (comment[:time].to_i / 60)}:#{"%02d" % (comment[:time].to_i % 60)}
+          td #{comment[:text]}
 
 javascript:
   var tag = document.createElement('script');

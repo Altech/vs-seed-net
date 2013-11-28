@@ -32,4 +32,11 @@ module VideosHelper
     end
   end
 
+  def player_info_editable(video)
+    current_player
+  end
+
+  def mecha_info_editable(video)
+    current_player and current_player.participate? video.event
+  end
 end

@@ -156,5 +156,60 @@
       .previous-video { display: none; }
       .next-video { display: none; }
     }
-  }  
+  }
+
+  table tr:hover {
+    background-color: none;
+  }
+
+  table.comments {
+    color: #eee;
+    width: 100%;
+    float: right;
+    margin-top: 25px;
+    td.time {
+      width: 40px;
+    }
+    td.comment {
+      width: 100%;
+    }
+  }
+  
+  table.info {
+    color: #eee;
+    width: 420px;
+    float: left;
+    margin-top: 25px;
+    margin-right:80px;
+
+    td.column_name {
+      width: 90px;
+    }
+    button.edit {
+      float: right;
+      color: #555;
+      text-decoration: underline;
+      border: none;
+      background: none;
+    }
+    button.save {
+      color: #555;
+      margin-left: 7px;
+    }
+    form {
+      display: inline;
+    }
+  }
+
+  @media (max-width: 680px){
+    table.comments {
+      float: none;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    table.info {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
 }
