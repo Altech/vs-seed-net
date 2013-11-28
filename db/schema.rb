@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126052953) do
+ActiveRecord::Schema.define(version: 20131126092906) do
 
   create_table "comments", force: true do |t|
     t.integer  "video_id",   null: false
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20131126052953) do
     t.string   "youtube_video_id",       null: false
     t.integer  "event_id"
     t.boolean  "win_or_lose"
-    t.integer  "mecha_view_point_id"
+    t.integer  "mecha_viewpoint_id"
     t.integer  "mecha_consort_id"
     t.integer  "mecha_enemy1_id"
     t.integer  "mecha_enemy2_id"
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20131126052953) do
   add_index "videos", ["mecha_consort_id"], name: "index_videos_on_mecha_consort_id", using: :btree
   add_index "videos", ["mecha_enemy1_id"], name: "index_videos_on_mecha_enemy1_id", using: :btree
   add_index "videos", ["mecha_enemy2_id"], name: "index_videos_on_mecha_enemy2_id", using: :btree
-  add_index "videos", ["mecha_view_point_id"], name: "index_videos_on_mecha_view_point_id", using: :btree
+  add_index "videos", ["mecha_viewpoint_id"], name: "index_videos_on_mecha_viewpoint_id", using: :btree
   add_index "videos", ["player_consort_id"], name: "index_videos_on_player_consort_id", using: :btree
   add_index "videos", ["player_enemy1_id"], name: "index_videos_on_player_enemy1_id", using: :btree
   add_index "videos", ["player_enemy2_id"], name: "index_videos_on_player_enemy2_id", using: :btree
