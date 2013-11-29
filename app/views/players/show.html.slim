@@ -3,16 +3,52 @@
     == @player.name
   
   h2 過去に参加した対戦会
-  ul
-    - @player.events.each do |event|
-      li
-        a href=event_path(event) style="color:white;"
-          == "#{event.game_center.location} 対戦会 #{event.held_at.strftime('%Y年%m月%d日')}"
+  - if @player.events.size > 0
+    ul
+      - @player.events.each do |event|
+        li
+          a href=event_path(event) style="color:white;"
+            == "#{event.game_center.location} 対戦会 #{event.held_at.strftime('%Y年%m月%d日')}"
+  - else
+    .nodata NO DATA
 
-  h2 視点動画
-  #thumbnails
-    .row
-    - @player.videos.each do |video|
-      .col-md-3.col-xs-12.col-sm-6.thumbnail-container
-        a href=video_path(video.id)
-          == image_tag video.thumbnail.url, class: 'video_thumbnail'
+  h2 統計
+  - if @mechas_ratio and @winning_percentage
+    script type="text/javascript" src="https://www.google.com/jsapi"
+    div#mechas-ratio
+    div#winning-percentage
+      div 勝率
+      .val #{@winning_percentage}%
+  - else
+    .nodata NO DATA
+    
+  h2 style="clear: both;" 視点動画
+  - if @player.videos.size > 0
+    #thumbnails
+      .row
+      - @player.videos.each do |video|
+        .col-md-3.col-xs-12.col-sm-6.thumbnail-container
+          a href=video_path(video.id)
+            == image_tag video.thumbnail.url, class: 'video_thumbnail'
+  - else
+    .nodata NO DATA
+
+- if @mechas_ratio
+  javascript:
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable(#{raw @mechas_ratio.to_json});
+  
+      var options = {
+        title: '機体使用率',
+        titleTextStyle: {color: 'white', fontSize: 19, bold: false},
+        backgroundColor: '#777',
+        pieSliceBorderColor: '#ddd',
+        legend: 'none',
+        pieSliceText: 'label'
+      };
+  
+      var chart = new google.visualization.PieChart(document.getElementById('mechas-ratio'));
+      chart.draw(data, options);
+    }
