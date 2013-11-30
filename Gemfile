@@ -23,7 +23,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
-gem 'rb-readline' # for AMI
+gem 'rb-readline', '~> 0.4.2' # for AMI
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
