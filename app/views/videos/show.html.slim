@@ -74,7 +74,7 @@ table.table.table-hover.info
       td 機体
       td
         span.contents
-          == @video.mecha ? (link_to @video.mecha.nickname, mecha_path(@video.mecha), class: 'no-decoration') : ''
+          == @video.mecha ? (link_to @video.mecha.full_name, mecha_path(@video.mecha), class: 'no-decoration') : ''
         == form_tag video_path(@video), style: display_unless(@video.mecha) do
           == select_tag 'video[mecha_viewpoint_id]', options_for_select(Mecha.all.map{|m| ["#{m.cost} - #{m.nickname}",m.id]}), include_blank: true
           button.save 保存

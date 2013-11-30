@@ -26,7 +26,7 @@
   - if @player.videos.size > 0
     #thumbnails
       .row
-      - @player.videos.each do |video|
+      - @player.videos.sort.each do |video|
         .col-md-3.col-xs-12.col-sm-6.thumbnail-container
           a href=video_path(video.id)
             == image_tag video.thumbnail.url, class: 'video_thumbnail'
