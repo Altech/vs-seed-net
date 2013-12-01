@@ -223,3 +223,17 @@
     }
   }
 }
+
+.thumbnail-container .comment {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  font-size: 16pt;
+  opacity: 0.75;
+}
+
+@media (max-width: $screen-xs-max) {
+  .thumbnail-container .comment {
+    font-size: 32pt;
+  }
+}
