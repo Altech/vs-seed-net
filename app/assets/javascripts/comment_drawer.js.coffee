@@ -28,6 +28,7 @@ window.commentDrawer =
     end_left = (parseInt(n.env.width)) * -1
     cmid = "comment-" + id + ""
     com_obj = $("<div id='" + cmid + "' style='left:" + (n.env.width) + "px; position:absolute;top:" + top_pos + "px;color:" + n.env.color + ";font-size:" + n.env.font_size + ";text-shadow:black 0px 0px 2px; opacity:0.85; font-weight:bold; width:800px;text-align:left; z-index:99999;cursor:default'>" + text + "</div>")
+    $("#comment-region").find("#" + cmid).remove()
     $("#comment-region").append com_obj
     ((that) ->
       tmp_cmid = cmid
