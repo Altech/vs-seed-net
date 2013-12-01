@@ -41,6 +41,14 @@ window.onPlayerStateChange = (event) ->
       clearTimeout timer
     commentTimers = []
 
+## ============ seek to the position of the comment ============
+$ ($) ->
+  $('table.comments tbody tr.comment').click ->
+    ua = window.navigator.userAgent.toLowerCase()
+    if ua.indexOf('iphone') == -1 and ua.indexOf('ipad') == -1 and ua.indexOf('android') == -1
+      time = parseFloat($(this).attr('data-second'))
+      window.player.seekTo(time - 3.0)
+
 ## ============ persuade login ============
 $ ($) ->
   $('.disabled-comment').popover

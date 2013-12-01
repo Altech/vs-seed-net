@@ -88,7 +88,7 @@ table.table.table-hover.comments
         td.comment コメント
     tbody
       - @comments.each do |comment|
-        tr
+        tr.comment data-second=comment[:time]
           td #{"%01d" % (comment[:time].to_i / 60)}:#{"%02d" % (comment[:time].to_i % 60)}
           td #{comment[:text]}
 

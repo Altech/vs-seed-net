@@ -36,6 +36,10 @@
     margin-right:auto;
   }
 
+  .favorite-video.enabled {
+    cursor: pointer;
+  }
+
   .favorite-video.disabled {
     color: #5c5c5c;
   }
@@ -182,6 +186,11 @@
     }
     td.comment {
       width: 100%;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: red;
     }
   }
   
