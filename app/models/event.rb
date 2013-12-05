@@ -5,6 +5,16 @@ class Event < ActiveRecord::Base
 
   default_scope { order('held_at desc') }
 
+  def <=>(other)
+    if self.held_at == other.held_at
+      0
+    elsif self.held_at > other.held_at
+      -1
+    else
+      1
+    end
+  end
+
   def self.find_by_date(d)
     t = case d
         when Time

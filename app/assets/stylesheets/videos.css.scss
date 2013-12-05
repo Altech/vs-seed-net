@@ -36,6 +36,14 @@
     margin-right:auto;
   }
 
+  .favorite-video.enabled {
+    cursor: pointer;
+  }
+
+  .favorite-video.disabled {
+    color: #5c5c5c;
+  }
+
   #alert-message {
     color: red;
     margin-top: 30px;
@@ -179,6 +187,11 @@
     td.comment {
       width: 100%;
     }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: red;
+    }
   }
   
   table.info {
@@ -217,5 +230,19 @@
       margin-right: auto;
       margin-left: auto;
     }
+  }
+}
+
+.thumbnail-container .comment {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  font-size: 16pt;
+  opacity: 0.75;
+}
+
+@media (max-width: $screen-xs-max) {
+  .thumbnail-container .comment {
+    font-size: 32pt;
   }
 }

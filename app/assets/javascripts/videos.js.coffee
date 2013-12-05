@@ -23,8 +23,12 @@ $ () -> commentDrawer.init()
 commentTimers = []
 
 window.onPlayerStateChange = (event) ->
-  # NON_PLAYING -> PLAYING
+  # NON_PLAYING -> PLAYING  or  PLAYING -(FIRST_SEEK)-> PLAYING
   if event.data == YT.PlayerState.PLAYING
+    for timer in commentTimers
+      clearTimeout timer
+    commentTimers = []
+    
     commentDrawer.init()
     time = player.getCurrentTime()
     for c in comments
@@ -40,6 +44,26 @@ window.onPlayerStateChange = (event) ->
     for timer in commentTimers
       clearTimeout timer
     commentTimers = []
+
+## ============ seek to the position of the comment ============
+$ ($) ->
+  $('table.comments tbody tr.comment').click ->
+    ua = window.navigator.userAgent.toLowerCase()
+    diff = 6.0
+    if ua.indexOf('iphone') == -1 and ua.indexOf('ipad') == -1 and ua.indexOf('android') == -1
+      time = parseFloat($(this).attr('data-second'))
+      window.player.seekTo(time - diff)
+    # reset comment timers
+    for timer in commentTimers
+      clearTimeout timer
+    commentTimers = []
+    for c in comments
+      if c['time'] > time - diff
+        (-> # create new scope for the external reference of following closure
+          comment = c
+          timer = setTimeout((-> commentDrawer.draw comment['id'], comment['text']), (comment['time']-time+diff)*1000)
+          commentTimers.push timer)()
+
 
 ## ============ persuade login ============
 $ ($) ->
