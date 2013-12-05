@@ -4,8 +4,9 @@ class LogController < ApplicationController
   def in
     if not current_player
       @player = Player.new
+      flash[:login_redirect_dest] = @prev_uri
     else
-      redirect_to '/'
+      redirect_to @prev_uri
     end
   end
 
@@ -13,7 +14,7 @@ class LogController < ApplicationController
     player = Player.find_by_mail(params[:mail])
     if player and player.authenticate(params[:password])
       session[:player_id] = player.id
-      redirect_to '/'
+      redirect_to flash[:login_redirect_dest]
     else
       if player
         flash.now.alert = 'パスワードが違います'
@@ -27,7 +28,7 @@ class LogController < ApplicationController
   def out
     @current_player = nil
     session[:player_id] = nil
-    redirect_to '/'
+    redirect_to @prev_uri
   end
 
 end

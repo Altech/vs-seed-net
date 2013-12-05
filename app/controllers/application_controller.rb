@@ -18,6 +18,13 @@ class ApplicationController < ActionController::Base
                 player_id: (current_player ? current_player.id : nil))
   end
 
+  before_filter :request_from
+
+  def request_from
+    @prev_uri = request.referer ? flash[:request_from] : flash[:request_from]
+    flash[:request_from] = request.base_url + request.path
+  end
+
   helper_method :current_player
 
   def current_player
