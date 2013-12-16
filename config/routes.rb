@@ -9,7 +9,7 @@ VsSeed::Application.routes.draw do
   resources :comments, only: %i[create]
   resources :favorites, only: %i[index create]
   delete "favorites" => 'favorites#destroy'
-  resources :players, only: %i[index show create new]
+  resources :players, only: %i[index show create new edit update]
 
   if Rails.env.production?
     match '*not_found' => 'application#render_404', via: [:get, :post]

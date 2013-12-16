@@ -34,16 +34,9 @@ html
                         == link_to '公開ページ', player_path(current_player)
                       li
                         == link_to 'お気に入り', favorites_path
-                      / li
-                      /   a
-                      /     span.unlink 動画
-                      / li
-                      /   a
-                      /     span.unlink 統計
-                      / li
-                      /   a
-                      /     span.unlink プロフィール
-                      / li.divider
+                      li
+                        == link_to '登録情報の変更', edit_player_path(current_player)
+                      li.divider
                       li
                         == link_to 'ログアウト', logout_path
                 li.dropdown

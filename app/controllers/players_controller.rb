@@ -26,6 +26,28 @@ class PlayersController < ApplicationController
     end
   end
 
+  def edit
+    player = Player.find_by_name(params[:id])
+    if current_player and current_player == player
+      @player = player
+    end
+  end
+
+  def update
+    player = Player.find_by_name(params[:id])
+    if current_player and current_player == player
+      player.update_attributes(player_params_for_edit)
+      @player = Player.find(player.id)
+      error_messages = player.errors.full_messages_for(:name) + player.errors.full_messages_for(:mail)
+      if error_messages.size > 0
+        flash[:alert] = error_messages.join("<br>")
+      else
+        flash[:success] = "プレイヤー情報が更新されました"
+      end
+      redirect_to action: :edit, id: @player.to_param
+    end
+  end
+
   private
 
   def player_params
@@ -40,4 +62,5 @@ class PlayersController < ApplicationController
     params.require(:player).permit(:name,:mail)
   end
 
+  alias :player_params_for_edit :player_params_without_password
 end

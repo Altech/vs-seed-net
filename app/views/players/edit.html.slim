@@ -1,0 +1,16 @@
+== form_for(@player) do |f|
+  .form-group
+    == label_tag :name, '名前（表示用）'
+    == f.text_field :name, class: 'form-control'
+  .form-group
+    == f.label :mail, 'メールアドレス'
+    == f.text_field :mail, class: 'form-control'
+  == f.submit '更新'
+
+.flash-messages
+  - if flash[:alert].present?
+    .alert.alert-danger
+      == flash[:alert]
+  - elsif flash[:success].present?
+    .alert.alert-success
+      == flash[:success]

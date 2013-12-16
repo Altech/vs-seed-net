@@ -7,7 +7,7 @@ class Player < ActiveRecord::Base
     uniqueness: true,
     email_format: true
   has_secure_password
-  validates :password, length: { minimum: 8, maximum: 20 }
+  validates :password, length: { minimum: 8, maximum: 20 }, allow_blank: true
 
   has_many :comments
   has_many :favorites
