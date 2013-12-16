@@ -32,7 +32,7 @@ window.onPlayerStateChange = (event) ->
     commentDrawer.init()
     time = player.getCurrentTime()
     for c in comments
-      if c['time'] == 0
+      if c['time'] == 0 and time < 1.0
         commentDrawer.draw c['id'], c['text']
       else if c['time'] > time
         (-> # create new scope for the external reference of following closure
