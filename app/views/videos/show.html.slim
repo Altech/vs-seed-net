@@ -20,18 +20,11 @@ h1.title
     
     #comment-container
       /* comment.time will be added before sending. */
-      - if current_player
-        == form_for(@new_comment, remote: true) do |c|
-          == c.text_field :text
-          == c.hidden_field :video_id
-          == c.submit "コメント", class: "btn btn-fix-for-mobile"
-      - else
-        .disabled-comment
-          == form_for(@new_comment, remote: true) do |c|
-            == c.text_field :text, disabled: 'disabled'
-            == c.hidden_field :video_id
-            == c.submit "コメント", class: "btn btn-fix-for-mobile", disabled: 'disabled'
-          
+      == form_for(@new_comment, remote: true) do |c|
+        == c.text_field :text
+        == c.hidden_field :video_id
+        == c.submit "コメント", class: "btn btn-fix-for-mobile"
+
     #alert-message.alert.alert-danger
   .event-video-nav.next-video
     == link_to_next_video_if_exists @video

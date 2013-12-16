@@ -64,13 +64,6 @@ $ ($) ->
           timer = setTimeout((-> commentDrawer.draw comment['id'], comment['text']), (comment['time']-time+diff)*1000)
           commentTimers.push timer)()
 
-
-## ============ persuade login ============
-$ ($) ->
-  $('.disabled-comment').popover
-    html: true,
-    placement: 'bottom',
-    content: 'コメントするには<a href="/login">ログイン</a><br>する必要があります。'
 ## ============ control panel ============
 $ ($) ->
   $('.favorite-video.disabled').popover
