@@ -11,7 +11,11 @@
 - if flash[:alert]
   .alert.alert-danger
     == flash[:alert]
+- if flash[:lets_login]
+  .alert.alert-success
+    == flash[:lets_login]
 
-.to-new-player
-  | →ユーザー登録は
-  == link_to 'こちら', new_player_path
+- unless flash[:lets_login]
+  .to-new-player
+    | →プレイヤー登録は
+    == link_to 'こちら', new_player_path

@@ -18,6 +18,7 @@ class PlayersController < ApplicationController
   def create
     player = Player.create(player_params)
     if player.valid?
+      flash[:lets_login] = 'プレイヤー登録が完了しました。ログインしてください。'
       redirect_to login_path
     else
       flash.now.alert = player.errors.full_messages.join("<br>")
