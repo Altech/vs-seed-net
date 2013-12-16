@@ -45,6 +45,12 @@ window.onPlayerStateChange = (event) ->
       clearTimeout timer
     commentTimers = []
 
+  # * -> ENDED
+  if event.data == YT.PlayerState.ENDED and $.cookie("auto-transition") == 'true'
+    next_url = $('.next-video a').first().attr("href")
+    if next_url
+      document.location = next_url
+
 ## ============ seek to the position of the comment ============
 $ ($) ->
   $('table.comments tbody tr.comment').click ->
@@ -77,6 +83,27 @@ $ ($) ->
     else
       $.ajax({type: 'DELETE', url: '/favorites', data: {video_id: $(this).attr('data-video-id')}})
        .done(-> i = $('.favorite-video.enabled i'); i.removeClass('fa-star'); i.addClass('fa-star-o'))
+  
+  $('.auto-transition').click ->
+    li = $(this)
+    if $.cookie("auto-transition") == 'true'
+      $.cookie("auto-transition", 'false', { expires: 180 })
+      li.html("<i class=\"fa fa-dot-circle-o\">")
+    else
+      $.cookie("auto-transition", 'true', { expires: 180 })
+      li.html("<i class=\"fa fa-refresh\">")
+  $('.auto-transition').popover
+    html: true,
+    placement: 'bottom',
+    trigger: 'manual',
+    content: '自動的に次の動画に進むようにします'
+  $('.auto-transition').click ->
+    count = $.cookie("auto-transition-show-count")
+    count = if count == undefined then 0 else parseInt(count)
+    if $.cookie("auto-transition") == 'true' and count < 3
+      $(this).popover('show')
+      $.cookie("auto-transition-show-count", count + 1)
+    setTimeout((-> $('.auto-transition').popover('hide')), 2000)
 
 ## ============ fix for iPhone ============
 # getCurrentTime() is available only playing in iPhone
