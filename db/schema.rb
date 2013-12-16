@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216081145) do
+ActiveRecord::Schema.define(version: 20131216131859) do
 
   create_table "comments", force: true do |t|
     t.integer  "video_id",   null: false
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20131216081145) do
 
   add_index "event_participants", ["event_id"], name: "index_event_participants_on_event_id", using: :btree
   add_index "event_participants", ["player_id"], name: "index_event_participants_on_player_id", using: :btree
+
+  create_table "event_reports", force: true do |t|
+    t.integer  "event_id"
+    t.text     "body"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_reports", ["author_id"], name: "index_event_reports_on_author_id", using: :btree
+  add_index "event_reports", ["event_id"], name: "index_event_reports_on_event_id", using: :btree
 
   create_table "events", force: true do |t|
     t.datetime "held_at",             null: false

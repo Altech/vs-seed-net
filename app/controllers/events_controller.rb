@@ -16,6 +16,8 @@ class EventsController < ApplicationController
     if current_player.admin? or current_player.participate?(event)
       @participants = event.players
       @event = event
+      @event_report = EventReport.where(event_id: event.id, author_id: current_player.id).first || EventReport.new
+      @event_report.event_id ||= @event.id
     else
       redirect_to event_path
     end

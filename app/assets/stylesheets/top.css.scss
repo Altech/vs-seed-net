@@ -18,4 +18,47 @@
       }
     }
   }
+
+  .event-reports {
+    max-width: 790px;
+  }
+
+  .event-report {
+    .summary {
+      .main-text {
+	text-align: left;
+	float: left;
+	max-width: 500px;
+	font-size: 11pt;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	padding-left: 7px;
+	padding-top: 20px;
+	p { text-indent: 1em }
+	.author { text-align: right }
+      }
+      img {
+	width: 260px;
+	height: 195px;
+	margin-left: 13px;
+	margin-top: 14px;
+      }
+    }
+  }
+  @media (max-width: 770px) {
+    .event-report {
+      h1 { text-align: center; }
+      .summary {
+	width: 100%;
+      }
+      .event-thumbnail {
+	width: 100%;
+	img {
+	  width: 100%;
+	  height: auto;
+	  margin: 0;
+	}
+      }
+    }
+  }
 }

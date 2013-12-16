@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   has_many :videos
   has_and_belongs_to_many :players, join_table: :event_participants
   belongs_to :game_center
+  has_one :event_report
 
   default_scope { order('held_at desc') }
 

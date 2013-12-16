@@ -5,3 +5,14 @@
   == form_tag(event_path(@event), method: :put) do |p|
     == text_field_tag :mail, nil, size: 30, placeholder: 'メールアドレス（,で区切る）'
     == submit_tag '参加者を追加'
+
+- if current_player and current_player.admin?
+  h3 イベントレポート
+  .edit-event-report
+    == form_for(@event_report) do |f|
+      .form-group
+        == f.text_field :event_id, disable: :disable
+      .form-group
+        == f.text_area :body, style: 'width: 400px; height: 250px;'
+      .form-group
+        == f.submit '作成／更新'

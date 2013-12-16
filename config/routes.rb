@@ -5,6 +5,7 @@ VsSeed::Application.routes.draw do
   get  "logout" => 'log#out'
   resources :videos, only: %i[show update]
   resources :events, only: %i[index show edit update], constraints: {id: /\d\d\d\d-\d\d-\d\d/ }
+  resources :event_reports, only: %i[create update]
   resources :mechas, only: %i[index show]
   resources :comments, only: %i[create]
   resources :favorites, only: %i[index create]

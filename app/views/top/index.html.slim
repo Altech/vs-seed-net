@@ -1,26 +1,18 @@
-.events
-  .contents-container.show
-    h1
-      == @game_center.location
-      br.show-xs
-      | 対戦会
-    .participants
-      | 参加者：
-      - @event.players.each_with_index do |player,i|
-        == link_to player.name, player_path(player), class: 'no-decoration'
-        == i+1 != @event.players.size ? "、" : nil
-    - if current_player and (current_player.admin? or current_player.participate?(@event))
-      .add-participants-link
-        == link_to '▶参加者を追加', edit_event_path(@event), class: 'no-decoration'
-    h2 #{@event.held_at.strftime("%Y年%m月%d日")}
-    - cache event_path(@event), skip_digest: true do
-      #thumbnails
-        .row
-        - @videos.each do |video|
-          .col-md-3.col-xs-12.col-sm-6.thumbnail-container
-            div
-              a href=video_path(video.id)
-                == image_tag video.thumbnail.url, class: 'video_thumbnail'
-              - if video.comments.size > 0
-                .comment
-                  i.fa.fa-comment            
+.event-reports
+  - @event_reports.each do |event_report|
+    - event = event_report.event
+    .event-report
+      a.no-decoration href=event_path(event)
+        h1
+          == event.game_center.location
+          br.show-xs
+          == '　' + event.held_at.strftime("%-m月%-d日") + "（" + %w[日 月 火 水 木 金 土][event.held_at.wday] + "）"
+          i.fa.fa-external-link style="font-size: 15pt"
+      .summary
+        .main-text
+          == event_report.body
+          .author
+            == event_report.player.name
+        .event-thumbnail
+          a href=event_path(event)
+            == image_tag event.videos.first.thumbnail.url
