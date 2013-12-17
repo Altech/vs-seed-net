@@ -24,7 +24,8 @@ class EventsController < ApplicationController
   end
 
   def update
-    if current_player.admin? or current_player.participate?(event)
+    if (current_player.admin? or current_player.participate?(event)) and params[:mail]
+      # add member
       event = Event.find_by_date params[:id]
       participants = event.players
       mails = params[:mail].split(/\s*,\s*/)
@@ -33,6 +34,12 @@ class EventsController < ApplicationController
         player = Player.find_by_mail(mail)
         EventParticipant.create!(event_id: event.id, player_id: player.id) if player
       end
+      redirect_to edit_event_path(event)
+    elsif current_player.admin? and params[:event][:thumbnail]
+      # upload thumbnail
+      ep = params[:event]
+      event = Event.find(ep[:id])
+      event.update_attribute(:thumbnail, ep[:thumbnail])
       redirect_to edit_event_path(event)
     else
       redirect_to event_path

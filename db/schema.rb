@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216131859) do
+ActiveRecord::Schema.define(version: 20131217073740) do
 
   create_table "comments", force: true do |t|
     t.integer  "video_id",   null: false
@@ -43,11 +43,15 @@ ActiveRecord::Schema.define(version: 20131216131859) do
   add_index "event_reports", ["event_id"], name: "index_event_reports_on_event_id", using: :btree
 
   create_table "events", force: true do |t|
-    t.datetime "held_at",             null: false
+    t.datetime "held_at",                null: false
     t.string   "youtube_playlist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "game_center_id"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
   end
 
   add_index "events", ["youtube_playlist_id"], name: "index_events_on_youtube_playlist_id", unique: true, using: :btree

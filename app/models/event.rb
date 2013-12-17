@@ -3,6 +3,10 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :players, join_table: :event_participants
   belongs_to :game_center
   has_one :event_report
+  has_attached_file :thumbnail,
+    :storage => :s3,
+    :s3_credentials => "#{Rails.root}/config/s3.yml",
+    :path => "events/:attachment/:id/:style.:extension"
 
   default_scope { order('held_at desc') }
 

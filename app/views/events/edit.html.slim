@@ -16,3 +16,9 @@
         == f.text_area :body, style: 'width: 400px; height: 250px;'
       .form-group
         == f.submit '作成／更新'
+
+  == form_for(@event) do |f|
+    == f.hidden_field :id
+    == f.label :thumbnail
+    == f.file_field :thumbnail
+    == f.submit 'サムネイルを更新'
