@@ -74,7 +74,7 @@ $ ($) ->
 $ ($) ->
   $('.favorite-video.disabled').popover
     html: true,
-    placement: 'right',
+    placement: 'bottom',
     content: 'お気に入りは<a href="/login">ログイン</a><br>すると使えます。'
   $('.favorite-video.enabled').click ->
     if $('.favorite-video.enabled i').hasClass('fa-star-o')
