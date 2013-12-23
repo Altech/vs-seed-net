@@ -2,7 +2,7 @@
 class PlayersController < ApplicationController
   def show
     @player = Player.find_by_name(params[:id]) or raise ActiveRecord::RecordNotFound
-    videos = @player.videos
+    videos = @player.videos.select(&:first_game?)
     if videos.size > 0
       @mechas_ratio =
         [['機体','使用率']] +

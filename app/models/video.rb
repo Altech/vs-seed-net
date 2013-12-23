@@ -63,6 +63,18 @@ class Video < ActiveRecord::Base
     game.thumbnail
   end
 
+  def win?
+    win_or_lose
+  end
+
+  def lose?
+    !win?
+  end
+
+  def first_game?
+    previous_video ? previous_video.lose? : true
+  end
+
   # [TODO]
   # impl proxy as Youtube DATA API
 
