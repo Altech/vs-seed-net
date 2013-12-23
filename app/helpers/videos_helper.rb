@@ -1,8 +1,7 @@
 module VideosHelper
-
   def next_video_path(video)
     if video.next_video
-      video_path(video.next_video.id)
+      video_path(video.next_video)
     else
       "#"
     end
@@ -10,7 +9,7 @@ module VideosHelper
 
   def previous_video_path(video)
     if video.previous_video
-      video_path(video.previous_video.id)
+      video_path(video.previous_video)
     else
       '#'
     end

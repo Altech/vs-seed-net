@@ -1,6 +1,6 @@
 class Mecha < ActiveRecord::Base
   has_many :mecha_names
-  has_many :videos, foreign_key: :mecha_viewpoint_id
+  has_many :videos
 
   def self.find_by_name(name)
     MechaName.find_by_name(name).mecha

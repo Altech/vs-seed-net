@@ -7,7 +7,7 @@ h1.title
     == @event.held_at.strftime("%Y年%m月%d日") 
     br.show-xs
     | #{@event.game_center.location}
-  |  Vol.#{@video.index_of_event + 1}
+  |  Vol.#{@game.index_of_event + 1}
 
 .centering
   .event-video-nav.previous-video
@@ -66,7 +66,7 @@ table.table.table-hover.info
         span.contents
           == @video.player ? link_to(@video.player.name, player_path(@video.player), class: 'no-decoration') : ''
         == form_tag video_path(@video), style: display_unless(@video.player) do
-          == select_tag 'video[player_viewpoint_id]', options_for_select(@event.players.map{|p| [p.name,p.id]}), include_blank: true
+          == select_tag 'video[player_id]', options_for_select(@event.players.map{|p| [p.name,p.id]}), include_blank: true
           button.save 保存
         button.edit style=display_if(@video.player&&player_info_editable(@video)) 編集
     tr.mecha
@@ -75,7 +75,7 @@ table.table.table-hover.info
         span.contents
           == @video.mecha ? (link_to @video.mecha.full_name, mecha_path(@video.mecha), class: 'no-decoration') : ''
         == form_tag video_path(@video), style: display_unless(@video.mecha) do
-          == select_tag 'video[mecha_viewpoint_id]', options_for_select(Mecha.all.map{|m| ["#{m.cost} - #{m.nickname}",m.id]}), include_blank: true
+          == select_tag 'video[mecha_id]', options_for_select(Mecha.all.map{|m| ["#{m.cost} - #{m.nickname}",m.id]}), include_blank: true
           button.save 保存
         button.edit style=display_if(@video.mecha&&mecha_info_editable(@video)) 編集
 

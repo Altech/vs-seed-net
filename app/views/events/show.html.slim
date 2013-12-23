@@ -15,11 +15,11 @@
   - cache event_path(@event), skip_digest: true do
     #thumbnails
       .row
-      - @videos.each do |video|
+      - @games.each do |game|
         .col-md-3.col-xs-12.col-sm-6.thumbnail-container
           div
-            a href=video_path(video.id)
-              == image_tag video.thumbnail.url, class: 'video_thumbnail'
-            - if video.comments.size > 0
+            a href=video_path(game.video_A1.id)
+              == image_tag game.thumbnail.url, class: 'video_thumbnail'
+            - if game.video_A1.comments.size > 0
               .comment
                 i.fa.fa-comment

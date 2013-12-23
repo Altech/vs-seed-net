@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_date params[:id]
-    @videos = @event.videos
+    @games = @event.games
     @game_center = @event.game_center
   end
 
