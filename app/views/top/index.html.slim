@@ -11,8 +11,8 @@
       .summary
         .main-text
           == event_report.body
-          .author
-            == event_report.player.name
+          / .author
+          /   == event_report.player.name
         .event-thumbnail
           a href=event_path(event)
             == image_tag event.thumbnail.url
