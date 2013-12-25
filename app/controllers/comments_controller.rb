@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     if (1..30).include? params[:comment][:text].size
       comment = Comment.new comment_params
       comment.save
-      expire_fragment view_context.event_path(Video.find(params[:comment][:video_id]).event)
+      expire_fragment view_context.event_path(Video.find(params[:comment][:video_id]).game.event)
       render json: {result: 'success', comment: comment.attributes}
     else
       render json: {result: 'failure', message: 'コメントは1文字以上30文字以内です'}
