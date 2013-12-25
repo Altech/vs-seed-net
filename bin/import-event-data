@@ -14,7 +14,7 @@ abort "The directory was not found." if not dir.exist?
 j = JSON.parse (dir + 'metadata.json').read
 
 begin
-  ActiveRecord::Base.transaction do 
+  ActiveRecord::Base.transaction do
 
     # GameCenter
     unless GameCenter.where(location: j['location']).exists?
@@ -32,26 +32,21 @@ begin
     end
     game_center = GameCenter.where(location: j['location']).first
 
-    ## delete and re-create if data already exists.
-    if Event.where(youtube_playlist_id: j['playlist_id']).exists?
-      event = Event.where(youtube_playlist_id: j['playlist_id']).first
-      event.destroy
-      Video.where(event_id: event.id).destroy_all
-    end
-
     # Event
-    event_record = {
-      held_at: Time.parse(j['time']),
-      game_center_id: game_center.id,
-      youtube_playlist_id: j['playlist_id']}
-    event = Event.create!(event_record)
+    event = if Event.where(held_at: Time.parse(j['time']), game_center_id: game_center.id).exists?
+              Event.where(held_at: Time.parse(j['time']), game_center_id: game_center.id).first
+            else
+              event_record = {
+                held_at: Time.parse(j['time']),
+                game_center_id: game_center.id
+              }
+              Event.create!(event_record)
+            end
 
     # Video
     j['video_ids'].each_with_index do |video_id,i|
       video_record = {
         youtube_video_id: video_id,
-        index_of_event: i,
-        event_id: event.id,
         win_or_lose: case j['win_or_lose'][i]
                      when 'win'
                        true
@@ -63,7 +58,7 @@ begin
                          ret_val, raise_or_cont = nil, :raise
                          binding.pry
                          case raise_or_cont
-                         when :raise 
+                         when :raise
                            raise "Invalid data:#{j}"
                          else # :cont
                            ret_val
@@ -74,7 +69,16 @@ begin
                      end
       }
       video = Video.create!(video_record)
-      
+      game = if Game.where(event_id: event.id, index_of_event: i).exists?
+               Game.where(event_id: event.id, index_of_event: i).first
+             else
+               Game.new(event_id: event.id, index_of_event: i)
+             end
+      game["#{j['seat'] || 'a1'}_video_id".to_sym] = video.id
+      game.save
+
+      next unless j['seat'].nil? or j['seat'] == 'a1'
+
       # Thumbnail
       s3 = AWS::S3.new(YAML.load(File.read "#{Rails.root}/config/s3.yml")[Rails.env])
       bucket_name = "vs-seed-#{Rails.env}"
@@ -83,14 +87,13 @@ begin
         s3.buckets.create bucket_name
       end
       bucket = s3.buckets[bucket_name]
-      object = bucket.objects["videos/thumbnails/#{video.id}/original.jpg"]
+      object = bucket.objects["videos/thumbnails/#{game.id}/original.jpg"]
       object.write(Pathname.new(dir + file_name), acl: :public_read) # [TODO] use Altech/renza-publisher
-
-      video.thumbnail_file_name = file_name
-      video.thumbnail_content_type = 'image/jpeg'
-      video.thumbnail_file_size = File.size(dir + file_name)
-      video.thumbnail_updated_at = Time.now
-      video.save
+      game.thumbnail_file_name = file_name
+      game.thumbnail_content_type = 'image/jpeg'
+      game.thumbnail_file_size = File.size(dir + file_name)
+      game.thumbnail_updated_at = Time.now
+      game.save
     end
   end
 rescue => e
@@ -99,4 +102,5 @@ All changes except GameCenter was rollbacked.
 Thumbnails on the S3 bucket was not rollbacked.
 MSG
   p e.inspect
+  binding.pry
 end
