@@ -34,6 +34,13 @@ h1.title
     li.previous-video
       == link_to_previous_video_if_exists @video
         i.fa.fa-arrow-circle-o-left
+    - if @video.partners_video
+      li.partners-video
+        a href=partners_video_path(@video)
+          - if @video.seat == :a1
+            i.fa.fa-arrow-circle-o-down
+          - else
+            i.fa.fa-arrow-circle-o-up
     span.for-popover-font-size      
       li.link-color.auto-transition
         - if cookies['auto-transition'] == 'true'

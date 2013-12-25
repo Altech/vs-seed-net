@@ -15,6 +15,14 @@ module VideosHelper
     end
   end
 
+  def partners_video_path(video)
+    if video.partners_video
+      video_path(video.partners_video)
+    else
+      '#'
+    end
+  end
+
   def link_to_next_video_if_exists(video, opt = {}, &block)
     if @video.next_video
       content_tag(:a, capture(&block), opt.merge(href: next_video_path(@video)))

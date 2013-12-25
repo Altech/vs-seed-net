@@ -29,6 +29,15 @@ class Video < ActiveRecord::Base
     end
   end
 
+  def partners_video
+    case seat
+    when :a1 then game.video(:a2)
+    when :a2 then game.video(:a1)
+    when :b1 then game.video(:b2)
+    when :b2 then game.video(:b1)
+    end
+  end
+
   def is_last_video_of_event
     next_video ? false : true
   end
