@@ -26,7 +26,7 @@ class Game < ActiveRecord::Base
   end
 
   def has_video_of?(seat)
-    !self.send("#{seat}_video_id").nil?
+    !self["#{seat}_video_id"].nil?
   end
 
   def next_game
