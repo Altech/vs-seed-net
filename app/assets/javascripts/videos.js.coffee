@@ -79,10 +79,14 @@ $ ($) ->
   $('.favorite-video.enabled').click ->
     if $('.favorite-video.enabled i').hasClass('fa-star-o')
       $.post('/favorites', {video_id: $(this).attr('data-video-id')},)
-       .done(-> i = $('.favorite-video.enabled i'); i.removeClass('fa-star-o'); i.addClass('fa-star'))
+       .done((result) ->
+                i = $('.favorite-video.enabled i'); i.removeClass('fa-star-o'); i.addClass('fa-star')
+                $('table.info').after(result['contents']))
     else
       $.ajax({type: 'DELETE', url: '/favorites', data: {video_id: $(this).attr('data-video-id')}})
-       .done(-> i = $('.favorite-video.enabled i'); i.removeClass('fa-star'); i.addClass('fa-star-o'))
+       .done((result) ->
+                i = $('.favorite-video.enabled i'); i.removeClass('fa-star'); i.addClass('fa-star-o')
+                $('table.favorite-memo').remove())
   
   $('.auto-transition').click ->
     li = $(this)
@@ -116,15 +120,15 @@ window.getCurrentPlayerTimeLoop = ->
   setTimeout(getCurrentPlayerTimeLoop, 500)
 
 ## ============ create or edit information of the video ============
-for str in ['player', 'mecha']
+for str in ['player', 'mecha', 'favorite-memo']
   ((str) ->      
     $ ($) ->
-      $("tr.#{str} button.edit").click ->
+      $(document).on "click", "tr.#{str} button.edit", ->
         $("tr.#{str} form").show()
         $("tr.#{str} button.edit").hide()
         $("tr.#{str} span.contents").hide()
         
-      $("tr.#{str} form").submit (event) ->
+      $(document).on "submit", "tr.#{str} form", (event) ->
         event.preventDefault()
     
         form = $(this)

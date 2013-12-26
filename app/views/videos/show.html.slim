@@ -86,6 +86,9 @@ table.table.table-hover.info
           button.save 保存
         button.edit style=display_if(@video.mecha&&mecha_info_editable(@video)) 編集
 
+- if current_player and @favorite
+  == render partial: 'favorites/memo_form'
+
 table.table.table-hover.comments
   - if @comments.size > 0
     thead

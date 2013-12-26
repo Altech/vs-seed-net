@@ -220,6 +220,34 @@
     }
   }
 
+  table.favorite-memo {
+    color: #eee;
+    width: 420px;
+    margin-top: 25px;
+
+    button.edit {
+      float: right;
+      color: #555;
+      text-decoration: underline;
+      border: none;
+      background: none;
+    }
+    button.save {
+      color: #555;
+      margin-left: 7px;
+    }
+    form {
+      display: inline;
+      background-color: #666;
+      color: white;
+      border: none;
+      textarea {
+	width: 353px;
+	height: 59px;
+      }
+    }
+  }
+  
   @media (max-width: 680px){
     table.comments {
       float: none;

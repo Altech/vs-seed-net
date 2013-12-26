@@ -28,6 +28,10 @@ class Player < ActiveRecord::Base
     favorites.any?{|f| f.video_id == id}
   end
 
+  def favorite(video)
+    Favorite.where(player_id: id, video_id: video.id).first
+  end
+
   def participate?(event)
     event = case event
             when Event then event

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223074406) do
+ActiveRecord::Schema.define(version: 20131226193247) do
 
   create_table "comments", force: true do |t|
     t.integer  "video_id",   null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20131223074406) do
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "memo"
   end
 
   create_table "game_centers", force: true do |t|
@@ -86,10 +87,9 @@ ActiveRecord::Schema.define(version: 20131223074406) do
     t.datetime "thumbnail_updated_at"
   end
 
-  add_index "games", ["a1_video_id"], name: "index_games_on_a1_video_id", using: :btree
-  add_index "games", ["a2_video_id"], name: "index_games_on_a2_video_id", using: :btree
-  add_index "games", ["b1_video_id"], name: "index_games_on_b1_video_id", using: :btree
-  add_index "games", ["b2_video_id"], name: "index_games_on_b2_video_id", using: :btree
+  add_index "games", ["a2_video_id"], name: "index_games_on_A2_video_id", using: :btree
+  add_index "games", ["b1_video_id"], name: "index_games_on_B1_video_id", using: :btree
+  add_index "games", ["b2_video_id"], name: "index_games_on_B2_video_id", using: :btree
   add_index "games", ["event_id"], name: "index_games_on_event_id", using: :btree
 
   create_table "mecha_names", force: true do |t|

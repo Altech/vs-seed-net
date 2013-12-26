@@ -7,6 +7,8 @@ class VideosController < ApplicationController
 
     @new_comment = Comment.new
     @new_comment.video_id = @video.id
+
+    @favorite = current_player.favorite(@video) if current_player
   end
 
   # exclude validation of edit authority for simplicity
