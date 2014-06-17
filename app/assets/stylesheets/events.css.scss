@@ -18,4 +18,20 @@
       margin-top: 12px;
     }
   }
+
+  nav.pagination {
+    font-size: 18pt;
+    background-color: #fafafa;
+    margin: 0px;
+    padding: 6px 10px;
+    color: black;
+    a:link {
+      text-decolation: underline;
+      color: blue;
+    }
+    a:visited {
+      text-decolation: underline;
+      color: blue;
+    }
+  }
 }
