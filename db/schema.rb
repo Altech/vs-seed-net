@@ -87,9 +87,10 @@ ActiveRecord::Schema.define(version: 20131226193247) do
     t.datetime "thumbnail_updated_at"
   end
 
-  add_index "games", ["a2_video_id"], name: "index_games_on_A2_video_id", using: :btree
-  add_index "games", ["b1_video_id"], name: "index_games_on_B1_video_id", using: :btree
-  add_index "games", ["b2_video_id"], name: "index_games_on_B2_video_id", using: :btree
+  add_index "games", ["a1_video_id"], name: "index_games_on_a1_video_id", using: :btree
+  add_index "games", ["a2_video_id"], name: "index_games_on_a2_video_id", using: :btree
+  add_index "games", ["b1_video_id"], name: "index_games_on_b1_video_id", using: :btree
+  add_index "games", ["b2_video_id"], name: "index_games_on_b2_video_id", using: :btree
   add_index "games", ["event_id"], name: "index_games_on_event_id", using: :btree
 
   create_table "mecha_names", force: true do |t|
