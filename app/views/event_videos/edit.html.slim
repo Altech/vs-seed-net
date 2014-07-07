@@ -1,0 +1,46 @@
+.contents-container.show
+  h1
+    == @game_center.location
+    br.show-xs
+    | 対戦会
+  .participants
+    | プレイヤー：
+    - @event.players.each_with_index do |player,i|
+      == link_to player.name, player_path(player), class: 'no-decoration'
+      == i+1 != @event.players.size ? "、" : nil
+  - if current_player and (current_player.admin? or current_player.participate?(@event))
+    .add-participants-link
+      == link_to '▶参加者を追加', edit_event_path(@event), class: 'no-decoration'
+  h2 #{@event.held_at.strftime("%Y年%m月%d日")}
+  - if request.mobile? or request.smart_phone?
+    .pagination
+      == paginate(@games)
+  == form_tag event_video_path(@event.id), method: 'PUT' do
+    #thumbnails
+      .row
+        - @games.each do |game|
+          div.col-md-3.col-xs-12.col-sm-6.thumbnail-container
+            a href=video_path(game.video_A1.id)
+              == image_tag game.thumbnail.url, class: 'video_thumbnail'
+            table.table.table-hover.info
+              tbody
+                - game.videos.each_with_index do |video,i|
+                  tr.player
+                    td
+                      == "P#{i+1}"
+                    td
+                      span.contents
+                        - if video.player
+                          == link_to(video.player.name, player_path(video.player), class: 'no-decoration')
+                        - else
+                          == select_tag "video[#{video.id}][player_id]", options_for_select(@event.players.map{|p| [p.name,p.id]}), include_blank: true
+                  tr.mecha
+                    td
+                      == "M#{i+1}"
+                    td
+                      span.contents
+                        - if video.mecha
+                          ==  link_to video.mecha.full_name, mecha_path(video.mecha), class: 'no-decoration'
+                        - else
+                          == select_tag "video[#{video.id}][mecha_id]", grouped_options_for_select(Mecha.all.group_by(&:cost).map_values{|a| a.map(&:nickname)}), include_blank: true
+    == submit_tag '更新'

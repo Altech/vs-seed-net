@@ -25,6 +25,13 @@ class Game < ActiveRecord::Base
     Video.find_by_id(b2_video_id)
   end
 
+  def videos
+    ids = [a1_video_id, a2_video_id, b1_video_id, b2_video_id]
+    ids.select{|e| !e.nil?}.map{|id|
+      Video.find_by_id(id)
+    }
+  end
+
   def has_video_of?(seat)
     !self["#{seat}_video_id"].nil?
   end
