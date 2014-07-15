@@ -9,6 +9,7 @@ class Player < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 8, maximum: 20 }, allow_blank: true
 
+  belongs_to :pilot
   has_many :comments
   has_many :favorites
   has_many :videos
@@ -30,6 +31,12 @@ class Player < ActiveRecord::Base
 
   def favorite(video)
     Favorite.where(player_id: id, video_id: video.id).first
+  end
+
+  def name_with_pilot
+    if pilot
+      "#{name}（#{pilot.name}）"
+    end
   end
 
   def participate?(event)

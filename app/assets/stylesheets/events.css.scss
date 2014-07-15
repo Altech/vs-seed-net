@@ -2,12 +2,23 @@
   .contents-container.show {
     text-align: center;
   }
-
   h1 {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   }
   
-  .participants {}
+  .participants {
+    a.player-name {
+      text-decoration: none;
+      border-bottom: 1px dashed white;
+      color: white;
+    }
+
+    a.player-name:hover {
+      text-decoration: none;
+      border-bottom: 1px solid white;
+    }
+
+  }
   .add-participants-link {
     text-align: right;
   }

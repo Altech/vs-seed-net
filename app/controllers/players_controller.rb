@@ -52,7 +52,7 @@ class PlayersController < ApplicationController
   private
 
   def player_params
-    params.require(:player).permit(:name,:password,:password_confirmation,:mail)
+    params.require(:player).permit(:name,:password,:password_confirmation,:mail, :pilot_id)
   end
 
   def player_params_password
@@ -60,7 +60,7 @@ class PlayersController < ApplicationController
   end
 
   def player_params_without_password
-    params.require(:player).permit(:name,:mail)
+    params.require(:player).permit(:name,:mail,:pilot_id)
   end
 
   alias :player_params_for_edit :player_params_without_password

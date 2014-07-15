@@ -5,6 +5,10 @@
   .form-group
     == f.label :mail, 'メールアドレス'
     == f.text_field :mail, class: 'form-control'
+  .form-group
+    == label_tag :pilot, 'パイロット：'
+    == f.select :pilot_id, options_for_select(Pilot.all.map{|p| [p.name,p.id]}), class: 'form-control', include_blank: true
+    == "（#{@player.pilot.name}）" if @player.pilot
   == f.submit '更新'
 
 .flash-messages

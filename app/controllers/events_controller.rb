@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class EventsController < ApplicationController
   def index
     @events = Event.limit(20)
@@ -54,6 +55,13 @@ class EventsController < ApplicationController
 
   def create_event_participant
     participant = params[:event_participant]
+
+    unless current_player.pilot
+      flash[:alert] = '対戦会に参加者登録する前に、使用してるパイロットを設定してください'
+      redirect_to controller: :players, action: :edit, id: current_player.to_param
+      return
+    end
+
     unless EventParticipant.where(event_id: participant[:event_id], player_id: participant[:player_id]).exists?
       EventParticipant.create!(event_id: participant[:event_id], player_id: participant[:player_id])
     end

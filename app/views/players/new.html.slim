@@ -6,6 +6,9 @@
     == p.label :mail, 'メールアドレス'
     == p.text_field :mail, class: 'form-control'
   .form-group
+    == label_tag :pilot, '使用パイロット（ある場合）：'
+    == p.select :pilot_id, options_for_select(Pilot.all.map{|p| [p.name,p.id]}), class: 'form-control', include_blank: true
+  .form-group
     == p.label :password, 'パスワード'
     == p.password_field :password, size: 40, class: 'form-control'
   .form-group

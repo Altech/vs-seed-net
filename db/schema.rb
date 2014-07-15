@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226193247) do
+ActiveRecord::Schema.define(version: 20140715034513) do
 
   create_table "comments", force: true do |t|
     t.integer  "video_id",   null: false
@@ -114,15 +114,81 @@ ActiveRecord::Schema.define(version: 20131226193247) do
   add_index "mechas", ["full_name_id"], name: "index_mechas_on_full_name_id", using: :btree
   add_index "mechas", ["nickname_id"], name: "index_mechas_on_nickname_id", using: :btree
 
+  create_table "pilots", force: true do |t|
+    t.string   "name"
+    t.string   "group"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "players", force: true do |t|
     t.string   "name",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "mail"
     t.string   "password_digest"
+    t.integer  "pilot_id"
   end
 
   add_index "players", ["name"], name: "index_players_on_name", unique: true, using: :btree
+  add_index "players", ["pilot_id"], name: "index_players_on_pilot_id", using: :btree
+
+  create_table "rzjc_players", force: true do |t|
+    t.string   "name"
+    t.integer  "mecha_id"
+    t.string   "force_type"
+    t.string   "pilot"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rzjc_players", ["mecha_id"], name: "index_rzjc_players_on_mecha_id", using: :btree
+
+  create_table "rzjc_questions", force: true do |t|
+    t.string   "exhibition"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rzjc_solo_players", force: true do |t|
+    t.string   "address"
+    t.string   "name"
+    t.string   "force_type"
+    t.string   "pilot"
+    t.boolean  "confirmed"
+    t.string   "region"
+    t.integer  "mecha_good_1_id"
+    t.integer  "mecha_good_2_id"
+    t.integer  "mecha_good_3_id"
+    t.integer  "mecha_wanted_1_id"
+    t.integer  "mecha_wanted_2_id"
+    t.integer  "mecha_wanted_3_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rzjc_solo_players", ["mecha_good_1_id"], name: "index_rzjc_solo_players_on_mecha_good_1_id", using: :btree
+  add_index "rzjc_solo_players", ["mecha_good_2_id"], name: "index_rzjc_solo_players_on_mecha_good_2_id", using: :btree
+  add_index "rzjc_solo_players", ["mecha_good_3_id"], name: "index_rzjc_solo_players_on_mecha_good_3_id", using: :btree
+  add_index "rzjc_solo_players", ["mecha_wanted_1_id"], name: "index_rzjc_solo_players_on_mecha_wanted_1_id", using: :btree
+  add_index "rzjc_solo_players", ["mecha_wanted_2_id"], name: "index_rzjc_solo_players_on_mecha_wanted_2_id", using: :btree
+  add_index "rzjc_solo_players", ["mecha_wanted_3_id"], name: "index_rzjc_solo_players_on_mecha_wanted_3_id", using: :btree
+
+  create_table "rzjc_teams", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "region"
+    t.integer  "player1_id"
+    t.integer  "player2_id"
+    t.integer  "question_id"
+    t.boolean  "confirmed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rzjc_teams", ["player1_id"], name: "index_rzjc_teams_on_player1_id", using: :btree
+  add_index "rzjc_teams", ["player2_id"], name: "index_rzjc_teams_on_player2_id", using: :btree
+  add_index "rzjc_teams", ["question_id"], name: "index_rzjc_teams_on_question_id", using: :btree
 
   create_table "sessions", force: true do |t|
     t.string   "session_id", null: false

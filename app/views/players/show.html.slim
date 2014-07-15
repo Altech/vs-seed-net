@@ -1,7 +1,7 @@
 .profile
   h1.name
-    == @player.name
-  
+    == @player.name_with_pilot || @player.name
+
   h2 過去に参加した対戦会
   - if @player.events.size > 0
     ul

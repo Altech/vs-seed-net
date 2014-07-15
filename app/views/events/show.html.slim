@@ -4,16 +4,16 @@
     br.show-xs
     | 対戦会
   .participants
-    | プレイヤー：
+    | 参加者：
     - @event.players.each_with_index do |player,i|
-      == link_to player.name, player_path(player), class: 'no-decoration'
+      == link_to (player.name_with_pilot || player.name), player_path(player), class: 'player-name'
       == i+1 != @event.players.size ? "、" : nil
   - if current_player and (current_player.admin? or current_player.participate?(@event))
     .add-participants-link
       == link_to '▶参加者を追加', edit_event_path(@event), class: 'no-decoration'
   - elsif current_player and not current_player.participate?(@event)
     .declare-as-a-participant
-      == form_for(@event_participant_for_declaration) do |f|
+      == form_for(EventParticipant.new) do |f|
         == f.hidden_field :event_id, :value => @event.id
         == f.hidden_field :player_id, :value => current_player.id
         == f.submit '▶対戦会参加者として登録'
