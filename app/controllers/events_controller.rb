@@ -46,7 +46,17 @@ class EventsController < ApplicationController
       event.update_attribute(:thumbnail, ep[:thumbnail])
       redirect_to edit_event_path(event)
     else
-      redirect_to event_path
+      redirect_to events_path
     end
+  end
+
+  # As EventParticipantsController
+
+  def create_event_participant
+    participant = params[:event_participant]
+    unless EventParticipant.where(event_id: participant[:event_id], player_id: participant[:player_id]).exists?
+      EventParticipant.create!(event_id: participant[:event_id], player_id: participant[:player_id])
+    end
+    redirect_to event_path(Event.find(participant[:event_id]))
   end
 end

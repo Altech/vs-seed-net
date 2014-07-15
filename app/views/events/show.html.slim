@@ -11,6 +11,12 @@
   - if current_player and (current_player.admin? or current_player.participate?(@event))
     .add-participants-link
       == link_to '▶参加者を追加', edit_event_path(@event), class: 'no-decoration'
+  - elsif current_player and not current_player.participate?(@event)
+    .declare-as-a-participant
+      == form_for(@event_participant_for_declaration) do |f|
+        == f.hidden_field :event_id, :value => @event.id
+        == f.hidden_field :player_id, :value => current_player.id
+        == f.submit '▶対戦会参加者として登録'
   h2 #{@event.held_at.strftime("%Y年%m月%d日")}
   - if request.mobile? or request.smart_phone?
     .pagination

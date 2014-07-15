@@ -6,6 +6,7 @@ VsSeed::Application.routes.draw do
   get  "logout" => 'log#out'
   resources :videos, only: %i[show update]
   resources :events, only: %i[index show edit update], constraints: {id: /\d\d\d\d-\d\d-\d\d/ }
+  post 'event_participants' => 'events#create_event_participant'
   resources :event_videos, only: %w[edit update]
   resources :event_reports, only: %i[create update]
   resources :mechas, only: %i[index show]
