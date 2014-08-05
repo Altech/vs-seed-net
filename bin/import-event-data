@@ -15,6 +15,7 @@ j = JSON.parse (dir + 'metadata.json').read
 
 begin
   ActiveRecord::Base.transaction do
+    puts "GameCenter"
 
     # GameCenter
     unless GameCenter.where(location: j['location']).exists?
@@ -32,6 +33,7 @@ begin
     end
     game_center = GameCenter.where(location: j['location']).first
 
+    puts "Event"
     # Event
     event = if Event.where(held_at: Time.parse(j['time']), game_center_id: game_center.id).exists?
               Event.where(held_at: Time.parse(j['time']), game_center_id: game_center.id).first
@@ -43,32 +45,29 @@ begin
               Event.create!(event_record)
             end
 
+    puts "Video"
+
     # Video
     j['video_ids'].each_with_index do |video_id,i|
-      video_record = {
-        youtube_video_id: video_id,
-        win_or_lose: case j['win_or_lose'][i]
-                     when 'win'
-                       true
-                     when 'lose'
-                       false
+      puts i
+      video = if Video.where(youtube_video_id: video_id).exists?
+                       Video.where(youtube_video_id: video_id).first
                      else
-                       puts "Win or lose data is empty!"
-                       if Rails.env.development?
-                         ret_val, raise_or_cont = nil, :raise
-                         binding.pry
-                         case raise_or_cont
-                         when :raise
-                           raise "Invalid data:#{j}"
-                         else # :cont
-                           ret_val
-                         end
-                       else
-                         raise "Invalid data:#{j}"
-                       end
+                       video_record = {
+                         youtube_video_id: video_id,
+                         win_or_lose: case j['win_or_lose'][i]
+                                      when 'win'
+                                        true
+                                      when 'lose'
+                                        false
+                                      else
+                                        puts "Win or lose data is empty!"
+                                        true
+                                      end
+                       }
+                       Video.create!(video_record)
                      end
-      }
-      video = Video.create!(video_record)
+
       game = if Game.where(event_id: event.id, index_of_event: i).exists?
                Game.where(event_id: event.id, index_of_event: i).first
              else
@@ -102,5 +101,4 @@ All changes except GameCenter was rollbacked.
 Thumbnails on the S3 bucket was not rollbacked.
 MSG
   p e.inspect
-  binding.pry
 end
