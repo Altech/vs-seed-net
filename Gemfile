@@ -12,7 +12,6 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Slim for HTML template engine
 gem "slim-rails"
 
-gem 'bootstrap-sass', '~> 3.0.0.0.rc'
 gem "font-awesome-rails"
 
 # Use Uglifier as compressor for JavaScript assets
