@@ -28,9 +28,6 @@
         div
           a href=video_path(game.video_A1.id)
             == image_tag game.thumbnail.url, class: 'video_thumbnail'
-          - if game.video_A1.comments.size > 0
-            .comment
-              i.fa.fa-comment
   - if request.mobile? or request.smart_phone?
     .pagination
       == paginate(@games)

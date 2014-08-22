@@ -21,21 +21,6 @@
     }
   }
 
-  #comment-container {
-    text-align: center;
-  }
-
-  #comment_text {
-    width: 335px;
-  }
-
-  #comment-region {
-    width: 400px;
-    height: 300px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-
   .favorite-video.enabled {
     cursor: pointer;
   }
@@ -176,24 +161,6 @@
     background-color: none;
   }
 
-  table.comments {
-    color: #eee;
-    width: 100%;
-    float: right;
-    margin-top: 25px;
-    td.time {
-      width: 40px;
-    }
-    td.comment {
-      width: 100%;
-    }
-
-    tbody tr:hover {
-      cursor: pointer;
-      background-color: red;
-    }
-  }
-  
   table.info {
     color: #eee;
     width: 420px;
@@ -249,11 +216,6 @@
   }
   
   @media (max-width: 680px){
-    table.comments {
-      float: none;
-      margin-right: auto;
-      margin-left: auto;
-    }
     table.info {
       margin-right: auto;
       margin-left: auto;
@@ -261,7 +223,7 @@
   }
 }
 
-.thumbnail-container .comment {
+.thumbnail-container {
   position: absolute;
   right: 24px;
   bottom: 20px;
@@ -270,7 +232,7 @@
 }
 
 @media (max-width: $screen-xs-max) {
-  .thumbnail-container .comment {
+  .thumbnail-container {
     font-size: 32pt;
   }
 }

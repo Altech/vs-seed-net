@@ -3,10 +3,6 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @event = @video.game.event
     @game = @video.game
-    @comments = @video.comments.map{|c| {id: c[:id], time: c[:time], text: c[:text] }}
-
-    @new_comment = Comment.new
-    @new_comment.video_id = @video.id
 
     @favorite = current_player.favorite(@video) if current_player
   end

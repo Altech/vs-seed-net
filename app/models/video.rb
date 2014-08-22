@@ -1,6 +1,5 @@
 class Video < ActiveRecord::Base
   belongs_to :mecha
-  has_many :comments
   # belongs_to mecha for each fours
 
   def <=>(other)

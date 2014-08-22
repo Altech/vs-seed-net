@@ -1,7 +1,3 @@
-javascript:
-  var comments = #{raw @comments.to_json}
-
-
 h1.title
   a href=event_path(@event) class="no-decoration"
     == @event.held_at.strftime("%Y年%m月%d日") 
@@ -17,15 +13,6 @@ h1.title
     #player-container
       #comment-region
         #player
-    
-    #comment-container
-      /* comment.time will be added before sending. */
-      == form_for(@new_comment, remote: true) do |c|
-        == c.text_field :text
-        == c.hidden_field :video_id
-        == c.submit "コメント", class: "btn btn-fix-for-mobile"
-
-    #alert-message.alert.alert-danger
   .event-video-nav.next-video
     == link_to_next_video_if_exists @video
       i.fa.fa-arrow-circle-o-right
@@ -89,18 +76,6 @@ table.table.table-hover.info
 - if current_player and @favorite
   == render partial: 'favorites/memo_form'
 
-table.table.table-hover.comments
-  - if @comments.size > 0
-    thead
-      tr
-        td.time 時間
-        td.comment コメント
-    tbody
-      - @comments.each do |comment|
-        tr.comment data-second=comment[:time]
-          td #{"%01d" % (comment[:time].to_i / 60)}:#{"%02d" % (comment[:time].to_i % 60)}
-          td #{comment[:text]}
-
 javascript:
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -112,14 +87,8 @@ javascript:
     player = new YT.Player('player', {
       height: '300',
       width: '400',
-      videoId: "#{@video.youtube_video_id}",
-      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
-      }
+      videoId: "#{@video.youtube_video_id}"
     });
   }
   // onYouTubeIframeAPIReady is not called if IFrameAPI is cached. So we must call explicitly.
   try{ onYouTubeIframeAPIReady() }catch(e){}
-  // for iPhone
-  setTimeout(getCurrentPlayerTimeLoop, 3000)

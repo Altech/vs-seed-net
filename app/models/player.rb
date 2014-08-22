@@ -10,7 +10,6 @@ class Player < ActiveRecord::Base
   validates :password, length: { minimum: 8, maximum: 20 }, allow_blank: true
 
   belongs_to :pilot
-  has_many :comments
   has_many :favorites
   has_many :videos
   has_and_belongs_to_many :events, join_table: :event_participants
