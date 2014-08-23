@@ -23,6 +23,7 @@
 
 @import "utilities";
 
+// Navigation
 .navbar {
   height: $navbar-height;
   box-shadow: 0px 3px 3px rgba(0,0,0,0.4);
@@ -74,6 +75,66 @@
     }
     .space {
       width: 2px;
+    }
+  }
+}
+
+// Body
+@media (min-width: $pc-min-width) {
+  body {
+    background-image: url('/assets/pc_background.jpg');
+    background-repeat: repeat-y;
+    font-size: $pc-text-font-size;
+  }
+}
+@media (max-width: $sp-max-width) {
+  body {
+    font-size: $sp-text-font-size;
+  }
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+// Card for index
+.card {
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 12px;
+  h2 {
+    display: inline;
+    font-weight: bold;
+    margin: 0;
+    padding: 0px;
+  }
+}
+@media (max-width: $sp-max-width){
+  .card {
+    border-bottom: 1px solid $sp-card-border-color;
+    h2 {
+      font-size: $sp-card-title-font-size;
+    }
+  }
+}
+@media (min-width: $pc-min-width) {
+  .cards {
+    margin: 17px;
+  }
+  .card-container {
+    float: left;
+    margin: 17px;
+  }
+  .card {
+    border: 1px solid $pc-card-border-color;
+    background-image: url('/assets/pc_card_background.png');
+    padding: 19px;
+    padding-top: 13px;
+    padding-bottom: 15px;
+    h2 {
+      font-size: $pc-card-title-font-size;
+      margin-bottom: 3px;
     }
   }
 }
