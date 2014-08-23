@@ -1,0 +1,19 @@
+@import "constants";
+
+@media (max-width: $sp-max-width){
+  .sp {
+    display: block;
+  }
+  .pc {
+    display: none;
+  }
+}
+
+@media (min-width: $pc-min-width){
+  .sp {
+    display: none;
+  }
+  .pc {
+    display: block;
+  }
+}

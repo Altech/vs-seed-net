@@ -10,62 +10,26 @@ html
     link rel="shortcut icon" type="image/png" href="/favicon.png"
     link rel="apple-touch-icon" href="/apple-touch-icon.png"
   body
-    .navbar-wrapper
-      .container
-        .navbar.navbar-inverse.navbar-static-top
-          .container
-            .navbar-header
-              button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.navbar-brand href="/" VS-SEED.NET
-            .navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li class=activate_if_controller(:events)
-                  a href=events_path 対戦会
-                li class=activate_if_controller(:mechas)
-                  a href=mechas_path 機体
-                - if current_player
-                  li.dropdown
-                    a.dropdown-toggle data-toggle="dropdown" href="#"
-                      | 個人
-                      b.caret
-                    ul.dropdown-menu
-                      li.myname #{current_player.name}
-                      li
-                        == link_to '公開ページ', player_path(current_player)
-                      li
-                        == link_to 'お気に入り', favorites_path
-                      li
-                        == link_to '登録情報の変更', edit_player_path(current_player)
-                      li.divider
-                      li
-                        == link_to 'ログアウト', logout_path
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#"
-                    | 情報
-                    b.caret
-                  ul.dropdown-menu
-                    / li
-                    /   a href="#" 大会情報
-                    li
-                      a href="http://twitter.com/vs_seed_2ch" target="_blank" 連ザスレ
-                    li
-                      a href="http://www8.atwiki.jp/destiny/" target="_blank" Wiki
-                    li.divider
-                    li.dropdown-header 運営
-                    li
-                      a href="http://twitter.com/vs_seed_net" target="_blank" Twitterアカウント
-                    li
-                      a href="mailto:vsseed.netあっとまーくgmail.com" 問い合わせ
-                - unless current_player
-                  li class=activate_if_controller(:log)
-                    a href=login_path ログイン
-                / form.navbar-form.navbar-right
-                /   .form-group
-                /     input.form-control type="text" placeholder="検索"
-    .container class=params[:controller]
+    .navbar
+      a href="/"
+        img#logo.pc src="/assets/pc_nav_logo.png"
+      ul.menues
+        .sp.space _
+        a.sp href="/"
+          li#home-button class=activate_if_controller(:top)
+            img src="/assets/sp_nav_home.png"
+        a href=events_path      
+          li#events-button class=activate_if_controller(:events)
+            img.switch src="/assets/sp_nav_events.png"
+        a href=mechas_path
+          li#mechas-button class=activate_if_controller(:mechas)
+            img.switch src="/assets/sp_nav_mechas.png"
+        a href=players_path
+          li#players-button class=activate_if_controller(:players)
+            img.switch src="/assets/sp_nav_players.png"
+        .pc.space _
+
+    .contents class=params[:controller]
       == yield
 
     - if Rails.env.production?

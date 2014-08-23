@@ -1,18 +1,14 @@
-.event-reports
-  - @event_reports.each do |event_report|
-    - event = event_report.event
-    .event-report
-      a.no-decoration href=event_path(event)
-        h1
-          == event.game_center.location
-          br.show-xs
-          == '　' + event.held_at.strftime("%-m月%-d日") + "（" + %w[日 月 火 水 木 金 土][event.held_at.wday] + "）"
-          i.fa.fa-external-link style="font-size: 15pt"
-      .summary
-        .main-text
-          == event_report.body
-          / .author
-          /   == event_report.player.name
-        .event-thumbnail
-          a href=event_path(event)
-            == image_tag event.thumbnail.url
+#twitter-timeline-container
+  a#twitter-timeline.twitter-timeline href="https://twitter.com/vs_seed_net" data-chrome="noheader nofooter transparent" data-tweet-limit="3" data-widget-id="502482454481891330"
+
+javascript:
+  $(function(){
+    var elem = document.getElementById('twitter-timeline');
+    var width = parseInt($(document).width());
+    elem.setAttribute('width', width);
+    if (width > 500) {
+      elem.setAttribute('data-tweet-limit', 5);
+    }
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  })
+  

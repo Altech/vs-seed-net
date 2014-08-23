@@ -15,98 +15,65 @@
 
 @import "font-awesome";
 
-// override 
-$text-color: white;
-$table-bg-hover: #555;
-.popover {
-  color: #5c5c5c;
-}
+@import "normalize";
 
-// Application
-@import "errors";
+@import "reset";
 
-$screen-xs-max: 360;
+@import "constants";
 
-@media (max-width: $screen-xs-max) {
-  .show-xs {
-    display: block;
+@import "utilities";
+
+.navbar {
+  height: $navbar-height;
+  box-shadow: 0px 3px 3px rgba(0,0,0,0.4);
+
+  img {
+    height: $navbar-height;
   }
-  .show-non-xs {
-    display: none;
-  }
-}
 
-@media (min-width: $screen-xs-max) {
-  .show-xs {
-    display: none;
-  }
-  .show-non-xs {
-    display: block;
-  }
-}
+  ul.menues {
+    margin: 0;
+    padding: 0;
 
-@media (max-width: $screen-xs-max) {
-  div.videos {
-    padding: 0px;
-  }
-}
-
-.unlink {
-  color: #888;
-}
-
-.dropdown-menu {
-  .myname {
-    color: green;
-    padding-top:5px;
-    padding-left:13px;
-    padding-bottom:3px;
+    li {
+      list-style-type: none;
+      float: left;
+      img {
+        height: $navbar-height;
+      }
+    }
+    .space {
+      float: left;
+      overflow: hidden;
+      visibility: hidden;
+    }
   }
 }
 
-.btn-fix-for-mobile {
-  border: 1px solid #777;
-  background-color: #aaa;
-}
-
-.text-centering {
-  text-align: center;
-}
-
-.link-color {
-  color: #428bca;
-}
-
-.link-color:hover {
-  color: #2a6496;
-}
-
-a.no-decoration {
-  text-decoration: none;
-  color: white;
-}
-
-a.no-decoration:hover {
-  text-decoration: underline;
-}
-
-.contents-container {
-  padding-left: 2%;
-  padding-right: 2%;
-  bottom:auto;
-}
-
-#thumbnails {
-  img.video_thumbnail {
-	width: 100%;
-	height: auto;
-	/* margin: 12px; */
-	-webkit-box-shadow: 3px 3px 3px #333;
+@media (max-width: $sp-max-width){
+  ul.menues {
+    width: 100%;
+    li {
+      width: 24%;
+      text-align: center;
+    }
+    .space {
+      width: 2%;
+    }
   }
-  .thumbnail-container {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	/* background-color: red; */
-	/* border: 1px solid green; */
+}
+
+@media (min-width: $pc-min-width){
+  img#logo {
+    float: left;
+  }
+
+  ul.menues {
+    float: right;
+    li {
+    }
+    .space {
+      width: 2px;
+    }
   }
 }
