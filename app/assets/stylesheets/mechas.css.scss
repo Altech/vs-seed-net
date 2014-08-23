@@ -1,3 +1,55 @@
-// Place all the styles related to the mechas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "constants";
+
+.mechas {
+  .card {
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+
+  @media (max-width: $sp-max-width) {
+    .card {
+      background-size: 387px 198px;
+      .mecha {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        $mecha-name-font-size: 20px;
+        h2 {
+          font-size: $mecha-name-font-size;
+        }
+        .num-of-games {
+          font-size: $mecha-name-font-size;
+          color: $additional-text-color;
+        }
+      }
+    }
+  }
+  @media (min-width: $pc-min-width) {
+    .card {
+      background-size: 430px 220px;
+      width: 464px;
+      .mecha {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        $mecha-name-font-size: 26px;
+        h2 {
+          font-size: $mecha-name-font-size;
+        }
+        .num-of-games {
+          font-size: $mecha-name-font-size;
+          color: $additional-text-color;
+        }
+      }
+    }
+  }
+
+  .nav-box {
+    font-size: 18pt;
+    font-family: sans-serif;
+    ul {
+      margin: 10px;
+      margin-top: 13px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  }
+}

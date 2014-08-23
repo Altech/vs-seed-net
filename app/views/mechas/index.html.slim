@@ -1,8 +1,19 @@
-h1 機体
-- @mechas_of_costs.each do |cost, mechas|
-  h2
-    == cost
-  - mechas.each do |mecha|
-    p
-      a href=mecha_path(mecha) class="no-decoration"
-        == mecha.full_name + "（#{mecha.videos.size}）"
+.nav-box.sp
+  ul
+    - @mechas_of_costs.each do |cost, mechas|
+      a href="##{cost}"
+        == cost
+      - unless cost == 200
+        == " / "
+
+.cards
+  - @mechas_of_costs.each do |cost, mechas|
+    a name=cost
+      .card-container
+        .card.mechas style="background-image: url('/assets/cost_#{cost}.png')"
+          - mechas.each do |mecha|
+            .mecha
+              h2
+                a href=mecha_path(mecha)
+                  == mecha.full_name
+              span.num-of-games （#{mecha.videos.size}）
