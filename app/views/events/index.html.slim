@@ -1,11 +1,25 @@
 .cards
   - @events.each do |event|
     .card-container
-      .card
-        .title-part
-          h2
-            a href=event_path(event)
-              == event.held_at.strftime("%Y年%m月%d日")
-          span.num-of-games （#{event.games.size}）
-        .players
-          == event.players.map(&:name).join('、')
+      .with-half-transparent
+        .card
+          .title-part
+            h2
+              a href=event_path(event)
+                == event.held_at.strftime("%Y年%m月%d日")
+            span.num-of-games （#{event.games.size}）
+          .participants
+            / Split to 2 lines
+            - size, line1, line2 = 0, [], []
+            - event.players.map(&:name).each do |name|
+              - size += name.size + 1
+              - if size <= 24
+                - line1 << name
+              - else
+                - line2 << name
+            .line1
+              == line1.join('、')
+              - if not line2.empty?
+                == '、'
+            .line2
+              == line2.join('、')

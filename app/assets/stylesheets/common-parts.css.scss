@@ -1,0 +1,53 @@
+@import "constants";
+
+// Navigation Box
+.nav-box {
+  background-color: #F0F0F0;
+  border-top: 1px solid #DCDCDC;
+  border-bottom: 1px solid #DCDCDC;
+}
+
+// Card
+.card {
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 12px;
+  h2 {
+    display: inline;
+    font-weight: bold;
+    margin: 0;
+    padding: 0px;
+  }
+}
+@media (max-width: $sp-max-width){
+  .card {
+    border-bottom: 1px solid $sp-card-border-color;
+    h2 {
+      font-size: $sp-card-title-font-size;
+    }
+  }
+}
+@media (min-width: $pc-min-width) {
+  .cards {
+    margin: 17px;
+  }
+  .card-container {
+    float: left;
+    margin: 17px;
+  }
+  .with-half-transparent {
+    background-image: url('/assets/pc_card_background.png');
+    padding: 0;
+    margin: 0;
+  }
+  .card {
+    border: 1px solid $pc-card-border-color;
+    padding: 19px;
+    padding-top: 13px;
+    padding-bottom: 15px;
+    h2 {
+      font-size: $pc-card-title-font-size;
+      margin-bottom: 3px;
+    }
+  }
+}

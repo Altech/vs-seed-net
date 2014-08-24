@@ -1,5 +1,13 @@
+@import "constants";
+
 #twitter-timeline-container {
   margin-left: auto;
   margin-right: auto;
-  width: 520px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+@media (min-width: $pc-min-width) {
+  #twitter-timeline-container {
+    width: 520px;
+  }
 }

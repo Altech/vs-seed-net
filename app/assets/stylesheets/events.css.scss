@@ -1,15 +1,50 @@
 @import "constants";
+@import "common-parts";
 
 .events {
+  .cards {
+    .num-of-games {
+      color: $additional-text-color;
+    }
+  }
+  
+  @media (max-width: $sp-max-width) {
+    .cards {
+      padding-top: $sp-padding-for-nav-drop-shadow;
+    }
+    .card-container {
+      .card {
+        .participants {
+          .line1 {
+            display: inline;
+          }
+          .line2 {
+            display: inline;
+          }
+        }
+      }
+    }    
+  }
+  
   @media (min-width: $pc-min-width) {
     .card-container {
       height: 140px;
       .card {
         width: 466px;
+        height: 100px;
+        .participants {
+          .line2 {
+            // [TODO] modulalize
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+          }
+        }
       }
     }
   }
-  .num-of-games {
-    color: $additional-text-color;
-  }
+
 }

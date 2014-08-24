@@ -7,13 +7,14 @@
         == " / "
 
 .cards
-  - @mechas_of_costs.each do |cost, mechas|
+  - @mechas_of_costs.each_with_index do |(cost, mechas), i|
     a name=cost
-      .card-container
-        .card.mechas style="background-image: url('/assets/cost_#{cost}.png')"
-          - mechas.each do |mecha|
-            .mecha
-              h2
-                a href=mecha_path(mecha)
-                  == mecha.full_name
-              span.num-of-games （#{mecha.videos.size}）
+      .card-container style="#{i.even? ? 'clear: both' : ''}"
+        .with-half-transparent
+          .card.mechas style="background-image: url('/assets/cost_#{cost}.png')"
+              - mechas.each do |mecha|
+                .mecha
+                  h2
+                    a href=mecha_path(mecha)
+                      == mecha.full_name
+                  span.num-of-games （#{mecha.videos.size}）

@@ -1,48 +1,57 @@
-#new_player {
-  width: 300px;
-}
-
+@import "constants";
 .players {
-  .profile {
-    .name {
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+
+  .card {
+    // Pilot Image
+    background-repeat: no-repeat;
+    background-position: right 10px;
+    background-size: contain;
+    
+    .stats {
+      dl {
+        margin-top: 10px;
+        margin-bottom: 0px;
+        line-height: 200%;
+        dt {
+          float: left;
+        }
+      }
+    }
+    .num-of-games {
+      color: $additional-text-color;
     }
   }
 
-  #mechas-ratio {
-    float: left;
-    width: 365px;
-    height: 300px;
+    
+  @media (max-width: $sp-max-width) {
+    $max-width-of-mecha-name: 200px;
+    .cards {
+      padding-top: $sp-padding-for-nav-drop-shadow;
+    }
+    .card {
+      .stats {
+        dl {
+          dt {
+            width: $max-width-of-mecha-name;
+          }
+        }
+      }
+    }
   }
   
-  #winning-percentage {
-    float: left;
-    width: 200px;
-    margin-top: 14px;
-    font-size: 15pt;
-    .val {
-      margin-top: 33px;
-      margin-left: 32px;
-      margin-bottom: 30px;
-      font-size: 50pt;
-      font-style: italic;
-    }
-    @media (max-width: 525px){
-      margin-left: 63px;
+  @media (min-width: $pc-min-width) {
+    $max-width-of-mecha-name: 220px;
+    .card {
+      height: 160px;
+      width: 462px;
+      .stats {
+        dl {
+          dt {
+            width: $max-width-of-mecha-name;
+          }
+        }
+      }
     }
   }
-
-  .nodata {
-    font-size: 20pt;
-    color: #ccc;
-  }
-
-  form.edit_player {
-    max-width: 300px;
-    margin-bottom: 30px;
-  }
-
-  .flash-messages {
-    max-width: 300px;
-  }
+  
 }

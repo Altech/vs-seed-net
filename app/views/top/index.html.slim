@@ -1,13 +1,13 @@
 #twitter-timeline-container
-  a#twitter-timeline.twitter-timeline href="https://twitter.com/vs_seed_net" data-chrome="noheader nofooter transparent" data-tweet-limit="3" data-widget-id="502482454481891330"
+  a#twitter-timeline.twitter-timeline href="https://twitter.com/vs_seed_net" data-chrome="noheader nofooter transparent" data-tweet-limit="4" data-widget-id="502482454481891330"
 
 javascript:
   $(function(){
     var elem = document.getElementById('twitter-timeline');
     var width = parseInt($(document).width());
-    elem.setAttribute('width', width);
+    elem.setAttribute('width', width-16);
     if (width > 500) {
-      elem.setAttribute('data-tweet-limit', 5);
+      elem.setAttribute('data-tweet-limit', 8);
     }
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   })

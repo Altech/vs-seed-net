@@ -1,4 +1,5 @@
 @import "constants";
+@import "common-parts";
 
 .mechas {
   .card {
@@ -9,6 +10,7 @@
   @media (max-width: $sp-max-width) {
     .card {
       background-size: 387px 198px;
+      min-height: 198px;
       .mecha {
         margin-top: 8px;
         margin-bottom: 8px;

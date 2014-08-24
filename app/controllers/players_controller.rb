@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 class PlayersController < ApplicationController
+  def index
+    @players=  Player.all
+  end
+
   def show
     @player = Player.find_by_name(params[:id]) or raise ActiveRecord::RecordNotFound
     videos = @player.videos.select(&:first_game?)

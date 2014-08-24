@@ -1,0 +1,18 @@
+.cards
+  - @players.each do |player|
+    .card-container
+      .with-half-transparent
+        .card style="background-image: url('/assets/pilot_#{player.pilot.try(:name)}.png')"
+          .title-part
+            h2
+              a href=player_path(player)
+                == player.name
+            span.num-of-games （#{player.videos.size}）
+          .stats
+            dl
+              dt アカツキ（オオワシ）
+              dd ■■■■■■■■■■
+              dt ストライクフリーダム
+              dd ■■■■■
+              dt ムラサメ（虎）
+              dd ■■
