@@ -204,6 +204,6 @@ ja:
     pagination:
       first: "&laquo;"
       last: "&raquo;"
-      previous: "&lsaquo;"
-      next: "&rsaquo;"
+      previous: "◁"
+      next: "▷"
       truncate: "..."

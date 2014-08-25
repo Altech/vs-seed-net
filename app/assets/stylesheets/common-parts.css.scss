@@ -1,10 +1,17 @@
 @import "constants";
+@import "utilities";
 
 // Navigation Box
 .nav-box {
   background-color: #F0F0F0;
   border-top: 1px solid #DCDCDC;
   border-bottom: 1px solid #DCDCDC;
+  text-align: center;
+  font-size: $sp-data-title-font-size;
+  color: $nav-invalid-color;
+  nav.pagination {
+    display: inline;
+  }
 }
 
 // Card
@@ -48,6 +55,120 @@
     h2 {
       font-size: $pc-card-title-font-size;
       margin-bottom: 3px;
+    }
+  }
+}
+
+// Thumbnails
+.thumbnails {
+  box-sizing: border-box;
+  width: 100%;
+  
+  .thumbnail-container {
+    float: left;
+    box-sizing: border-box;
+
+    .thumbnail {
+      position: relative;
+      img.capture {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid #ccc;
+      }
+      .vol-of-event {
+        background-image: url('/assets/bg_for_volume.png');
+        background-position: bottom right;
+        background-size: contain;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+      }
+      .win-or-lose {
+        z-index: 5;
+        display: inline;
+        position: absolute;
+        top: 54%;
+        left: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: $sp-max-width) {
+  .thumbnails {
+    padding-left: $sp-show-padding;
+    padding-right: $sp-show-padding;
+    .thumbnail-container {
+      width: 100%;
+      padding-bottom: $sp-show-padding;
+      .vol-of-event {
+        padding-right: 10px;
+        font-size: $sp-data-title-font-size;
+      }
+      .win-or-lose {
+        $icon-win-width: 48px;
+        margin-left: -$icon-win-width/2;
+        img {
+          width: $icon-win-width;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $pc-min-width) {
+  $thumbnails-interval: 14px;
+  .thumbnails {
+    padding-left: $pc-show-padding - $thumbnails-interval;
+    padding-right: $pc-show-padding - $thumbnails-interval;
+    .thumbnail-container {
+      width: 25%;
+      padding: $thumbnails-interval;
+      .vol-of-event {
+        padding-right: 10px;
+        font-size: $pc-card-title-font-size;
+      }
+      .win-or-lose {
+        $icon-win-width: 36px;
+        margin-left: -$icon-win-width/2;
+        img {
+          width: $icon-win-width;
+        }
+      }
+    }
+  }
+}
+
+.data-title {
+  text-align: center;
+  h1 {
+    color: white;
+    background-color: black;
+    display: inline-block;
+  }
+}
+
+@media (min-width: $pc-min-width) {
+  .data-title {
+    h1 {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      padding: 4px 16px;
+      font-size: $pc-data-title-font-size;
+      box-shadow: 3px 2px 3px rgba(0,0,0,0.4);
+    }
+  }
+}
+
+@media (max-width: $sp-max-width) {
+  .data-title {
+    h1 {
+      margin-top: 30px;
+      margin-bottom: 36px;
+      padding: 4px 16px;
+      font-size: $sp-data-title-font-size;
     }
   }
 }

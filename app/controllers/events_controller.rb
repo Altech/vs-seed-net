@@ -7,11 +7,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_date params[:id]
     @games = @event.games
+    @games_paginated = @games.page(params[:page]).per(20).order(:id)
     @game_center = @event.game_center
-
-    if request.mobile? or request.smart_phone?
-      @games = @games.page(params[:page]).per(20).order(:id)
-    end
   end
 
   before_action :check_logined, only: %i[edit update]

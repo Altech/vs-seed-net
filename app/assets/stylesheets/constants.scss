@@ -2,6 +2,8 @@
 $pc-min-width: 881px;
 $sp-max-width: 880px;
 $navbar-height: 58px;
+$pc-show-padding: 50px;
+$sp-show-padding: 16px;
 
 // Color
 $text-color: black;
@@ -11,11 +13,14 @@ $link-color: #0433FF;
 //$border-gray-color: #AAA;
 $pc-card-border-color: #B4B4B4;
 $sp-card-border-color: #D4D4D4;
+$nav-invalid-color: #333;
 
 // Font
 $base-font: "ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro", 'メイリオ',Meiryo,'ＭＳ Ｐゴシック','Roboto', sans-serif;
 $pc-card-title-font-size: 32px;
 $sp-card-title-font-size: 20pt;
+$pc-data-title-font-size: 24pt;
+$sp-data-title-font-size: 28pt;
 $pc-text-font-size: 13pt;
 $sp-text-font-size: 14px;
 

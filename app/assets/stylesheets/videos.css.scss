@@ -1,4 +1,4 @@
-@import "bootstrap/variables";
+/* @import "bootstrap/variables"; */
 .videos {
   .title {
     font-size: 18pt;
@@ -223,16 +223,16 @@
   }
 }
 
-.thumbnail-container {
-  position: absolute;
-  right: 24px;
-  bottom: 20px;
-  font-size: 16pt;
-  opacity: 0.75;
-}
+/* .thumbnail-container { */
+/*   position: absolute; */
+/*   right: 24px; */
+/*   bottom: 20px; */
+/*   font-size: 16pt; */
+/*   opacity: 0.75; */
+/* } */
 
-@media (max-width: $screen-xs-max) {
-  .thumbnail-container {
-    font-size: 32pt;
-  }
-}
+/* @media (max-width: $screen-xs-max) { */
+/*   .thumbnail-container { */
+/*     font-size: 32pt; */
+/*   } */
+/* } */

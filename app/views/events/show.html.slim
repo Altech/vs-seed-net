@@ -1,33 +1,31 @@
-.contents-container.show
+.data-title
   h1
-    == @game_center.location
-    br.show-xs
-    | 対戦会
-  .participants
-    | 参加者：
-    - @event.players.each_with_index do |player,i|
-      == link_to (player.name_with_pilot || player.name), player_path(player), class: 'player-name'
-      == i+1 != @event.players.size ? "、" : nil
-  - if current_player and (current_player.admin? or current_player.participate?(@event))
-    .add-participants-link
-      == link_to '▶参加者を追加', edit_event_path(@event), class: 'no-decoration'
-  - elsif current_player and not current_player.participate?(@event)
-    .declare-as-a-participant
-      == form_for(EventParticipant.new) do |f|
-        == f.hidden_field :event_id, :value => @event.id
-        == f.hidden_field :player_id, :value => current_player.id
-        == f.submit '▶対戦会参加者として登録'
-  h2 #{@event.held_at.strftime("%Y年%m月%d日")}
-  - if request.mobile? or request.smart_phone?
-    .pagination
-      == paginate(@games)
-  #thumbnails
-    .row
-    - @games.each do |game|
-      .col-md-3.col-xs-12.col-sm-6.thumbnail-container
-        div
+    span.date #{@event.held_at.strftime("%Y年%m月%d日")}
+    span.location.pc-i ＠#{@game_center.location}
+
+.show-participants
+  .header 参加プレイヤー
+  .contents
+    == @event.players.map(&:name).join('、')
+
+.filter-by-selection
+  | ◆動画を絞る：
+  == select_tag 'foo', options_for_select(['全プレイヤー', 0] + @event.players.map{|p| [p.name,p.id]})
+
+.nav-box.sp
+  == '◁ ' if @games_paginated.first_page?
+  == paginate @games_paginated, without: [:first, :last], style: 'display: inline'
+  == ' ▷' if @games_paginated.last_page?
+
+/ [TODO] .thumbnail-container以下、ヘルパーに移す
+- [@games, @games_paginated].each_with_index do |games, i|
+  .thumbnails class="#{i == 0 ? 'pc' : 'sp'}"
+    - games.each do |game|
+      .thumbnail-container
+        .thumbnail
+          .win-or-lose
+            == image_tag "/assets/icon_win_#{game.video_A1.win? ? 'green' : 'red'}.png"
           a href=video_path(game.video_A1.id)
-            == image_tag game.thumbnail.url, class: 'video_thumbnail'
-  - if request.mobile? or request.smart_phone?
-    .pagination
-      == paginate(@games)
+            == image_tag game.thumbnail.url, class: 'capture'
+          .vol-of-event
+            == "Vol.#{"%03d" % (game.index_of_event+1)}"

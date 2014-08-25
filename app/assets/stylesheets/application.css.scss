@@ -44,6 +44,9 @@
       float: left;
       img {
         height: $navbar-height;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
     .space {
