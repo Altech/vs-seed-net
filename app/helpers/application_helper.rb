@@ -6,4 +6,8 @@ module ApplicationHelper
   def display_unless(boolean, default = 'inline')
     "display: #{boolean ? 'none' : default};"
   end
+
+  def _selected_if_controller(controller)
+    params[:controller] == controller.to_s ? '_selected' : ''
+  end
 end

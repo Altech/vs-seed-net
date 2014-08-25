@@ -19,17 +19,17 @@ html
       ul.menues
         .sp.space _
         a.sp href="/"
-          li#home-button class=activate_if_controller(:top)
-            img src="/assets/sp_nav_home.png"
+          li#home-button
+            img src="/assets/sp_nav_home#{_selected_if_controller(:top)}.png"
         a href=events_path      
-          li#events-button class=activate_if_controller(:events)
-            img.switch src="/assets/sp_nav_events.png"
+          li#events-button
+            img.switch src="/assets/sp_nav_events#{_selected_if_controller(:events)}.png"
         a href=mechas_path
-          li#mechas-button class=activate_if_controller(:mechas)
-            img.switch src="/assets/sp_nav_mechas.png"
+          li#mechas-button
+            img.switch src="/assets/sp_nav_mechas#{_selected_if_controller(:mechas)}.png"
         a href=players_path
-          li#players-button class=activate_if_controller(:players)
-            img.switch src="/assets/sp_nav_players.png"
+          li#players-button
+            img.switch src="/assets/sp_nav_players#{_selected_if_controller(:players)}.png"
         .pc.space _
 
     .contents class=params[:controller]
