@@ -5,30 +5,11 @@
 
 #player
 
-.video-nav
-  == link_to_previous_video_if_exists @video
-    img src="/assets/video_nav_prev#{_invalid_unless(@video.previous_video(@context))}.png"
-  == link_to_partners_video_if_exists @video
-    img src="/assets/video_nav_exchange#{_invalid_unless(@video.partners_video)}.png"
-  == link_to_next_video_if_exists @video
-    img src="/assets/video_nav_next#{_invalid_unless(@video.next_video(@context))}.png"
+== render partial: 'video_nav',  locals: {video: @video}
 
-dl.video-info
-  dt 視点
-  dd
-    span.contents
-      == @video.player ? link_to(@video.player.name, player_path(@video.player),   class: 'black') : ''
-      == @video.mecha  ? "（" + link_to(@video.mecha.full_name, mecha_path(@video.mecha), class: 'black') + "）": ''
+== render partial: 'video_info', locals: {video: @video, type: :viewpoint}
+== render partial: 'video_info', locals: {video: @video.partners_video, type: :partner} if @video.partners_video
 
-- if @video.partners_video
-  - video = @video.partners_video
-  dl.video-info
-    dt 相方
-    dd 
-      span.contents
-        == video.player ? link_to(video.player.name, player_path(video.player),   class: 'black') : ''
-        == video.mecha  ? "（" + link_to(video.mecha.full_name, mecha_path(video.mecha), class: 'black') + "）": ''
-    
 javascript:
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -52,3 +33,5 @@ javascript:
   try{ onYouTubeIframeAPIReady() }catch(e){}
 
   var isPlayerModal = false
+
+  setVideoEditEvents()

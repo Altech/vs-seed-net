@@ -10,27 +10,9 @@
     .modal-body
       #player
     .modal-footer
-      dl.video-info
-        dt 視点
-        dd
-          span.contents
-            == @video.player ? link_to(@video.player.name, player_path(@video.player),   class: 'black') : ''
-            == @video.mecha  ? "（" + link_to(@video.mecha.full_name, mecha_path(@video.mecha), class: 'black') + "）": ''
-      - if @video.partners_video
-        dl.video-info
-          - video = @video.partners_video
-          dt 相方
-          dd 
-            span.contents
-              == video.player ? link_to(video.player.name, player_path(video.player),   class: 'black') : ''
-              == video.mecha  ? "（" + link_to(video.mecha.full_name, mecha_path(video.mecha), class: 'black') + "）": ''
-      .video-nav
-        == link_to_previous_video_if_exists @video
-          img.prev src="/assets/video_nav_prev#{_invalid_unless(@video.previous_video(@context))}.png" data-video-id="#{@video.previous_video(@context).try(:id) || ''}"
-        == link_to_partners_video_if_exists @video
-          img.exchange src="/assets/video_nav_exchange#{_invalid_unless(@video.partners_video)}.png" data-video-id="#{@video.partners_video.try(:id) || ''}"
-        == link_to_next_video_if_exists @video
-          img.next src="/assets/video_nav_next#{_invalid_unless(@video.next_video(@context))}.png" data-video-id="#{@video.next_video(@context).try(:id) || ''}"
+      == render partial: 'video_info', locals: {video: @video, type: :viewpoint}
+      == render partial: 'video_info', locals: {video: @video.partners_video, type: :partner} if @video.partners_video
+      == render partial: 'video_nav',  locals: {video: @video}
 
 javascript:
   var tag = document.createElement('script');
@@ -56,3 +38,4 @@ javascript:
   var isPlayerModal = true
 
   setVideoNavEvents()
+  setVideoEditEvents()

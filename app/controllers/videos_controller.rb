@@ -15,12 +15,12 @@ class VideosController < ApplicationController
   def update
     video = Video.find(params[:id])
     video_param = params[:video]
-    if video_param[:mecha_id].present?
-      update_attribute_of_continuous_videos(video, :mecha_id, video_param[:mecha_id])
-      render json: {result: 'success', contents: (view_context.link_to video.mecha.full_name, mecha_path(video.mecha), class: 'no-decoration')}
+    if video_param[:mecha_name].present?
+      update_attribute_of_continuous_videos(video, :mecha_id, MechaName.find_by_name(video_param[:mecha_name]).mecha_id)
+      render json: {result: 'success', contents: (view_context.link_to video.mecha.full_name, mecha_path(video.mecha), class: 'black')}
     elsif video_param[:player_id].present?
       update_attribute_of_continuous_videos(video, :player_id, video_param[:player_id])
-      render json: {result: 'success', contents: (view_context.link_to video.player.name, player_path(video.player), class: 'no-decoration')}
+      render json: {result: 'success', contents: (view_context.link_to video.player.name, player_path(video.player), class: 'black')}
     else
       render json: {result: 'failure'}
     end

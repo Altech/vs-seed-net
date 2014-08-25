@@ -1,0 +1,19 @@
+dl.video-info class=type
+  dt
+    .text #{type == :partner ? '相方' : '視点'}
+    button.edit style=display_if(video.player || video.mecha) 編集
+  dd
+    span.player
+      span.data
+        - if video.player
+          == link_to(video.player.name, player_path(video.player),   class: 'black')
+      span.select style=display_unless(video.mecha) 
+        == select_tag 'video[player_id]', options_for_select(video.game.event.players.map{|p| [p.name,p.id]}), include_blank: true, post_url: video_path(video)
+    span.mecha
+      == "（"
+      span.data
+        - if video.mecha
+          == link_to(video.mecha.full_name, mecha_path(video.mecha), class: 'black')
+      span.select style=display_unless(video.mecha)
+        == select_tag 'video[mecha_name]', grouped_options_for_select(Mecha.all.group_by(&:cost).map_values{|a| a.map(&:nickname)}), include_blank: true, post_url: video_path(video)
+      == "）"
