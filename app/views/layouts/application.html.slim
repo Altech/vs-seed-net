@@ -20,16 +20,16 @@ html
         .sp.space _
         a.sp href="/"
           li#home-button
-            img src="/assets/sp_nav_home#{_selected_if_controller(:top)}.png"
+            img src="/assets/sp_nav_home#{_selected_if(:top)}.png"
         a href=events_path      
           li#events-button
-            img.switch src="/assets/sp_nav_events#{_selected_if_controller(:events)}.png"
+            img.switch src="/assets/sp_nav_events#{_selected_if(:events)}.png"
         a href=mechas_path
           li#mechas-button
-            img.switch src="/assets/sp_nav_mechas#{_selected_if_controller(:mechas)}.png"
+            img.switch src="/assets/sp_nav_mechas#{_selected_if(:mechas)}.png"
         a href=players_path
           li#players-button
-            img.switch src="/assets/sp_nav_players#{_selected_if_controller(:players)}.png"
+            img.switch src="/assets/sp_nav_players#{_selected_if(:players)}.png"
         .pc.space _
 
     .contents class=params[:controller]

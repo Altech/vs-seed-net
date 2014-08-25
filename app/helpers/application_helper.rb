@@ -7,7 +7,17 @@ module ApplicationHelper
     "display: #{boolean ? 'none' : default};"
   end
 
-  def _selected_if_controller(controller)
-    params[:controller] == controller.to_s ? '_selected' : ''
+  def _selected_if(context)
+    if %w[top events mechas players].include? params[:controller]
+      params[:controller] == context.to_s ? '_selected' : ''
+    elsif @context == context.to_sym
+      '_selected'
+    else
+      ''
+    end
+  end
+
+  def _invalid_unless(obj)
+    obj ? '' : '_invalid'
   end
 end

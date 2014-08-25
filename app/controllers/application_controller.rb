@@ -3,8 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception, except: :complete
 
+  before_action :keep_context
+  before_action :logging_access
 
-  before_filter :logging_access
+  # @context = :events | :mechas | :players
+  def keep_context
+    session[:context] ||= :events
+    if %w[events mechas players].include? params[:controller]
+      session[:context] = params[:controller].to_sym
+    end
+    @context = session[:context].to_sym
+  end
 
   def logging_access
     return if not Rails.env.production?

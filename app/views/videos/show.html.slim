@@ -7,14 +7,11 @@
 
 .video-nav
   == link_to_previous_video_if_exists @video
-    img src="/assets/video_nav_prev.png"
-  - if @video.partners_video
-    a href=partners_video_path(@video)
-      img src="/assets/video_nav_exchange.png"
-  - else
-    img src="/assets/video_nav_exchange.png"
+    img src="/assets/video_nav_prev#{_invalid_unless(@video.previous_video(@context))}.png"
+  == link_to_partners_video_if_exists @video
+    img src="/assets/video_nav_exchange#{_invalid_unless(@video.partners_video)}.png"
   == link_to_next_video_if_exists @video
-    img src="/assets/video_nav_next.png"
+    img src="/assets/video_nav_next#{_invalid_unless(@video.next_video(@context))}.png"
 
 dl.video-info
   dt 視点

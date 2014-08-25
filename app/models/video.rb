@@ -14,17 +14,51 @@ class Video < ActiveRecord::Base
     end
   end
 
-  def next_video
-    next_game = game.next_game
-    if next_game and next_game.has_video_of?(seat)
-      next_game.video(seat)
+  def next_video(context = :events)
+    case context
+    when :events
+      next_game = game.next_game
+      if next_game and next_game.has_video_of?(seat)
+        next_game.video(seat)
+      end
+    when :mechas
+      return nil if mecha.nil?
+      video_ids = mecha.videos.sort.map(&:id)
+      next_index = video_ids.index(self.id) + 1
+      return nil if video_ids[next_index].nil?
+      Video.find(video_ids[next_index])
+    when :players
+      return nil if player.nil?
+      video_ids = player.videos.sort.map(&:id)
+      next_index = video_ids.index(self.id) + 1
+      return nil if video_ids[next_index].nil?
+      Video.find(video_ids[next_index])
+    else
+      raise "Invalid context(#{context})"
     end
   end
 
-  def previous_video
-    previous_game = game.previous_game
-    if previous_game and previous_game.has_video_of?(seat)
-      previous_game.video(seat)
+  def previous_video(context = :events)
+    case context
+    when :events
+      previous_game = game.previous_game
+      if previous_game and previous_game.has_video_of?(seat)
+        previous_game.video(seat)
+      end
+    when :mechas
+      return nil if mecha.nil?
+      video_ids = mecha.videos.sort.map(&:id)
+      previous_index = video_ids.index(self.id) - 1
+      return nil if previous_index < 0
+      Video.find(video_ids[previous_index])
+    when :players
+      return nil if player.nil?
+      video_ids = player.videos.sort.map(&:id)
+      previous_index = video_ids.index(self.id) - 1
+      return nil if previous_index < 0
+      Video.find(video_ids[previous_index])
+    else
+      raise "Invalid context(#{context})"
     end
   end
 
@@ -80,7 +114,7 @@ class Video < ActiveRecord::Base
   end
 
   def first_game?
-    previous_video ? previous_video.lose? : true
+    previous_video(:events) ? previous_video.lose? : true
   end
 
   # [TODO]
