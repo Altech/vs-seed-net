@@ -7,7 +7,7 @@
     background-position: right 10px;
     background-size: contain;
     
-    .stats {
+    .stats-summary {
       dl {
         margin-top: 10px;
         margin-bottom: 0px;
@@ -29,7 +29,7 @@
       padding-top: $sp-padding-for-nav-drop-shadow;
     }
     .card {
-      .stats {
+      .stats-summary {
         dl {
           dt {
             width: $max-width-of-mecha-name;
@@ -44,7 +44,7 @@
     .card {
       height: 160px;
       width: 462px;
-      .stats {
+      .stats-summary {
         dl {
           dt {
             width: $max-width-of-mecha-name;
@@ -53,5 +53,17 @@
       }
     }
   }
-  
+
+  .stats {
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    #basic-data {
+      height: 400px;
+      overflow: scroll;
+    }
+  }
+  @media (max-width: $sp-max-width) {
+    // Hide Pilot Image in Smart Phone
+    background-position: -9999px -9999px;
+  }
 }
