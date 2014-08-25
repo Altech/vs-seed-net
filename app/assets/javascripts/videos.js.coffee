@@ -8,9 +8,12 @@ $ ($) ->
         $('#video-modal').modal({show:true})
 
   stopIfHidden = ->
-    if !$('#video-modal').is(":visible") and window.player != undefined
-      window.player.stopVideo()
-    setTimeout(stopIfHidden , 300)
+    try 
+      if !$('#video-modal').is(":visible") and window.player?
+        window.player.stopVideo()
+    finally
+      setTimeout(stopIfHidden , 300)
+
   setTimeout(stopIfHidden , 300)
 
 window.setVideoNavEvents = ->
