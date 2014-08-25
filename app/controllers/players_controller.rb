@@ -11,6 +11,7 @@ class PlayersController < ApplicationController
     else
       @videos = @player.videos.select{|video| video.mecha_id == params[:filtering_id].to_i}.sort
     end
+    @stat = calc_stat(@player)
     render layout: false if ajax?
   end
 
@@ -53,6 +54,18 @@ class PlayersController < ApplicationController
   end
 
   private
+
+  def calc_stat(player)
+    videos = player.videos.select(&:first_game?)
+    player.videos
+      .select(&:first_game?)
+      .map(&:mecha)
+      .select{|o| !o.nil?}
+      .group_by(&:id)
+      .map{|id,mechas| [mechas.first.nickname, mechas.size]}
+      .sort_by(&:last)
+      .reverse
+  end
 
   def player_params
     params.require(:player).permit(:name,:password,:password_confirmation,:mail, :pilot_id)

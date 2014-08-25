@@ -11,7 +11,7 @@ class LogController < ApplicationController
   end
 
   def auth
-    player = Player.find_by_mail(params[:mail])
+    player = Player.find_by_name(params[:mail])
     if player and player.authenticate(params[:password])
       session[:player_id] = player.id
       redirect_to flash[:login_redirect_dest]

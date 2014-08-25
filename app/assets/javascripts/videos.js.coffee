@@ -34,11 +34,6 @@ window.onPlayerReady = (event) ->
   if ua.indexOf('iphone') == -1 and ua.indexOf('ipad') == -1 and ua.indexOf('android') == -1
     event.target.playVideo()
 
-## =========== Video Filtering ============
-$ ($) ->
-  $('.filter-by-selection select').change ->
-    $('#replaceable').load(window.location.pathname + "?ajax=true&filtering_id=" + $(this).val())
-
 ## ============ create or edit information of the video ============
 for str in ['player', 'mecha']
   ((str) ->      

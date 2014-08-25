@@ -28,43 +28,6 @@
 
 - unless ajax?
   javascript:
-    $(function () {
-        $('#chart').highcharts({
-            colors: ["#3366CC", "#DC3912", "#FF9900", "#109618", "#990099", "#0099C6", "#DD4477",
-  		"#66AA00", "#B82E2E"],
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            },
-            title: null,
-            tooltip: {
-        	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}',
-                        style: {
-                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                        }
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Browser share',
-                data: [
-                    ['アカツキ（オオワシ）',   45.0],
-                    ['ストライクフリーダム',       26.8],
-                    ['ムラサメ（虎）', 12.8],
-                    ['偵察型ジン',    8.5],
-                    ['ストライクルージュ',     6.2],
-                    ['その他',   0.7]
-                ]
-            }]
-        });
-    });
+    $(function(){
+      $('#chart').highcharts(generateChartData(#{raw @stat.to_json}))
+    })

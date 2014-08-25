@@ -10,6 +10,20 @@ class MechasController < ApplicationController
     else
       @videos = @mecha.videos.select{|video| video.partners_video.try(:mecha_id) and video.partners_video.mecha_id == params[:filtering_id].to_i}.sort
     end
+    @stat = calc_stat(@mecha)
     render layout: false if ajax?
+  end
+
+  private
+
+  def calc_stat(mecha)
+    mecha.videos
+      .select(&:first_game?)
+      .select{|video| video.partners_video.try(:mecha_id)}
+      .map{|video| video.partners_video.mecha}
+      .group_by(&:id)
+      .map{|id,mechas| [mechas.first.nickname, mechas.size]}
+      .sort_by(&:last)
+      .reverse
   end
 end
