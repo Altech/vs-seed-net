@@ -1,0 +1,17 @@
+- thumbnails_class ||= ''
+- games ||= nil
+- videos ||= nil
+- enum = games ? games : videos
+
+.thumbnails class=thumbnails_class
+  - enum.each do |e|
+    - game = games ? e : e.game
+    - video = games ? game.video_A1 : e
+    .thumbnail-container
+      .thumbnail
+        .win-or-lose
+          == image_tag "/assets/icon_win_#{game.video_A1.win? ? 'green' : 'red'}.png"
+        a href=video_path(video.id)
+          == image_tag game.thumbnail.url, class: 'capture'
+        .vol-of-event
+          == "Vol.#{"%03d" % (game.index_of_event+1)}"

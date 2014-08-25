@@ -55,4 +55,69 @@
       padding-right: 12px;
     }
   }
+
+  .data-title h1 {
+    @media (max-width: $sp-max-width) {
+      font-size: $sp-mecha-title-font-size;
+    }
+    @media (min-width: $pc-min-width) {
+      font-size: $pc-mecha-title-font-size;
+    }
+  }
+  
+  .stats {
+    background-color: white;
+    border-top: 1px solid $sp-card-border-color;
+    border-bottom: 1px solid $sp-card-border-color;
+    margin-bottom: 18px;
+    #basic-data {
+      h3 {
+        text-align: center;
+      }
+      img {
+        width: 50%;
+      }
+      .read-more {
+        text-align: right;
+      }
+    }
+  }
+  @media (max-width: $sp-max-width) {
+    .stats {
+      height: 230px;
+      #chart {
+        height: 230px;
+        margin: 0 auto;
+        max-width: 100%;
+      }
+    }
+    // To show 100% width graph with margined-border
+    .stats {
+      border: none;
+      margin-bottom: 0px;
+    }
+    .border-top-of-stats {
+      @include base-show-margin;
+      height: 1px;
+      background-color: $sp-card-border-color;
+    }
+    .border-bottom-of-stats {
+      @include base-show-margin;
+      height: 1px;
+      background-color: $sp-card-border-color;
+      margin-bottom: 18px;
+    }
+  }
+
+  @media (min-width: $pc-min-width) {
+    .stats {
+      margin-left: $pc-show-padding;
+      margin-right: $pc-show-padding;
+      min-height: 330px;
+      #chart {
+        width: 50%;
+        float: left;
+      }
+    }
+  }
 }

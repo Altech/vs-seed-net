@@ -88,18 +88,6 @@
     }
   }
 
-  .filter-by-selection {
-    @include base-show-margin;
-    @media (max-width: $sp-max-width) {
-      text-align: left;
-      margin-bottom: 14px;
-    }
-    @media (min-width: $pc-min-width) {
-      text-align: right;
-      margin-bottom: 4px;
-    }
-  }
-
   .nav-box {
     margin-bottom: $sp-show-padding;
   }

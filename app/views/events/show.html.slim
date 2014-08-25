@@ -14,18 +14,8 @@
 
 .nav-box.sp
   == '◁ ' if @games_paginated.first_page?
-  == paginate @games_paginated, without: [:first, :last], style: 'display: inline'
+  == paginate @games_paginated
   == ' ▷' if @games_paginated.last_page?
 
-/ [TODO] .thumbnail-container以下、ヘルパーに移す
 - [@games, @games_paginated].each_with_index do |games, i|
-  .thumbnails class="#{i == 0 ? 'pc' : 'sp'}"
-    - games.each do |game|
-      .thumbnail-container
-        .thumbnail
-          .win-or-lose
-            == image_tag "/assets/icon_win_#{game.video_A1.win? ? 'green' : 'red'}.png"
-          a href=video_path(game.video_A1.id)
-            == image_tag game.thumbnail.url, class: 'capture'
-          .vol-of-event
-            == "Vol.#{"%03d" % (game.index_of_event+1)}"
+  == render partial: 'shared/thumbnails', locals: {games: games, thumbnails_class: (i == 0 ? 'pc' : 'sp')}
