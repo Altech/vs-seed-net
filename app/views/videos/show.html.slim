@@ -1,81 +1,37 @@
-h1.title
-  a href=event_path(@event) class="no-decoration"
-    == @event.held_at.strftime("%Y年%m月%d日") 
-    br.show-xs
-    | #{@event.game_center.location}
-  |  Vol.#{@game.index_of_event + 1}
+.data-title
+  h1
+    == @event.held_at.strftime("%Y年%m月%d日")
+    == " Vol.#{@game.index_of_event + 1}"
 
-.centering
-  .event-video-nav.previous-video
-    == link_to_previous_video_if_exists @video
-      i.fa.fa-arrow-circle-o-left
-  .player-and-comment
-    #player-container
-      #comment-region
-        #player
-  .event-video-nav.next-video
-    == link_to_next_video_if_exists @video
-      i.fa.fa-arrow-circle-o-right
-.control-panel.text-centering
-  ul
-    li.previous-video
-      == link_to_previous_video_if_exists @video
-        i.fa.fa-arrow-circle-o-left
-    - if @video.partners_video
-      li.partners-video
-        a href=partners_video_path(@video)
-          - if @video.seat == :a1
-            i.fa.fa-arrow-circle-o-down
-          - else
-            i.fa.fa-arrow-circle-o-up
-    span.for-popover-font-size      
-      li.link-color.auto-transition
-        - if cookies['auto-transition'] == 'true'
-          i.fa.fa-refresh
-        - else
-          i.fa.fa-dot-circle-o
-    - if current_player      
-      li.link-color.favorite-video.enabled data-video-id=@video.id
-        - if current_player.favorite?(@video)
-          i.fa.fa-star
-        - else
-          i.fa.fa-star-o
-    - else
-      span.for-popover-font-size
-        li.favorite-video.disabled
-          i.fa.fa-star-o
-    li.next-video
-      == link_to_next_video_if_exists @video
-        i.fa.fa-arrow-circle-o-right
+#player
 
-table.table.table-hover.info
-  thead
-    tr
-      td.column_name 動画情報
-      td.column_contents
-  tbody
-    tr.player
-      td プレイヤー
-      td
-        span.contents
-          == @video.player ? link_to(@video.player.name, player_path(@video.player), class: 'no-decoration') : ''
-        == form_tag video_path(@video), style: display_unless(@video.player) do
-          == select_tag 'video[player_id]', options_for_select(@event.players.map{|p| [p.name,p.id]}), include_blank: true
-          button.save 保存
-        button.edit style=display_if(@video.player&&player_info_editable(@video)) 編集
-    tr.mecha
-      td 機体
-      td
-        span.contents
-          == @video.mecha ? (link_to @video.mecha.full_name, mecha_path(@video.mecha), class: 'no-decoration') : ''
-        == form_tag video_path(@video), style: display_unless(@video.mecha) do
-          == select_tag 'video[mecha_id]', options_for_select(Mecha.all.map{|m| ["#{m.cost} - #{m.nickname}",m.id]}), include_blank: true
-          button.save 保存
-        button.edit style=display_if(@video.mecha&&mecha_info_editable(@video)) 編集
+.video-nav
+  == link_to_previous_video_if_exists @video
+    img src="/assets/video_nav_prev.png"
+  - if @video.partners_video
+    a href=partners_video_path(@video)
+      img src="/assets/video_nav_exchange.png"
+  - else
+    img src="/assets/video_nav_exchange.png"
+  == link_to_next_video_if_exists @video
+    img src="/assets/video_nav_next.png"
 
-- if current_player and @favorite
-  == render partial: 'favorites/memo_form'
+dl.video-info
+  dt 視点
+  dd
+    span.contents
+      == @video.player ? link_to(@video.player.name, player_path(@video.player),   class: 'no-decoration') : ''
+      == @video.mecha  ? "（" + link_to(@video.mecha.full_name, mecha_path(@video.mecha), class: 'no-decoration') + "）": ''
 
+- if @video.partners_video
+  - video = @video.partners_video
+  dl.video-info
+    dt 相方
+    dd 
+      span.contents
+        == video.player ? link_to(video.player.name, player_path(video.player),   class: 'no-decoration') : ''
+        == video.mecha  ? "（" + link_to(video.mecha.full_name, mecha_path(video.mecha), class: 'no-decoration') + "）": ''
+    
 javascript:
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
@@ -84,9 +40,10 @@ javascript:
 
   var player;
   function onYouTubeIframeAPIReady() {
+    var windowWidth = parseInt($(window).width());
     player = new YT.Player('player', {
-      height: '300',
-      width: '400',
+      width: windowWidth,
+      height: (windowWidth/16.0)*9,
       videoId: "#{@video.youtube_video_id}"
     });
   }

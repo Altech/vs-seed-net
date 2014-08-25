@@ -1,227 +1,277 @@
-/* @import "bootstrap/variables"; */
+@import "utilities";
+
 .videos {
-  .title {
-    font-size: 18pt;
-    bottom: 20px;
-    z-index: 10;
+  #player {
+    margin-bottom: 20px;
+  }
+
+  .video-nav {
+    border: 1px solid black;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-
-  #player-container {
-    text-align: center;
-    padding-top: 10px;
-    width: 420px;
-    height: 320px;
-    background-color: black;
-    margin-left:auto;
-    margin-right:auto;
-    #player {
-      width: 400px;
-      height: 300px;
+    width: 262px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    img {
+      height: 36px;
+      margin: 10px 12px;
     }
   }
 
-  .favorite-video.enabled {
-    cursor: pointer;
-  }
-
-  .favorite-video.disabled {
-    color: #5c5c5c;
-  }
-
-  #alert-message {
-    color: red;
-    margin-top: 30px;
-    width: 420px;
-    display: none;
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .control-panel {
-    clear: both;
-    padding-top: 10px;
-    ul {
-      display: inline;
-      padding: 5px;
-      border-radius: 10px;
-      border: 1px solid #666;
-      font-size: 40px;
-      li {
-	display: inline;
-	i {
-	  width: 40px;
-	  height: 40px;
-	  margin: 3px;
-	}
-      }
-      .for-popover-font-size {
-	font-size: 14px;
-	li {font-size: 40px;}
-      }
+  .video-info {
+    @include base-show-margin;
+    dt {
+      font-weight: bold;
+      border-bottom: 1px solid black;
+      padding: 2px;
+      padding-left: 4px;
+    }
+    dd {
+      text-indent: 1em;
+      margin-left: 0;
+      border-bottom: 1px solid black;
+      padding: 2px;
+      padding-left: 4px;
     }
   }
 
-  .previous-video {
-    color: #5c5c5c;
-  }
-  .next-video {
-    color: #5c5c5c;
-  }
-
-  .centering {
-    margin-left:auto;
-    margin-right:auto;
-    width: 820px;
-    .player-and-comment {
-      float: left;
-      width: 420px;
+  .data-title h1 {
+    @media (max-width: $sp-max-width) {
+      font-size: $sp-mecha-title-font-size;
+      margin-top: 26px;
+      margin-bottom: 21px;
     }
-    .previous-video {
-      float:left;
-      text-align: left;
-    }
-    .next-video {
-      float:left;
-      text-align: right;
+    @media (min-width: $pc-min-width) {
+      /* font-size: $pc-mecha-title-font-size; */
     }
   }
 
-  @media (min-width: 1064px) {
-    .centering {
-      .previous-video {
-	font-size: 130pt;
-	padding-top: 44px;
-	width: 23%;
-      }
-      .next-video {
-	font-size: 130pt;
-	padding-top: 44px;
-	width: 23%;
-      }
-    }
-    .control-panel {
-      .previous-video { display: none; }
-      .next-video { display: none; }
-    }
-  }
-  @media (min-width: 780px) AND (max-width: 1064px) {
-    .centering {
-      .previous-video {
-	font-size: 100pt;
-	padding-top: 60px;
-	width: 17%;
-      }
-      .next-video {
-	font-size: 100pt;
-	padding-top: 60px;
-	width: 17%;
-      }
-    }
-    .control-panel {
-      .previous-video { display: none; }
-      .next-video { display: none; }
-    }
-  }
-  @media (min-width: 630px) and (max-width: 780px) {
-    .centering {
-      width: 620px;
-      .previous-video {
-	font-size: 80pt;
-	padding-top: 60px;
-	width: 100px;
-      }
-      .next-video {
-	font-size: 80pt;
-	padding-top: 60px;
-	width: 100px;
-      }
-    }
-    .control-panel {
-      .previous-video { display: none; }
-      .next-video { display: none; }
-    }
-  }
-  @media (max-width: 630px) {
-    .player-and-comment {
-      width: 420px;
-    }
-    .control-panel {
-      .previous-video { display: inline; }
-      .next-video { display: inline; }
-    }
-    .centering {
-      width: 420px;
-      .previous-video { display: none; }
-      .next-video { display: none; }
-    }
-  }
-
-  table tr:hover {
-    background-color: none;
-  }
-
-  table.info {
-    color: #eee;
-    width: 420px;
-    float: left;
-    margin-top: 25px;
-    margin-right:80px;
-
-    td.column_name {
-      width: 90px;
-    }
-    button.edit {
-      float: right;
-      color: #555;
-      text-decoration: underline;
-      border: none;
-      background: none;
-    }
-    button.save {
-      color: #555;
-      margin-left: 7px;
-    }
-    form {
-      display: inline;
-    }
-  }
-
-  table.favorite-memo {
-    color: #eee;
-    width: 420px;
-    margin-top: 25px;
-
-    button.edit {
-      float: right;
-      color: #555;
-      text-decoration: underline;
-      border: none;
-      background: none;
-    }
-    button.save {
-      color: #555;
-      margin-left: 7px;
-    }
-    form {
-      display: inline;
-      background-color: #666;
-      color: white;
-      border: none;
-      textarea {
-	width: 353px;
-	height: 59px;
-      }
-    }
-  }
-  
-  @media (max-width: 680px){
-    table.info {
-      margin-right: auto;
-      margin-left: auto;
-    }
-  }
 }
+
+/* /\* @import "bootstrap/variables"; *\/ */
+/* .videos { */
+/*   .title { */
+/*     font-size: 18pt; */
+/*     bottom: 20px; */
+/*     z-index: 10; */
+/*     text-align: center; */
+/*     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); } */
+
+/*   #player-container { */
+/*     text-align: center; */
+/*     padding-top: 10px; */
+/*     width: 420px; */
+/*     height: 320px; */
+/*     background-color: black; */
+/*     margin-left:auto; */
+/*     margin-right:auto; */
+/*     #player { */
+/*       width: 400px; */
+/*       height: 300px; */
+/*     } */
+/*   } */
+
+/*   .favorite-video.enabled { */
+/*     cursor: pointer; */
+/*   } */
+
+/*   .favorite-video.disabled { */
+/*     color: #5c5c5c; */
+/*   } */
+
+/*   #alert-message { */
+/*     color: red; */
+/*     margin-top: 30px; */
+/*     width: 420px; */
+/*     display: none; */
+/*     margin-left:auto; */
+/*     margin-right:auto; */
+/*   } */
+
+/*   .control-panel { */
+/*     clear: both; */
+/*     padding-top: 10px; */
+/*     ul { */
+/*       display: inline; */
+/*       padding: 5px; */
+/*       border-radius: 10px; */
+/*       border: 1px solid #666; */
+/*       font-size: 40px; */
+/*       li { */
+/* 	display: inline; */
+/* 	i { */
+/* 	  width: 40px; */
+/* 	  height: 40px; */
+/* 	  margin: 3px; */
+/* 	} */
+/*       } */
+/*       .for-popover-font-size { */
+/* 	font-size: 14px; */
+/* 	li {font-size: 40px;} */
+/*       } */
+/*     } */
+/*   } */
+
+/*   .previous-video { */
+/*     color: #5c5c5c; */
+/*   } */
+/*   .next-video { */
+/*     color: #5c5c5c; */
+/*   } */
+
+/*   .centering { */
+/*     margin-left:auto; */
+/*     margin-right:auto; */
+/*     width: 820px; */
+/*     .player-and-comment { */
+/*       float: left; */
+/*       width: 420px; */
+/*     } */
+/*     .previous-video { */
+/*       float:left; */
+/*       text-align: left; */
+/*     } */
+/*     .next-video { */
+/*       float:left; */
+/*       text-align: right; */
+/*     } */
+/*   } */
+
+/*   @media (min-width: 1064px) { */
+/*     .centering { */
+/*       .previous-video { */
+/* 	font-size: 130pt; */
+/* 	padding-top: 44px; */
+/* 	width: 23%; */
+/*       } */
+/*       .next-video { */
+/* 	font-size: 130pt; */
+/* 	padding-top: 44px; */
+/* 	width: 23%; */
+/*       } */
+/*     } */
+/*     .control-panel { */
+/*       .previous-video { display: none; } */
+/*       .next-video { display: none; } */
+/*     } */
+/*   } */
+/*   @media (min-width: 780px) AND (max-width: 1064px) { */
+/*     .centering { */
+/*       .previous-video { */
+/* 	font-size: 100pt; */
+/* 	padding-top: 60px; */
+/* 	width: 17%; */
+/*       } */
+/*       .next-video { */
+/* 	font-size: 100pt; */
+/* 	padding-top: 60px; */
+/* 	width: 17%; */
+/*       } */
+/*     } */
+/*     .control-panel { */
+/*       .previous-video { display: none; } */
+/*       .next-video { display: none; } */
+/*     } */
+/*   } */
+/*   @media (min-width: 630px) and (max-width: 780px) { */
+/*     .centering { */
+/*       width: 620px; */
+/*       .previous-video { */
+/* 	font-size: 80pt; */
+/* 	padding-top: 60px; */
+/* 	width: 100px; */
+/*       } */
+/*       .next-video { */
+/* 	font-size: 80pt; */
+/* 	padding-top: 60px; */
+/* 	width: 100px; */
+/*       } */
+/*     } */
+/*     .control-panel { */
+/*       .previous-video { display: none; } */
+/*       .next-video { display: none; } */
+/*     } */
+/*   } */
+/*   @media (max-width: 630px) { */
+/*     .player-and-comment { */
+/*       width: 420px; */
+/*     } */
+/*     .control-panel { */
+/*       .previous-video { display: inline; } */
+/*       .next-video { display: inline; } */
+/*     } */
+/*     .centering { */
+/*       width: 420px; */
+/*       .previous-video { display: none; } */
+/*       .next-video { display: none; } */
+/*     } */
+/*   } */
+
+/*   table tr:hover { */
+/*     background-color: none; */
+/*   } */
+
+/*   table.info { */
+/*     color: #eee; */
+/*     width: 420px; */
+/*     float: left; */
+/*     margin-top: 25px; */
+/*     margin-right:80px; */
+
+/*     td.column_name { */
+/*       width: 90px; */
+/*     } */
+/*     button.edit { */
+/*       float: right; */
+/*       color: #555; */
+/*       text-decoration: underline; */
+/*       border: none; */
+/*       background: none; */
+/*     } */
+/*     button.save { */
+/*       color: #555; */
+/*       margin-left: 7px; */
+/*     } */
+/*     form { */
+/*       display: inline; */
+/*     } */
+/*   } */
+
+/*   table.favorite-memo { */
+/*     color: #eee; */
+/*     width: 420px; */
+/*     margin-top: 25px; */
+
+/*     button.edit { */
+/*       float: right; */
+/*       color: #555; */
+/*       text-decoration: underline; */
+/*       border: none; */
+/*       background: none; */
+/*     } */
+/*     button.save { */
+/*       color: #555; */
+/*       margin-left: 7px; */
+/*     } */
+/*     form { */
+/*       display: inline; */
+/*       background-color: #666; */
+/*       color: white; */
+/*       border: none; */
+/*       textarea { */
+/* 	width: 353px; */
+/* 	height: 59px; */
+/*       } */
+/*     } */
+/*   } */
+  
+/*   @media (max-width: 680px){ */
+/*     table.info { */
+/*       margin-right: auto; */
+/*       margin-left: auto; */
+/*     } */
+/*   } */
+/* } */
 
 /* .thumbnail-container { */
 /*   position: absolute; */

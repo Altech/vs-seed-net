@@ -54,6 +54,13 @@
     }
   }
 
+  .data-title h1 {
+    @media (max-width: $sp-max-width) {
+      margin-top: 26px;
+      margin-bottom: 21px;
+    }
+  }
+
   .stats {
     background-position: right bottom;
     background-repeat: no-repeat;
