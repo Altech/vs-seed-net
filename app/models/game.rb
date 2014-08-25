@@ -36,6 +36,13 @@ class Game < ActiveRecord::Base
     !self["#{seat}_video_id"].nil?
   end
 
+  def include_player?(player_or_id)
+    player = Player.find(player_or_id) unless Player === player_or_id
+    return true if video_A1 and video_A1.player and video_A1.player == player
+    return true if video_A2 and video_A2.player and video_A2.player == player
+    return false
+  end
+
   def next_game
     if event_id
       Game.where(index_of_event: index_of_event+1, event_id: event_id).first

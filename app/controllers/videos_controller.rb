@@ -6,7 +6,7 @@ class VideosController < ApplicationController
 
     @favorite = current_player.favorite(@video) if current_player
 
-    if params[:ajax] == 'true'
+    if ajax?
       render partial: 'show_modal', layout: false and return
     end
   end

@@ -1,68 +1,70 @@
-.data-title
-  h1
-    == @player.name
+- unless ajax?
+  .data-title
+    h1
+      == @player.name
+  
+  .border-top-of-stats.sp
+  .stats style="background-image: url('/assets/pilot_#{@player.pilot.try(:name)}.png')"
+    #chart
+    #basic-data.pc
+      h3 参加した対戦
+      - if @player.events.size > 0
+        ul
+          - @player.events.each do |event|
+            li
+              a href=event_path(event)
+                == "#{event.held_at.strftime('%Y年%m月%d日')}（#{event.game_center.location}）"
+      - else
+        | NO DATA
+    div style="clear: both"
+  .border-bottom-of-stats.sp
+  
+  .filter-by-selection style='clear: both'
+    | ◆動画を絞る：
+    == select_tag 'foo', options_for_select([['全ての機体', 0]] + @player.videos.map(&:mecha).uniq.select{|i| !i.nil?}.sort.map{|mecha| [mecha.nickname, mecha.id]})
 
-.border-top-of-stats.sp
-.stats style="background-image: url('/assets/pilot_#{@player.pilot.try(:name)}.png')"
-  #chart
-  #basic-data.pc
-    h3 参加した対戦
-    - if @player.events.size > 0
-      ul
-        - @player.events.each do |event|
-          li
-            a href=event_path(event)
-              == "#{event.held_at.strftime('%Y年%m月%d日')}（#{event.game_center.location}）"
-    - else
-      | NO DATA
-  div style="clear: both"
-.border-bottom-of-stats.sp
+#replaceable
+  == render partial: 'shared/thumbnails', locals: {videos: @videos}
 
-.filter-by-selection style='clear: both'
-  | ◆動画を絞る：
-  == select_tag 'foo', options_for_select(['全ての機体', 0] + Player.all.map{|p| [p.name,p.id]})
-
-== render partial: 'shared/thumbnails', locals: {videos: @player.videos.sort}
-
-
-javascript:
-  $(function () {
-      $('#chart').highcharts({
-          colors: ["#3366CC", "#DC3912", "#FF9900", "#109618", "#990099", "#0099C6", "#DD4477",
-		"#66AA00", "#B82E2E"],
-          chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false
-          },
-          title: null,
-          tooltip: {
-      	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-          },
-          plotOptions: {
-              pie: {
-                  allowPointSelect: true,
-                  cursor: 'pointer',
-                  dataLabels: {
-                      enabled: true,
-                      format: '{point.name}',
-                      style: {
-                          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                      }
-                  }
-              }
-          },
-          series: [{
-              type: 'pie',
-              name: 'Browser share',
-              data: [
-                  ['アカツキ（オオワシ）',   45.0],
-                  ['ストライクフリーダム',       26.8],
-                  ['ムラサメ（虎）', 12.8],
-                  ['偵察型ジン',    8.5],
-                  ['ストライクルージュ',     6.2],
-                  ['その他',   0.7]
-              ]
-          }]
-      });
-  });
+- unless ajax?
+  javascript:
+    $(function () {
+        $('#chart').highcharts({
+            colors: ["#3366CC", "#DC3912", "#FF9900", "#109618", "#990099", "#0099C6", "#DD4477",
+  		"#66AA00", "#B82E2E"],
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: null,
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: [
+                    ['アカツキ（オオワシ）',   45.0],
+                    ['ストライクフリーダム',       26.8],
+                    ['ムラサメ（虎）', 12.8],
+                    ['偵察型ジン',    8.5],
+                    ['ストライクルージュ',     6.2],
+                    ['その他',   0.7]
+                ]
+            }]
+        });
+    });

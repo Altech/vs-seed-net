@@ -6,9 +6,15 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_date params[:id]
-    @games = @event.games
-    @games_paginated = @games.page(params[:page]).per(20).order(:id)
+    if params[:filtering_id].to_i == 0
+      @games = @event.games
+    else
+      @games = @event.games.select{|game| game.include_player?(params[:filtering_id].to_i)}
+      @games = Kaminari.paginate_array(@games)
+    end
+    @games_paginated = @games.page(params[:page]).per(20)
     @game_center = @event.game_center
+    render layout: false if ajax?
   end
 
   before_action :check_logined, only: %i[edit update]

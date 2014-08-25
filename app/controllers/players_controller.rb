@@ -6,13 +6,12 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find_by_name(params[:id]) or raise ActiveRecord::RecordNotFound
-    videos = @player.videos.select(&:first_game?)
-    if videos.size > 0
-      @mechas_ratio =
-        [['機体','選択率']] +
-        videos.map(&:mecha).select{|o| !o.nil?}.group_by(&:id).map{|id,mechas| [mechas.first.nickname, mechas.size]}.sort_by(&:last).reverse
-      @winning_percentage = videos.select{|v| v.win_or_lose == true}.size * 100 / videos.size
+    if params[:filtering_id].to_i == 0
+      @videos = @player.videos.sort
+    else
+      @videos = @player.videos.select{|video| video.mecha_id == params[:filtering_id].to_i}.sort
     end
+    render layout: false if ajax?
   end
 
   def new

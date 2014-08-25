@@ -20,4 +20,8 @@ module ApplicationHelper
   def _invalid_unless(obj)
     obj ? '' : '_invalid'
   end
+
+  def ajax?
+    params['ajax'] == 'true'
+  end
 end

@@ -1,5 +1,5 @@
 ## =========== Video Modal ============
-$ ($) ->
+window.setThumbanilEvent = ->
   $(".thumbnail").click (e) ->
     if parseInt($(window).width()) > spMaxWidth
       e.preventDefault()
@@ -7,6 +7,7 @@ $ ($) ->
       $('#video-modal').load ('/videos/'+ id + '?ajax=true'), (result) ->
         $('#video-modal').modal({show:true})
 
+$ ($) ->
   stopIfHidden = ->
     try 
       if !$('#video-modal').is(":visible") and window.player?
@@ -32,6 +33,11 @@ window.onPlayerReady = (event) ->
   ua = window.navigator.userAgent.toLowerCase()
   if ua.indexOf('iphone') == -1 and ua.indexOf('ipad') == -1 and ua.indexOf('android') == -1
     event.target.playVideo()
+
+## =========== Video Filtering ============
+$ ($) ->
+  $('.filter-by-selection select').change ->
+    $('#replaceable').load(window.location.pathname + "?ajax=true&filtering_id=" + $(this).val())
 
 ## ============ create or edit information of the video ============
 for str in ['player', 'mecha']

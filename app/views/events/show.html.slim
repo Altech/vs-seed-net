@@ -1,21 +1,24 @@
-.data-title
-  h1
-    span.date #{@event.held_at.strftime("%Y年%m月%d日")}
-    span.location.pc-i ＠#{@game_center.location}
+- unless ajax?
+  .data-title
+    h1
+      span.date #{@event.held_at.strftime("%Y年%m月%d日")}
+      span.location.pc-i ＠#{@game_center.location}
+  
+  .show-participants
+    .header 参加プレイヤー
+    .contents
+      == @event.players.map(&:name).join('、')
+  
+  .filter-by-selection
+    | ◆動画を絞る：
+    == select_tag 'foo', options_for_select([['全プレイヤー', 0]] + @event.players.map{|p| [p.name,p.id]})
 
-.show-participants
-  .header 参加プレイヤー
-  .contents
-    == @event.players.map(&:name).join('、')
-
-.filter-by-selection
-  | ◆動画を絞る：
-  == select_tag 'foo', options_for_select(['全プレイヤー', 0] + @event.players.map{|p| [p.name,p.id]})
-
-.nav-box.sp
-  == '◁ ' if @games_paginated.first_page?
-  == paginate @games_paginated
-  == ' ▷' if @games_paginated.last_page?
-
-- [@games, @games_paginated].each_with_index do |games, i|
-  == render partial: 'shared/thumbnails', locals: {games: games, thumbnails_class: (i == 0 ? 'pc' : 'sp')}
+#replaceable
+  - if @games_paginated.total_pages > 1
+    .nav-box.sp
+      == '◁ ' if @games_paginated.first_page?
+      == paginate @games_paginated
+      == ' ▷' if @games_paginated.last_page?
+  
+  - [@games, @games_paginated].each_with_index do |games, i|
+    == render partial: 'shared/thumbnails', locals: {games: games, thumbnails_class: (i == 0 ? 'pc' : 'sp')}

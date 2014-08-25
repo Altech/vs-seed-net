@@ -48,6 +48,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ajax?
+    params['ajax'] == 'true'
+  end
+
   if Rails.env.production?
     rescue_from Exception, with: :render_500
     rescue_from ActiveRecord::RecordNotFound, with: :render_404
