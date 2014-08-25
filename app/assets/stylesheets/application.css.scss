@@ -113,4 +113,21 @@ a:visited {
 
 a:hover {
   color: $link-color;
+  text-decoration: underline;
+}
+
+a.black {
+  color: black;
+}
+
+a.black:visited {
+  color: black;
+}
+
+a.white {
+  color: white;
+}
+
+a.white:visited {
+  color: white;
 }

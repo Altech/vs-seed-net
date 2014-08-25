@@ -10,7 +10,7 @@ window.setThumbanilEvent = ->
 $ ($) ->
   stopIfHidden = ->
     try 
-      if !$('#video-modal').is(":visible") and window.player?
+      if window.isPlayerModal and !$('#video-modal').is(":visible") and window.player?
         window.player.stopVideo()
     finally
       setTimeout(stopIfHidden , 300)

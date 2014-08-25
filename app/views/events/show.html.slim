@@ -7,7 +7,9 @@
   .show-participants
     .header 参加プレイヤー
     .contents
-      == @event.players.map(&:name).join('、')
+      - @event.players.each_with_index do |player,i|
+        a.black href=player_path(player) #{player.name}
+        == '、' unless i+1 == @event.players.size
   
   .filter-by-selection
     | ◆動画を絞る：

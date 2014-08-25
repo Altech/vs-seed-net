@@ -9,6 +9,7 @@
     border: 1px solid black;
     text-align: center;
     width: 262px;
+    height: 58px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -37,12 +38,19 @@
 
   .data-title h1 {
     @media (max-width: $sp-max-width) {
-      font-size: $sp-mecha-title-font-size;
+      font-size: $sp-video-title-font-size;
       margin-top: 26px;
       margin-bottom: 21px;
     }
     @media (min-width: $pc-min-width) {
       /* font-size: $pc-mecha-title-font-size; */
+    }
+  }
+  @media (min-width: $pc-min-width) {
+    #player {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
     }
   }
 

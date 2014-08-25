@@ -1,6 +1,6 @@
 .data-title
   h1
-    == @event.held_at.strftime("%Y年%m月%d日")
+    a.white href=event_path(@game.event) #{@game.event.held_at.strftime("%Y年%m月%d日")}
     == " Vol.#{@game.index_of_event + 1}"
 
 #player
@@ -17,8 +17,8 @@ dl.video-info
   dt 視点
   dd
     span.contents
-      == @video.player ? link_to(@video.player.name, player_path(@video.player),   class: 'no-decoration') : ''
-      == @video.mecha  ? "（" + link_to(@video.mecha.full_name, mecha_path(@video.mecha), class: 'no-decoration') + "）": ''
+      == @video.player ? link_to(@video.player.name, player_path(@video.player),   class: 'black') : ''
+      == @video.mecha  ? "（" + link_to(@video.mecha.full_name, mecha_path(@video.mecha), class: 'black') + "）": ''
 
 - if @video.partners_video
   - video = @video.partners_video
@@ -26,8 +26,8 @@ dl.video-info
     dt 相方
     dd 
       span.contents
-        == video.player ? link_to(video.player.name, player_path(video.player),   class: 'no-decoration') : ''
-        == video.mecha  ? "（" + link_to(video.mecha.full_name, mecha_path(video.mecha), class: 'no-decoration') + "）": ''
+        == video.player ? link_to(video.player.name, player_path(video.player),   class: 'black') : ''
+        == video.mecha  ? "（" + link_to(video.mecha.full_name, mecha_path(video.mecha), class: 'black') + "）": ''
     
 javascript:
   var tag = document.createElement('script');
@@ -37,12 +37,18 @@ javascript:
 
   var player;
   function onYouTubeIframeAPIReady() {
-    var windowWidth = parseInt($(window).width());
+    var width = parseInt($(window).width());
+    if (width >= pcMinWidth)
+      width = width - 2*pcShowPadding
+    if (width >= 1050)
+      width = 1050
     player = new YT.Player('player', {
-      width: windowWidth,
-      height: (windowWidth/16.0)*9,
+      width: width,
+      height: (width/16.0)*9,
       videoId: "#{@video.youtube_video_id}"
     });
   }
   // onYouTubeIframeAPIReady is not called if IFrameAPI is cached. So we must call explicitly.
   try{ onYouTubeIframeAPIReady() }catch(e){}
+
+  var isPlayerModal = false

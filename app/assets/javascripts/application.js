@@ -18,6 +18,7 @@
 // Cosntants
 pcMinWidth = 881;
 spMaxWidth = 880;
+pcShowPadding = 50;
 
 $(function(){
   var $setElem = $('.switch'),
