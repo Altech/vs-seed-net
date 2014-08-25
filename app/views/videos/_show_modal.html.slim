@@ -1,0 +1,57 @@
+.modal-dialog.videos
+  .modal-content
+    .modal-header
+      button.close data-dismiss="modal" type="button" 
+        span aria-hidden="true"  &times;
+        span.sr-only Close
+      h4#myModalLabel.modal-title #{@game.event.held_at.strftime("%Y年%m月%d日")} Vol.#{"%03d" % (@game.index_of_event+1)}
+    .modal-body
+      #player
+    .modal-footer
+      dl.video-info
+        dt 視点
+        dd
+          span.contents
+            == @video.player ? link_to(@video.player.name, player_path(@video.player),   class: 'no-decoration') : ''
+            == @video.mecha  ? "（" + link_to(@video.mecha.full_name, mecha_path(@video.mecha), class: 'no-decoration') + "）": ''
+      - if @video.partners_video
+        dl.video-info
+          - video = @video.partners_video
+          dt 相方
+          dd 
+            span.contents
+              == video.player ? link_to(video.player.name, player_path(video.player),   class: 'no-decoration') : ''
+              == video.mecha  ? "（" + link_to(video.mecha.full_name, mecha_path(video.mecha), class: 'no-decoration') + "）": ''
+      .video-nav
+        == link_to_previous_video_if_exists @video
+          img.prev src="/assets/video_nav_prev.png" data-video-id="#{@video.previous_video.try(:id) || ''}"
+        - if @video.partners_video
+          a href=partners_video_path(@video)
+            img.exchange src="/assets/video_nav_exchange.png" data-video-id=@video.partners_video.id
+        - else
+          img src="/assets/video_nav_exchange.png"
+        == link_to_next_video_if_exists @video
+          img.next src="/assets/video_nav_next.png" data-video-id="#{@video.next_video.try(:id) || ''}"
+
+javascript:
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    var width = 800-30-2;
+    player = new YT.Player('player', {
+      width: width,
+      height: (width/16.0)*9,
+      videoId: "#{@video.youtube_video_id}",
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
+  // onYouTubeIframeAPIReady is not called if IFrameAPI is cached. So we must call explicitly.
+  try{ onYouTubeIframeAPIReady() }catch(e){}
+
+  setVideoNavEvents()

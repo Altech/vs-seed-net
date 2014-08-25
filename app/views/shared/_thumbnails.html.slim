@@ -8,10 +8,13 @@
     - game = games ? e : e.game
     - video = games ? game.video_A1 : e
     .thumbnail-container
-      .thumbnail
+      .thumbnail data-video-id=video.id
         .win-or-lose
           == image_tag "/assets/icon_win_#{game.video_A1.win? ? 'green' : 'red'}.png"
         a href=video_path(video.id)
           == image_tag game.thumbnail.url, class: 'capture'
         .vol-of-event
           == "Vol.#{"%03d" % (game.index_of_event+1)}"
+
+#video-modal.modal.fade.video-modal aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  

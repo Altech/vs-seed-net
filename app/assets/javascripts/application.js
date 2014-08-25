@@ -15,11 +15,15 @@
 //= require jquery.cookie
 //= require_tree .
 
+// Cosntants
+pcMinWidth = 881;
+spMaxWidth = 880;
+
 $(function(){
   var $setElem = $('.switch'),
       pcName = '/assets/pc_',
       spName = '/assets/sp_',
-      replaceWidth = 881;
+      replaceWidth = pcMinWidth;
   
   $setElem.each(function(){
     var $this = $(this);

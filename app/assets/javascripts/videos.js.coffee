@@ -1,3 +1,35 @@
+## =========== Video Modal ============
+$ ($) ->
+  $(".thumbnail").click (e) ->
+    if parseInt($(window).width()) > spMaxWidth
+      e.preventDefault()
+      id = parseInt($(this).attr('data-video-id'))
+      $('#video-modal').load ('/videos/'+ id + '?ajax=true'), (result) ->
+        $('#video-modal').modal({show:true})
+
+  stopIfHidden = ->
+    if !$('#video-modal').is(":visible") and window.player != undefined
+      window.player.stopVideo()
+    setTimeout(stopIfHidden , 300)
+  setTimeout(stopIfHidden , 300)
+
+window.setVideoNavEvents = ->
+  for str in ['prev', 'exchange', 'next']
+    ((str) ->
+        $(".modal-dialog .video-nav img.#{str}").click (e) ->
+          e.preventDefault()
+          if $(this).attr('data-video-id') != ''
+            id = parseInt($(this).attr('data-video-id'))
+            $('#video-modal').load ('/videos/'+ id + '?ajax=true'))(str)
+  $('#video-modal').on('hide', ->
+    alert('called')
+    player.stopVideo());
+
+window.onPlayerReady = (event) ->
+  ua = window.navigator.userAgent.toLowerCase()
+  if ua.indexOf('iphone') == -1 and ua.indexOf('ipad') == -1 and ua.indexOf('android') == -1
+    event.target.playVideo()
+
 ## ============ create or edit information of the video ============
 for str in ['player', 'mecha']
   ((str) ->      
