@@ -6,7 +6,7 @@ class MechasController < ApplicationController
   def show
     @mecha = Mecha.find_by_name(params[:id])
     if params[:filtering_id].to_i == 0
-      @videos = @mecha.videos.sort
+      @videos = @mecha.sorted_videos
     else
       @videos = @mecha.videos.select{|video| video.partners_video.try(:mecha_id) and video.partners_video.mecha_id == params[:filtering_id].to_i}.sort
     end

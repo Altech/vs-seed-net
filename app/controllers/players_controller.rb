@@ -6,9 +6,9 @@ class PlayersController < ApplicationController
       players.select{|player| player.videos.size > 17} +
       players.select{|player| 7 < player.videos.size and player.videos.size <= 17} +
       players.select{|player| player.videos.size <= 7}
-    @stats = Rails.cache.fetch(:stats_of_players, expires_in: 3.day) do
+    @stats = Rails.cache.fetch(:stats_of_players, expires_in: 3.day) {
       Hash[players.map{|player| [player.id, calc_stat(player, :ratio)]}]
-    end
+    }
     @players.select{|player| @stats[player.id].nil?}.each do |player|
       @stats[player.id] = calc_stat(player, :ratio)
     end
@@ -17,7 +17,7 @@ class PlayersController < ApplicationController
   def show
     @player = Player.find_by_name(params[:id]) or raise ActiveRecord::RecordNotFound
     if params[:filtering_id].to_i == 0
-      @videos = @player.videos.sort
+      @videos = @player.sorted_videos
     else
       @videos = @player.videos.select{|video| video.mecha_id == params[:filtering_id].to_i}.sort
     end

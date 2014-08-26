@@ -23,13 +23,13 @@ class Video < ActiveRecord::Base
       end
     when :mechas
       return nil if mecha.nil?
-      video_ids = mecha.videos.sort.map(&:id)
+      video_ids = mecha.sorted_videos.map(&:id)
       next_index = video_ids.index(self.id) + 1
       return nil if video_ids[next_index].nil?
       Video.find(video_ids[next_index])
     when :players
       return nil if player.nil?
-      video_ids = player.videos.sort.map(&:id)
+      video_ids = player.sorted_videos.map(&:id)
       next_index = video_ids.index(self.id) + 1
       return nil if video_ids[next_index].nil?
       Video.find(video_ids[next_index])
@@ -47,13 +47,13 @@ class Video < ActiveRecord::Base
       end
     when :mechas
       return nil if mecha.nil?
-      video_ids = mecha.videos.sort.map(&:id)
+      video_ids = mecha.sorted_videos.map(&:id)
       previous_index = video_ids.index(self.id) - 1
       return nil if previous_index < 0
       Video.find(video_ids[previous_index])
     when :players
       return nil if player.nil?
-      video_ids = player.videos.sort.map(&:id)
+      video_ids = player.sorted_videos.map(&:id)
       previous_index = video_ids.index(self.id) - 1
       return nil if previous_index < 0
       Video.find(video_ids[previous_index])

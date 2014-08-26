@@ -18,4 +18,9 @@ class Mecha < ActiveRecord::Base
     MechaName.find(nickname_id).name
   end
 
+  def sorted_videos
+    Rails.cache.fetch("mechas_sorted_videos_#{id}", expires_in: 30.minutes){
+      videos.sort
+    }
+  end
 end

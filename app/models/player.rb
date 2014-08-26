@@ -58,4 +58,10 @@ class Player < ActiveRecord::Base
       0
     end
   end
+
+  def sorted_videos
+    Rails.cache.fetch("players_sorted_videos_#{id}", expires_in: 30.minutes){
+      videos.sort
+    }
+  end
 end
