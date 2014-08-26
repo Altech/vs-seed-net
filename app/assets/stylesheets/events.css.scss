@@ -34,13 +34,7 @@
         height: 100px;
         .participants {
           .line2 {
-            // [TODO] modulalize
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-text-overflow: ellipsis;
-            -o-text-overflow: ellipsis;
+            @include ellipsis;
           }
         }
       }

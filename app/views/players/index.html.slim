@@ -1,5 +1,5 @@
 .cards
-  - @players.each do |player|
+  - @players_and_stats.each do |player, stat|
     .card-container
       .with-half-transparent
         .card style="background-image: url('/assets/pilot_#{player.pilot.try(:name)}.png')"
@@ -10,9 +10,13 @@
             span.num-of-games （#{player.videos.size}）
           .stats-summary
             dl
-              dt アカツキ（オオワシ）
-              dd ■■■■■■■■■■
-              dt ストライクフリーダム
-              dd ■■■■■
-              dt ムラサメ（虎）
-              dd ■■
+              - 0.upto(2) do |i|
+                - if stat[i]
+                  - name , ratio = stat[i]
+                  dt
+                    == name
+                  dd class="chart-color-#{i+1}" style="overflow-x: hidden"
+                    == '■' * [(ratio/4)-1, 0].max + '▶'
+                - else
+                  dt.empty  -  -  -  -  -  -  -
+                  dd

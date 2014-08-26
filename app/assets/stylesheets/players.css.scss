@@ -1,4 +1,6 @@
 @import "constants";
+@import "utilities";
+
 .players {
 
   .card {
@@ -15,6 +17,13 @@
         dt {
           float: left;
         }
+        dd {
+          @include ellipsis;
+        }
+        dt.empty {
+          color: gray;
+          clear: both;
+        }
       }
     }
     .num-of-games {
@@ -29,6 +38,7 @@
       padding-top: $sp-padding-for-nav-drop-shadow;
     }
     .card {
+      height: 135px;
       .stats-summary {
         dl {
           dt {

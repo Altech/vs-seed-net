@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 class PlayersController < ApplicationController
   def index
-    @players=  Player.all
+    players = Player.all
+    stats = Rails.cache.fetch(:stats_of_all_players, expires_in: 14.days) do
+      players.map{|player| calc_stat(player, :ratio)}
+    end
+    @players_and_stats =  players.zip(stats)
   end
 
   def show
@@ -55,9 +59,9 @@ class PlayersController < ApplicationController
 
   private
 
-  def calc_stat(player)
+  def calc_stat(player, type = :absolute)
     videos = player.videos.select(&:first_game?)
-    player.videos
+    stat = player.videos
       .select(&:first_game?)
       .map(&:mecha)
       .select{|o| !o.nil?}
@@ -65,6 +69,13 @@ class PlayersController < ApplicationController
       .map{|id,mechas| [mechas.first.nickname, mechas.size]}
       .sort_by(&:last)
       .reverse
+    case type
+    when :absolute
+      stat
+    when :ratio
+      sum = stat.map(&:last).reduce(&:+).to_f
+      stat.map{|name, size| [name, ((size/sum)*100).to_i]}
+    end
   end
 
   def player_params
