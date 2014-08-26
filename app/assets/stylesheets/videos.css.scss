@@ -112,3 +112,16 @@
     }
   }
 }
+
+#now-loading-cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-image: url('/assets/now_loading.gif');
+  background-position: center 4px;
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+}

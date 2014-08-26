@@ -3,8 +3,10 @@ window.setThumbanilEvent = ->
   $(".thumbnail").click (e) ->
     if parseInt($(window).width()) > spMaxWidth
       e.preventDefault()
+      $('#now-loading-cover').show()
       id = parseInt($(this).attr('data-video-id'))
       $('#video-modal').load ('/videos/'+ id + '?ajax=true'), (result) ->
+        $('#now-loading-cover').hide()
         $('#video-modal').modal({show:true})
 
 $ ($) ->
