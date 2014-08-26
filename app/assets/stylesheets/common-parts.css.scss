@@ -97,13 +97,6 @@
         right: 0px;
         color: white;
       }
-      .win-or-lose {
-        z-index: 5;
-        display: inline;
-        position: absolute;
-        top: 54%;
-        left: 50%;
-      }
     }
   }
 }
@@ -118,13 +111,6 @@
       .vol-of-event {
         padding-right: 10px;
         font-size: $sp-data-title-font-size;
-      }
-      .win-or-lose {
-        $icon-win-width: 48px;
-        margin-left: -$icon-win-width/2;
-        img {
-          width: $icon-win-width;
-        }
       }
     }
   }
@@ -141,13 +127,6 @@
       .vol-of-event {
         padding-right: 10px;
         font-size: $pc-card-title-font-size;
-      }
-      .win-or-lose {
-        $icon-win-width: 36px;
-        margin-left: -$icon-win-width/2;
-        img {
-          width: $icon-win-width;
-        }
       }
     }
   }
