@@ -14,9 +14,10 @@ h1.news.pc {
   margin-right: auto;
   padding-left: 8px;
   padding-right: 8px;
+  max-width: $twitter-max-width;
 }
 @media (min-width: $pc-min-width) {
   #twitter-timeline-container {
-    width: 520px;
+    width: $twitter-max-width;
   }
 }
