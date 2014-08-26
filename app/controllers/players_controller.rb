@@ -3,8 +3,8 @@ class PlayersController < ApplicationController
   def index
     players = Player.all.sort_by(&:winning_percentage).reverse
     @players =
-      players.select{|player| player.videos.size > 18} +
-      players.select{|player| 7 < player.videos.size and player.videos.size <= 18} +
+      players.select{|player| player.videos.size > 17} +
+      players.select{|player| 7 < player.videos.size and player.videos.size <= 17} +
       players.select{|player| player.videos.size <= 7}
     @stats = Rails.cache.fetch(:stats_of_players, expires_in: 3.day) do
       Hash[players.map{|player| [player.id, calc_stat(player, :ratio)]}]
