@@ -26,7 +26,9 @@
 // Navigation
 .navbar {
   z-index: 100;
-  position: relative;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   height: $navbar-height;
   background-color: white;
   box-shadow: 0px 3px 3px rgba(0,0,0,0.4);
@@ -58,6 +60,9 @@
 }
 
 @media (max-width: $sp-max-width){
+  .navbar {
+    position: absolute;
+  }
   ul.menues {
     width: 100%;
     li {
@@ -71,6 +76,10 @@
 }
 
 @media (min-width: $pc-min-width){
+  .navbar {
+    position: fixed;
+  }
+
   img#logo {
     float: left;
   }
@@ -86,6 +95,7 @@
 }
 
 body {
+  padding-top: $navbar-height;
   font-family: $base-font;
 }
 @media (min-width: $pc-min-width) {
