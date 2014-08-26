@@ -42,8 +42,8 @@ window.setVideoEditEvents = ->
         ((info) ->
           
           $("#{str} button.edit").click ->
-            $("#{str} #{info} .select").show()
-            $("#{str} #{info} .data").hide()
+            $("#{str} #{info} .select").toggle()
+            $("#{str} #{info} .data").toggle()
             
           $("#{str} #{info} select").change ->
             $.ajax({

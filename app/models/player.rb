@@ -50,4 +50,12 @@ class Player < ActiveRecord::Base
   def admin?
     id == 1
   end
+
+  def winning_percentage
+    if videos.size > 0
+      videos.select{|v| v.win_or_lose == true}.size * 100 / videos.size
+    else
+      0
+    end
+  end
 end
