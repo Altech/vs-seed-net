@@ -1,0 +1,9 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームカービン|CENTER:3|RIGHT:85|リロード遅め GHすると誘導が良い|
+|RIGHT:BGCOLOR(SKYBLUE):CS|ビームカービン3連射|CENTER:-|RIGHT:120|チャージ4秒と遅い 誘導だけは良い|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|斬機刀|CENTER:-|RIGHT:205|格闘2段 縦斬り→横斬り払い|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|神速突き|CENTER:-|RIGHT:130|発生と判定が鬼 誘導と伸びも意外とある|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|斬り払い|CENTER:-|RIGHT:171|横斬り払い→体をひねって横斬り|
+|RIGHT:BGCOLOR(LIGHTGREEN):BD格闘|上昇斬り|CENTER:-|RIGHT:140|ブーストで接近して回転しながら巻き込むように上昇しつつ斬る|
+|RIGHT:BGCOLOR(LIGHTGREEN):サブ射撃|カウンター|CENTER:-|RIGHT:288|剣を前に出して0.5秒程度当て身待ち&br()敵の格闘がヒットすれば、カウンターで横回転斬り払い3連撃|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|カウンター|CENTER:-|RIGHT:288|チャージ中はこちらを使おう 1.5秒ほど持続。サブ射と若干性能差有り|

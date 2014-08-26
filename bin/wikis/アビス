@@ -1,0 +1,11 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|連装砲|CENTER:20|RIGHT:110|1度に4発発射のレールガン。変形時は後方に発射| 
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|一斉射撃|CENTER:4|RIGHT:175|1度に2発消費。唯一のビーム兵器|
+|RIGHT:BGCOLOR(PINK):変形サブ射撃|バラエーナ改|CENTER:(4)|RIGHT:109|正面に細い2本のビームを発射。曲げ撃ち可|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|高速誘導魚雷|CENTER:12|RIGHT:148|1度に4発ミサイルを発射。変形時は軌道が真っ直ぐに|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームランス|CENTER:-|RIGHT:189|斬り→蹴り2段の3段。1段目、3段目後にそれぞれ派生有り|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|ランス突き出し|CENTER:-|RIGHT:120|突き。発生と伸びに優れる|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|回転斬り|CENTER:-|RIGHT:157|１回入力で2段斬り|
+|RIGHT:BGCOLOR(LIGHTGREEN):後格闘|斬り上げ|CENTER:-|RIGHT:120|斬り上げ。メインC及びサブCで変形離脱|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|ドリルアタック|CENTER:-|RIGHT:178|変形して回転しながら敵に突っ込む。サブで派生|
+|RIGHT:BGCOLOR(PINK):変形格闘|ドリルアタック|CENTER:-|RIGHT:178|特殊格闘と同じ。|

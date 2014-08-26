@@ -1,0 +1,13 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:8|RIGHT:105|射撃戦のメイン武装|
+|RIGHT:BGCOLOR(SKYBLUE):CS|一斉射撃|CENTER:-|RIGHT:145|BRとフォルティス×2による一斉射撃|
+|RIGHT:BGCOLOR(PINK):変形CS|一斉射撃|CENTER:-|RIGHT:145|BRとフォルティス×2による一斉射撃|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|ファトゥム-00【射出】|CENTER:(1)|RIGHT:130|背部リフターを飛ばす攻撃。射出中はBD性能が変化&br()射出中に射撃ボタンを押すと、BRと共にリフターからフォルティス×2発射|
+|RIGHT:BGCOLOR(PINK):変形サブ射撃|ファトゥム-00【射出】|CENTER:(1)|RIGHT:130|リフターを蹴り飛ばして射出する。モーションは∞と同じ|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|ビームブーメラン|CENTER:(2)|RIGHT:30|2発まで連続投擲可能。戻りが弧を画く特殊な軌道&br()投擲時にレバー左右で撃ち分けが可能|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:240|3段攻撃。全段BRC可能だが、3段BRCは非常に不安定|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|ファトゥム-00【突撃】|CENTER:-|RIGHT:150|ファトゥム-00に乗って突撃。突進中CSで特殊派生|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘(リフター射出中)|ジャスティスキック|CENTER:-|RIGHT:70|エール系キック。同系統としては伸びがよい。BRC不可|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|膝蹴り→後ろ回し蹴り|CENTER:-|RIGHT:180|2段蹴り。2段目に前格派生、3段目に特格C可能&br()1段目、2段目共にBRC可能|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|空中唐竹割り|CENTER:-|RIGHT:120|高くジャンプし、急降下しつつ相手を上から斬る|
+|RIGHT:BGCOLOR(PINK):変形格闘|ファトゥム-00【波乗り】|CENTER:-|RIGHT:120|ファトゥム-00に乗ったまま相手に斬りかかる((切断フィニッシュ属性))|

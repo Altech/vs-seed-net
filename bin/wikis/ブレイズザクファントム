@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):メイン射撃|ビーム突撃銃|CENTER:5|RIGHT:95|標準的なBR。弾数管理に注意。((ビーム属性)) ((常時回復))|
+|RIGHT:BGCOLOR(SKYBLUE):CS|ファイヤビー(収束)|CENTER:-|RIGHT:159|ミサイルを6発連続射出。出は早く弾速も速い。硬直大。((実弾属性))|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|ファイヤビー(拡散)|CENTER:8|RIGHT:各44|8発同時に撃つので実質1発。左右に大きく拡散する。硬直大。((実弾属性)) ((撃ち切りリロード))|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームトマホーク|CENTER:-|RIGHT:228|高威力の3段格闘。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|ショルダータックル|CENTER:-|RIGHT:130|よく伸びるタックル。BRCで158ダメージ。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|薙ぎ払い→キック|CENTER:-|RIGHT:185|横から斬りつけ→蹴り飛ばしの2段格闘。|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|回転突進|CENTER:-|RIGHT:185|飛び上がってから突進。多段ヒットで強制ダウン。|

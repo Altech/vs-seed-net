@@ -1,0 +1,11 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:6|RIGHT:105|弾数が少ないので撃ちすぎ厳禁((ビーム属性))　((常時リロード))|
+|RIGHT:BGCOLOR(SKYBLUE):CS|突撃ビーム機動砲|CENTER:-|RIGHT:156|ドラを前方に倒して一斉射撃　((ビーム属性))|
+|RIGHT:BGCOLOR(SKYBLUE):マルチCS|突撃ビーム機動砲|CENTER:-|RIGHT:130|マルチロック。前方ドラを2方向に一斉射撃　((ビーム属性))|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|ドラグーン(分離)|CENTER:16|RIGHT:40|詳細は下記　((ビーム属性)) ((8基まで同時使用可)) ((回収するまで再使用不可)) ((常時回復))|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|ドラグーン(分離)【一斉】|CENTER:(16)|RIGHT:40|詳細は下記|
+|RIGHT:BGCOLOR(SKYBLUE):特殊格闘|ドラグーンシステム【ビームスパイク】|CENTER:2|RIGHT:20|飛んでいき敵を突き刺す。&br()ヒットしたら痺れ。 ((2基まで同時使用可)) ((回収するまで再使用不可)) |
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|デファイアント改|CENTER:-|RIGHT:219|二段で威力大| 
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|真・埼玉キック|CENTER:-|RIGHT:130|元祖ほどではないものの優秀な伸びを誇る。右足で蹴る|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|キック&スマッシュ|CENTER:-|RIGHT:190|伸びない蹴り→突き　左足で蹴る|
+|RIGHT:BGCOLOR(LIGHTGREEN):BD格闘|回転斬り→サイコクラッシャー|CENTER:-|RIGHT:198|回転斬り→スパイクアタック（スパイク有時のみ出せる）|

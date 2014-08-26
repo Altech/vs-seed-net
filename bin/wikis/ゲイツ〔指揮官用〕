@@ -1,0 +1,7 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:4|RIGHT:95|弾数少なめ。|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|エクステンションナルアレスター|CENTER:1|RIGHT:50|スタン効果のあるアンカー。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームクロー|CENTER:-|RIGHT:229|クロー四段斬り。BRC可。三段目のBRCから強制ダウン。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|牙突|CENTER:-|RIGHT:147|クローを前に突き出して突進。3Hit。当たった時点でBRC可。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|払い&アッパー|CENTER:-|RIGHT:170|クローで横に薙ぎ払い→上に叩き上げ。BRC可。|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|百烈突き|CENTER:-|RIGHT:140～208|クローで最大６回連続で突き、最後に蹴りをお見舞いする。&br()突く回数はボタン連打数で調整。カットされやすい。|

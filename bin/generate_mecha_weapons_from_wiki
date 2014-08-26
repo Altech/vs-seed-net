@@ -1,0 +1,95 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'pp'
+require 'pry'
+require 'pathname'
+require 'fileutils'
+
+data_dir = File.dirname(__FILE__) + '/wikis'
+
+# Dir.entries(data_dir).select{|e| e[0] != '.'}
+
+save_dir = Rails.root + 'app/views/mechas/weapons'
+FileUtils.rm_r save_dir
+save_dir.mkdir
+
+Dir.entries(data_dir).select{|e| e[0] != '.'}.each do |e|
+  unless MechaName.find_by_name(e) and Mecha.where(full_name_id: MechaName.find_by_name(e).id).exists?
+    raise "No such mecha name(#{e})"
+  end
+  mecha = Mecha.where(full_name_id: MechaName.find_by_name(e).id).first
+
+  f = File.open("#{save_dir}/_weapon_#{mecha.id}.html.slim", 'w')
+
+  lines = File.read(data_dir + '/' + e).lines
+
+  color_mapping = {
+    'BGCOLOR(SKYBLUE)' => 'shageki',
+    'BGCOLOR(LIGHTGREEN)' => 'kakutou',
+    'BGCOLOR(YELLOW)' => 'special',
+    'BGCOLOR(GOLD)' => 'text',
+    'BGCOLOR(ORANGE)' => 'number',
+    'BGCOLOR(PINK)' => 'transform'
+  }
+
+  name_mapping = %w[kind name bullets power remark]
+
+  convert = -> (e) {
+    body, a  = nil, nil
+    if e[-1] == ':'
+      body = ''
+      a = e.split(':').map(&:strip)
+    else
+      a = e.split(':').map(&:strip)
+      body = a.last ? a.last.gsub('&br()','<br>') : ''
+    end
+    h = {body: body}
+    color_mapping.each do |k,v|
+      if a.include? k
+        h[:class] = v
+      end
+    end
+    return h
+  }
+
+  structure = lines.map{|l|
+    if l =~ /^\|(.+)\|[\s　]*$/
+      ($1 + ' ').split('|').map{|e|
+        convert[e.strip]
+      }
+    end
+  }.select{|l| !l.nil?}
+
+  f.puts 'table.attacks'
+  structure.each_with_index do |row,i|
+    next if row[0][:body] == '格闘系'
+    f.puts '  thead' if i == 0
+    f.puts '  tbody' if i == 1
+    f.puts '    tr'
+    row.each_with_index do |col,j|
+      s =  "      td"
+      s << ".#{name_mapping[j]}"
+      s << ".#{col[:class]}" if col[:class]
+      f.puts s
+      if j == 1 and col[:body].to_s == '-'
+        col[:body] = ''
+      end
+      if j == 2 and col[:body].to_s == ''
+        col[:body] = '-'
+      end
+      b = '        | ' + col[:body].to_s
+      f.puts b
+    end
+  end
+
+  f.close
+
+end
+
+rest =  Mecha.all.select{|m| !File.exists?("#{save_dir}/_weapon_#{m.id}.html.slim")}.map(&:full_name)
+if rest.size > 1
+  puts "<Rest of mechas>"
+  puts rest
+end
+

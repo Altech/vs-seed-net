@@ -1,0 +1,5 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|2連副砲|CENTER:10|RIGHT:70(100)|レールガン属性。弾は時間で回復。&br()タンク形態なら1発につき約3秒のペース。|
+|RIGHT:BGCOLOR(SKYBLUE):格闘|マシンガン|CENTER:50|RIGHT:19(94)|実弾属性。撃ち切りリロードだがさほど遅くない。|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|キャノン砲|CENTER:4|RIGHT:106|レールガン属性で強制ダウン。&br()同時発射のため実質１発。|
+|RIGHT:BGCOLOR(PINK):特殊格闘|変形|CENTER:-|CENTER:-|MS形態とMA形態を変更する。コレが勝利の鍵だ。|

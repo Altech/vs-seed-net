@@ -1,0 +1,14 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:8|RIGHT:105|高コストとして標準的なBR。変形時は曲げ撃ち可((ビーム属性)) ((常時回復))|
+|RIGHT:BGCOLOR(SKYBLUE):CS|一斉射撃|CENTER:-|RIGHT:145|ハイパーフォルティス二基とBRの計三本撃つ　((ビーム属性))|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|ファトゥム-01(射出)|CENTER:1|RIGHT:126|背中のリフターを飛ばす攻撃。　((リフター)) ((回収するまで再使用不可))|
+|RIGHT:BGCOLOR(PINK):変形サブ射撃|ファトゥム-01(射出)|CENTER:(1)|RIGHT:126|乗っているリフターを宙返りしながら蹴り飛ばす攻撃。　((リフター))|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|シャイニングエッジ|CENTER:1|RIGHT:40|盾に内蔵されている大型ブーメラン。射出中は一部の格闘が変化する。　((ブーメラン)) ((回収するまで再投擲不可))|
+|RIGHT:BGCOLOR(SKYBLUE):後格闘|グラップルスティンガー|CENTER:1|RIGHT:10|「アンカーとしては」発生が早い。そこそこ伸びる。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:240|袈裟→逆袈裟→SE薙ぎ払い→サマソ二段の五段攻撃。前格、後格派生あり|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|ファトゥム-01(突撃)|CENTER:-|RIGHT:150|リフターにぶら下がって突撃。CSCで再誘導。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘(分離中)|∞ジャスティスキック|CENTER:-|RIGHT:70|リフター分離中の前格闘はこれに変化する。正義と同じく、判定・発生は優秀。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|ビームキャリーシールド|CENTER:-|RIGHT:213|シールドで殴り→蹴り→斬り払いの三段。　前格、特格派生あり|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|バッタジャンプ斬り|CENTER:-|RIGHT:186|跳ねるようにジャンプしビームサーベル×2で縦斬り→蹴り。|
+|RIGHT:BGCOLOR(LIGHTGREEN):BD格闘|回転斬り|CENTER:-|RIGHT:206|回転斬りの後にリフターを飛ばす。|
+|RIGHT:BGCOLOR(PINK):変形格闘|ファトゥム-01(波乗り)|CENTER:-|RIGHT:161|リフターに乗って波乗り突撃しながら回って逃げ去る。|

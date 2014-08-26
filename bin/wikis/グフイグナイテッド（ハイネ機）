@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ドラウプニル|CENTER:50|RIGHT:20|最大5連射。5発命中でダメージは97|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|スレイヤーウィップ|CENTER:1|RIGHT:160|鞭による攻撃、ニュートラルで上下叩きつけ。&br()レバー左右入力で薙払いに変化|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|スレイヤーウィップ【捕縛】|CENTER:(1)|RIGHT:20|捕縛後、レバー入れ格闘で引き寄せ、Ｎ格闘連打でビリビリ追撃。&br()レバ格の追加入力が必要だが、アンカーとしては破格の高性能。|
+|RIGHT:BGCOLOR(SKYBLUE):特殊格闘|スレイヤーウィップ【薙払い】|CENTER:(1)|RIGHT:210|鞭を激しく振り回す4連撃。見た目のイメージより効果範囲が狭い。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|テンペスト|CENTER:-|RIGHT:228|斬りつけ2回→叩きつけの3連斬り|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|突進斬り|CENTER:-|RIGHT:140|多段ヒットする突進斬り　全ヒットできりもみダウン|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|横斬り|CENTER:-|RIGHT:176|２連斬り、２発目で相手を上に吹っ飛ばし。|

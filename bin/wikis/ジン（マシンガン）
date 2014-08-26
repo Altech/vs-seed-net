@@ -1,0 +1,7 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|マシンガン|CENTER:80|RIGHT:20(97)|ボタン長押しで1～5発に調整可能|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|バーストショット|CENTER:(80)|RIGHT:34(134)|その場で停止しマシンガンを集中連射。集弾性･発生に優れる。&br()ボタン長押しで3～10発に調整可能。弾はメインと共通|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|重斬刀|CENTER:-|RIGHT:193|二段斬り→叩きつけの三段斬り。誘導性･発生共にコスト相応|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|突き|CENTER:-|RIGHT:70|剣を突き立てての突撃。射程と発生は良いが誘導はほぼ無し|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|二段斬り|CENTER:-|RIGHT:145|横二段斬り。ほぼ通常格闘と変わらない性能。&br()判定が少しだけ横に広い|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|跳ね上げ|CENTER:-|RIGHT:120|剣を下段に構えて滑るように移動し、敵機を上空高く斬り飛ばす。&br()発生は遅いが誘導はそこそこ。命中時のみステップやBDC可能|

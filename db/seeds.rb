@@ -41,4 +41,15 @@ ActiveRecord::Base.transaction do
       end
     end
   end
+
+  if false
+    require 'csv'
+    csv = CSV.parse(File.read(Rails.root + 'db/seeds/wiki_url.csv'))
+    csv.each do |row|
+      name, url = row[0], row[1]
+      puts name
+      mecha = MechaName.find_by_name(name).mecha
+      mecha.update_attribute(:external_url, url)
+    end
+  end
 end

@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:4|RIGHT:85|普通のBR((ビーム属性))|
+|RIGHT:BGCOLOR(SKYBLUE):射撃CS|ビーム砲|CENTER:-|RIGHT:120|太いビームを単発で発射する((ビーム属性))|
+|RIGHT:BGCOLOR(SKYBLUE):格闘|ガンランチャー|CENTER:2|RIGHT:120|散弾をぶっ放す((実弾属性))|
+|RIGHT:BGCOLOR(SKYBLUE):格闘CS|ビーム砲【照射】|CENTER:-|RIGHT:200|太いゲロビを発射((ビーム属性))|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|ミサイルランチャー【8弾】|CENTER:16|RIGHT:105|ミサイルを8発一気に発射する((実弾属性))|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|ミサイルランチャー【2弾】|CENTER:(16)|RIGHT:95|ミサイルを2発発射。格闘チャージ時はこちら((実弾属性))|
+|RIGHT:BGCOLOR(SKYBLUE):特殊格闘|ミサイルランチャー【2弾】|CENTER:(16)|RIGHT:95|ミサイルを2発発射。射撃チャージ時はこちら((実弾属性))|

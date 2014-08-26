@@ -1,0 +1,9 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:7|RIGHT:100|標準性能のBR。((ビーム属性))|
+|RIGHT:BGCOLOR(PINK):変形射撃|スキュラ|CENTER:3|RIGHT:130|変形時の通常射撃。サブ射と弾数を共有する&br()単発型のプラズマ砲。通常ダウン。|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|スキュラ【照射】|CENTER:(3)|RIGHT:179|変形して多段Hitするプラズマ砲を撃つ。&br()1hit毎のダウン値が低く、全段Hitで強制ダウン。隙が大きい。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:235|素早い斬りつけ3段→蹴りの4段攻撃。&br()2段目と3段目に前派生あり。判定強め。発生早い。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|サマーソルト→クロス|CENTER:-|RIGHT:160|バク宙キック→二刀斬りの2段攻撃。伸びと誘導に優れる。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|崩十字斬り|CENTER:-|RIGHT:176|横から回り込んで斬り払い→斬り上げの2段攻撃。&br()発生が早い&強判定。|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|MA攻撃形態(キャプチャー)|CENTER:-|RIGHT:50|変形し四肢を展開して相手を捕獲・拘束する。誘導するが発生が遅い。&br()拘束中に格闘((特格→N派生×3→変形ドリル[222]))or射撃((特格→N派生×3→射撃派生[201]))で派生あり。|
+|RIGHT:BGCOLOR(PINK):変形格闘|MA巡航形態(ドリル)|CENTER:-|RIGHT:139|加速しての回転突撃。ダウン値低めの多段hit。&br()判定は小さいが誘導・リーチ共に優秀。|

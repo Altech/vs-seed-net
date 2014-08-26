@@ -5,17 +5,15 @@
   
   .border-top-of-stats.sp
   .stats style="background-image: url('/assets/pilot_#{@player.pilot.try(:name)}.png')"
-    #chart
-    #basic-data.pc
-      h3 参加した対戦
+    #chart class=(@stat.size == 0 ? 'no-data' : '')
+    #basic-data.pc class=(@stat.size == 0 ? 'no-data' : '')
       - if @player.events.size > 0
+        h3 参加した対戦
         ul
           - @player.events.each do |event|
             li
               a href=event_path(event)
                 == "#{event.held_at.strftime('%Y年%m月%d日')}（#{event.game_center.location}）"
-      - else
-        | NO DATA
     div style="clear: both"
   .border-bottom-of-stats.sp
   
@@ -26,7 +24,7 @@
 #replaceable
   == render partial: 'shared/thumbnails', locals: {videos: @videos}
 
-- unless ajax?
+- unless ajax? or @stat.size == 0
   javascript:
     $(function(){
       $('#chart').highcharts(generateChartData(#{raw @stat.to_json}))

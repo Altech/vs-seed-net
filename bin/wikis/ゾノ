@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|フォノン・メーザー砲|CENTER:8|RIGHT:74(101)|両腕からビームを撃つ。低コストとしては威力高め。&br()しかも隙が少なく当たりやすい。ただし補正率は最低クラス|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|魚雷|CENTER:12|RIGHT:134|胸から魚雷を4発。隙は小さい|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|クロー|CENTER:-|RIGHT:223|引っかき2連→叩き付け・3段目を前格へ派生可|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|ローリングアタック|CENTER:-|RIGHT:140|発生の遅い回転攻撃　判定が強い|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|クラッシャー|CENTER:-|RIGHT:203|回り込むように引っかき→両手で押しつぶし|
+|RIGHT:BGCOLOR(LIGHTGREEN):後格闘|バックステップローリング|CENTER:-|RIGHT:180|一旦後ろに回転し放物線上に回転体当たり|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|ちゃぶ台返し|CENTER:-|RIGHT:282|判定が強い。2段目からはN格のようなモーション。1段後に前派生可|

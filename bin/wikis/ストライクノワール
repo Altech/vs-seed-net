@@ -1,0 +1,10 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフルショーティー|CENTER:80|RIGHT:108/6発|2発を1セットで撃つ。連続入力で3セット(6発)まで連射可能。&br()3発ヒットでよろけ、7秒でリロード((ビーム属性)) ((打ち切りリロード))|
+|RIGHT:BGCOLOR(SKYBLUE):CS|ビームライフル連射|CENTER:-|RIGHT:156|ロック中の敵に向かって計16発のビームを連射、スキが非常に大きい ((ビーム属性))|
+|RIGHT:BGCOLOR(SKYBLUE):マルチCS|ビームライフル連射|CENTER:-|RIGHT:119|敵機2体に8発ずつ連射 ((ビーム属性))|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|2連装リニアガン|CENTER:6|RIGHT:125|2発1セット。よく曲がる 8秒でリロード((レールガン属性)) ((打ち切りリロード))|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|ビームライフル(回転撃)|CENTER:(80)|RIGHT:131|メインと弾数を共有。レバー横入れでモーションが変化 ((ビーム属性))|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|フラガラッハ3|CENTER:-|RIGHT:209|3段技。最後はかなり動くのでカットされにくい。&br()2段目後に後格派生可能|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|連続蹴り|CENTER:-|RIGHT:136|蹴り連打、伸び・判定ともに中の上。最後まで当たると吹っ飛ぶ|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|二段斬り|CENTER:-|RIGHT:181|2段技、終わりがそこそこ早め&br()回り込み性能は悪くない、伸びはいまいち|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|串刺し|CENTER:-|RIGHT:171|突進して剣を突き刺し、斬り上げる。1段目後に射撃派生でメイン零距離連射|

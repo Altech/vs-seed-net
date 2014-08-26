@@ -1,0 +1,10 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|機関砲|CENTER:80|RIGHT:20(1hit)&br()97(5hit)|射角が広く癖の無いMG　最大5発発射　3hitよろけ|
+|RIGHT:BGCOLOR(PINK):変形メイン射撃|機関砲(左右同時)|CENTER:(80)|RIGHT:182(10hit)|両手MGの同時射撃 メイン射撃と弾を共有|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|ビーム砲|CENTER:16|RIGHT:120(8hit)|ビーム4発×2連射。計8発、5hit以上で強制ダウン|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|ミサイルランチャー|CENTER:8|RIGHT:105(4hit)|高誘導ミサイル4発。4hitで強制ダウン|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームクロー|CENTER:-|RIGHT:181|格闘2段。右手で外から内へ斬り込み→昇竜拳|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|ボディアタック|CENTER:-|RIGHT:100|単発格闘。敵に頭を向けて、真っ直ぐ体当たりする|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|ボディチャージ|CENTER:-|RIGHT:151|格闘2段。右手で切り払い→両腕を広げて突進|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|ジャンプクロー|CENTER:-|RIGHT:157|飛び上がり、落下してクロウ→ビームクロウⅩ斬の2hit格闘|
+|RIGHT:BGCOLOR(PINK):変形格闘|回転ドリル|CENTER:-|RIGHT:188|ビームクロウを突き出して回転攻撃。多段hitで強制ダウン|

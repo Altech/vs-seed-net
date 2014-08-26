@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:4|RIGHT:95|普通のBR。弾数が少ないので注意。|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|シールドミサイル|CENTER:2|RIGHT:103|ダウン属性。BRとうまく併用しよう。|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|ヴュルガー|CENTER:4|RIGHT:142|ダウン属性。4発すべてを時間差発射するミサイル。&br()カットを受けると残弾が発生する。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:195|攻撃時間が短く、二段目がカットされにくい。&br()二段目を特格に派生可能。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|フラガマンキック|CENTER:-|RIGHT:120|コンパクト版埼玉キック。BRCでふっ飛ばし可能。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|シールドバッシュ２連撃|CENTER:-|RIGHT:175|回り込み性能が良好。二段目はカットされにくい反面、外れやすい。|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|高速払い抜け|CENTER:-|RIGHT:183|その場で横回転してから高速突進し、すれ違いざまに多段ヒット斬り。&br()使いどころが難しい。|

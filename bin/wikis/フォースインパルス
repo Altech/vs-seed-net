@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:7|RIGHT:95|普通のBR。((ビーム属性))　((常時回復))|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|バルカン砲|CENTER:60|RIGHT:3|胸部からバルカンを発射する。((実弾属性))　((使い切りリロード))|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:240|斬り払い→多段ヒットの突き、その後4パターン派生あり。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|斬り払い2連撃|CENTER:-|RIGHT:150|2段目で大きく前移動。1回の入力で2段目まで出る。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|打ち払い|CENTER:-|RIGHT:185|斬り、打ち上げの2段攻撃。|
+|RIGHT:BGCOLOR(LIGHTGREEN):後格闘|シールドバッシュ|CENTER:-|RIGHT:50|盾で相手に殴りかかる。前作から威力大幅減(前作110)。抜刀せずに出せる。|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|前宙斬り|CENTER:-|RIGHT:150|前宙しながら斬りつける。威力増加。|

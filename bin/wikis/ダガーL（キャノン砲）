@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームカービン|CENTER:4|RIGHT:90|普通のビーム系兵装　((ビーム属性)) ((常時回復))|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|ドッペルホルン|CENTER:10|RIGHT:125|一回で2発消費。遠距離で撃つほど放物線を描く　((レールガン属性)) ((撃ち切りリロード))|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|スティレット|CENTER:2|RIGHT:39|一回で2発消費。ヒットするとスタン ((実弾属性)) ((撃ち切りリロード))|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:120|一段。単発ダウン。BRC、キャノンC可能|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|2刀流ドリル突っ込み|CENTER:-|RIGHT:112|2本のサーベルを構え、回転して突撃。BRC可能|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|一文字斬り|CENTER:-|RIGHT:110|一段。単発ダウン。BRC、キャノンC可能|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|二刀アッパー斬り|CENTER:-|RIGHT:163|上昇ビームで追撃可能。キャノンCは不可|

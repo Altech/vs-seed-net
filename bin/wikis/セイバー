@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:6|RIGHT:100|普通のBR。((ビーム属性)) ((常時回復))|
+|RIGHT:BGCOLOR(SKYBLUE):CS|プラズマ収束ビーム砲【照射】|CENTER:-|RIGHT:260|曲げられる、照射時間が短い。((ビーム属性)) ((照射タイプ)) ((射線を動かせる))|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|プラズマ収束ビーム砲|CENTER:4|RIGHT:142|2発同時に発射。&br()一本のみHITで80ダメージ。((ビーム属性)) ((常時回復)) ((ダウン))|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:224|三段技|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|セイバードリルアタック|CENTER:-|RIGHT:138|二刀流で敵に突っ込む。&br()発生遅、射程長、硬直小。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|蹴り→斬り払い|CENTER:-|RIGHT:180|後ろ回し蹴り→切り払い。&br()左右でモーションが変わる。|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|二刀流回転斬り|CENTER:-|RIGHT:188|二刀流で回転しながら2回切りつける。|

@@ -1,0 +1,10 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備孝|　
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:5|RIGHT:105|普通のBR。弾数が少ないので無駄撃ち厳禁|
+|RIGHT:BGCOLOR(SKYBLUE):CS|長射程ビーム砲|CENTER:-|RIGHT:175|強制ダウンの単発赤ビーム|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|バルカン砲|CENTER:60|RIGHT:4|高性能なバルカン。1セット(12発)でよろけ|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|フラッシュエッジ2|CENTER:2|RIGHT:45|ブーメランを2発投擲。射程が長く、軌道は直線的|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|アロンダイト|CENTER:-|RIGHT:255|4段斬り。3段目の後に特格派生可。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|牙突|CENTER:-|RIGHT:169|剣を前に構えて突撃する。多段ヒットし、全段HITで強制ダウン|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|二連撃サマーソルト|CENTER:-|RIGHT:212|3段攻撃。2段目の後に特格派生可。|
+|RIGHT:BGCOLOR(LIGHTGREEN):後格闘|多段切り上げ|CENTER:-|RIGHT:222|その場でN格4段目と同モーション。多段技、全段HITで強制ダウン。あまり伸びない|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|パルマフィオキーナ|CENTER:-|RIGHT:231|相手を掴み投げ飛ばす。格闘ボタン連打でHIT数増加。|

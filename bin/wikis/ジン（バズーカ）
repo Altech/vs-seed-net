@@ -1,0 +1,7 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|バズーカ|CENTER:9|RIGHT:111|ダウン属性を持つ実弾武装。|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|バズーカ(ダブルショット)|CENTER:(9)|RIGHT:166|バズーカを2連射する。威力大、硬直大。2発hitで強制ダウン。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|重斬刀|CENTER:-|RIGHT:175|横斬り→蹴り飛ばしの二段。二段目にダウン効果。BZでキャンセル可|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|ヤクザキック|CENTER:-|RIGHT:100|突進するキック。発生、伸びに優れる。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|薙ぎ払い|CENTER:-|RIGHT:115|一段の斬りで相手は吹っ飛びダウン|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|突撃斬り|CENTER:-|RIGHT:100|猛突進しながら横斬り。かなりの距離を移動する。|

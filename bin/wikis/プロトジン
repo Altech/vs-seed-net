@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|マシンガン|CENTER:40|RIGHT:20(97)|入力時間に応じて1~5発まで連射可能。|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|マシンガン(バーストショット)|CENTER:(40)|RIGHT:30(127)|入力時間に応じて3~10連射が可能。|
+|RIGHT:BGCOLOR(YELLOW):特殊射撃|リロード|CENTER:-|RIGHT:-|メイン射撃/サブ射撃の残弾数を最大まで補充する。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|重斬刀|CENTER:-|RIGHT:155|2段技 斬りかかった後、追加入力で振り下ろす。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|なで斬り|CENTER:-|RIGHT:100|突進して薙ぎ払う。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|袈裟斬り|CENTER:-|RIGHT:105|入力方向へ回り込み、斬りつける。|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|溜め回転斬り|CENTER:-|RIGHT:120|横にターンしながら斬りつける、発生が遅い。|

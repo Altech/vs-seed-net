@@ -1,0 +1,10 @@
+|CENTER:BGCOLOR(KHAKI):射撃系|CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:8|RIGHT:105|アカツキ(オオワシ装備)のBRと同じ性能|
+|RIGHT:BGCOLOR(SKYBLUE):CS|ドラグーン付き一斉射撃|CENTER:-|RIGHT:156|レジェンドのCSのようにドラグーン展開し一斉射撃|
+|RIGHT:BGCOLOR(YELLOW):サブ射撃|ドラグーンシステム(バリア)|CENTER:100|RIGHT:-|僚機にバリア展開。再入力で解除可。|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|ドラグーンシステム|CENTER:14|RIGHT:40|ドラグーンを全基(7基)展開。&br()レバーNで停滞、レバー入れで敵機包囲。|
+|RIGHT:BGCOLOR(YELLOW):特殊格闘|ヤタノカガミ|CENTER:-|RIGHT:-|ビーム系攻撃を反射。オオワシと動作が異なる。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ナギナタ回転斬り|CENTER:4段|RIGHT:241|4段目はそこそこ上に上昇する|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|蹴り|CENTER:1段|RIGHT:130|BRC不可。発生は遅いが硬直は短め。ダウン値が高い|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|蹴り上げ→多段突き|CENTER:2段|RIGHT:194|ヒットすると誘導がかかる|
+|RIGHT:BGCOLOR(LIGHTGREEN):後格闘|唐竹割り|CENTER:1段|RIGHT:120|オオワシと同じく唐竹割り|

@@ -1,0 +1,10 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:7|RIGHT:100|普通より5ダメージ大きいBR。|
+|RIGHT:BGCOLOR(SKYBLUE):CS|ビーム突撃砲|CENTER:-|RIGHT:175|2回の追加入力で最大3回発射。CSC時全段で105。|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|バルカン砲|CENTER:60|RIGHT:3|普通の頭部バルカン。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:218|2回斬り付けて最後に多段斬り上げ。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|頭突き|CENTER:-|RIGHT:120|変形して頭突き。判定・誘導強。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|二刀流多段回転斬り|CENTER:-|RIGHT:184|1度斬り付けて2刀流回転斬り。発生速い・横誘導激強。|
+|RIGHT:BGCOLOR(LIGHTGREEN):後格闘|MA突撃|CENTER:-|RIGHT:159|発生激遅・判定激強。|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|ガイアサマー|CENTER:-|RIGHT:195|変形して蹴り上げ→後格闘。誘導まあまあ。|
+|RIGHT:BGCOLOR(PINK):変形格闘|ビームブレイド|CENTER:-|RIGHT:159|MA形態からビームブレイドで斬り抜ける。&br()発生が遅く誘導も弱いが広範囲。|

@@ -224,10 +224,18 @@
   .stats {
     margin-left: $pc-show-padding;
     margin-right: $pc-show-padding;
-    min-height: 330px;
     #chart {
+      min-height: $stat-min-height;
+      background-size: contain;
       width: 50%;
       float: left;
     }
   }
+}
+
+.no-data {
+  background-image: url('/assets/bg_no_data.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

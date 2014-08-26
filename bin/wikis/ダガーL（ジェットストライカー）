@@ -1,0 +1,8 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームカービン|CENTER:4|RIGHT:90|普通のBR ((ビーム属性))　((常時回復))|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|トーデスシュレッケン|CENTER:60|RIGHT:26|頭部バルカン　((実弾属性))　((撃ち切りリロード))|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|ロケット弾|CENTER:12|RIGHT:119|発射中に銃口と弾が自動追尾。一度に全弾消費　((実弾属性))　((撃ち切りリロード))|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:184|2段3Hit技、１段目BRC可能|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|2刀流ダガードリル|CENTER:-|RIGHT:111|2本のサーベルを前に出して回転アタック|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|なぎ払い|CENTER:-|RIGHT:154|2段技、BRC可能|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|打ち上げ×斬り|CENTER:-|RIGHT:164|2本のサーベルを下からクロスさせながら切り上げ|

@@ -1,0 +1,7 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|大型ミサイル|CENTER:4|RIGHT:127|腕部装備のミサイル。威力・誘導性に優れる。ダウン属性|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|脚部ミサイル|CENTER:6|RIGHT:109|脚部装備のミサイルを３連射。1発でも当たればダウン。弾道は縦方向に広がる。|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|格闘|CENTER:-|RIGHT:165|パンチ→タックルの二段技。多少伸びる。|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|ヤクザキック|CENTER:-|RIGHT:100|突進するキック。誘導、発生は弱め。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|ラリアット|CENTER:-|RIGHT:115|腕を振って殴る一段技。誘導、伸びでＮ格に劣る|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|ダブルスレッジハンマー|CENTER:-|RIGHT:100|ジャンプして両腕で敵を殴りつける。別名オルテガハンマー|

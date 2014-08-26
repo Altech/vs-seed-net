@@ -1,0 +1,9 @@
+||CENTER:BGCOLOR(GOLD):名称|CENTER:BGCOLOR(ORANGE):弾数|CENTER:BGCOLOR(ORANGE):威力|CENTER:BGCOLOR(GOLD):備考|
+|RIGHT:BGCOLOR(SKYBLUE):射撃|ビームライフル|CENTER:5|RIGHT:90|ビームライフル。変形時は向いてる方向に撃つため誘導性能劣悪|
+|RIGHT:BGCOLOR(SKYBLUE):サブ射撃|頭部バルカン|CENTER:60|RIGHT:3|変形中に出すと機関砲のようになる上、誘導性能も悪くない|
+|RIGHT:BGCOLOR(SKYBLUE):特殊射撃|ハヤテ|CENTER:4|RIGHT:133|ミサイル四連発射(山なり)。変形時は2発でまっすぐ飛ぶ|
+|RIGHT:BGCOLOR(LIGHTGREEN):通常格闘|ビームサーベル|CENTER:-|RIGHT:176|斬り→多段盾アッパー。特格派生あり|
+|RIGHT:BGCOLOR(LIGHTGREEN):前格闘|辻斬り一閃|CENTER:-|RIGHT:128|すれ違いざまに一閃。|
+|RIGHT:BGCOLOR(LIGHTGREEN):横格闘|切り払い＆裏拳|CENTER:-|RIGHT:166|自由の横みたいな感じ。|
+|RIGHT:BGCOLOR(LIGHTGREEN):特殊格闘|飛翔二段蹴り|CENTER:-|RIGHT:155|飛び上がって2段蹴り。2HITで強制ダウン|
+|RIGHT:BGCOLOR(PINK):変形格闘|錐揉み|CENTER:-|RIGHT:-|ロック中の敵の方に向きを変え錐揉みを行う。これ自体に攻撃判定は無し。&br()この時各種射撃を連射可能|

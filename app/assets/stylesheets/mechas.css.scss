@@ -69,8 +69,69 @@
 
   .stats {
     #basic-data {
+      width: 50%;
+      min-height: $stat-min-height;
+      float: left;
+      background-image: url('/assets/bg_weapon.png');
+      background-repeat: no-repeat;
+      background-size: contain;
       h3 {
         text-align: center;
+        margin-bottom: 10px;
+      }
+      table {
+        margin-top: 20px;
+        margin-right: 20px;
+        thead {
+          display: none;
+          border-bottom: 1px solid #666;
+        }
+        font-size: 10pt;
+        td {
+          height: 34px;
+          
+        }
+        tbody {
+          td {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+          }
+        }
+        td.kind {
+          min-width: 70px;
+          padding-left: 6px;
+        }
+        td.name {
+          min-width: 130px;
+          padding-left: 6px;
+          font-weight: bold;
+        }
+        td.bullets {
+          min-width: 40px;
+          text-align: center;
+          padding: 0 3px;
+        }
+        td.power {
+          min-width: 40px;
+          text-align: center;
+          padding: 0 3px;
+        }
+        td.remark {
+          font-size: 8pt;
+          padding-left: 6px;
+        }
+        td.shageki {
+          color: blue;
+        }
+        td.kakutou {
+          color: green;
+        }
+        td.special {
+          color: orange;
+        }
+        td.transform {
+          color: rgb(216, 0, 216);// purple
+        }
       }
       img {
         width: 50%;

@@ -5,12 +5,11 @@
   
   .border-top-of-stats.sp
   .stats
-    #chart
+    #chart class=(@stat.size == 0 ? 'no-data' : '')
     #basic-data.pc
-      h3 基本性能
-      img src="/assets/stf.png"
-        .read-more
-          a href="http://www8.atwiki.jp/destiny/pages/686.html" target="_blank" [wiki]
+      == render partial: "/mechas/weapons/weapon_#{@mecha.id}"
+      .read-more
+        a href=@mecha.external_url target="_blank" [wiki]
     div style="clear: both"
   .border-bottom-of-stats.sp
   
@@ -21,7 +20,7 @@
 #replaceable
   == render partial: 'shared/thumbnails', locals: {videos: @videos.sort}
 
-- unless ajax?
+- unless ajax? or @stat.size == 0
   javascript:
     $(function(){
       $('#chart').highcharts(generateChartData(#{raw @stat.to_json}))

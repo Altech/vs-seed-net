@@ -26,6 +26,7 @@
 /db/*.sqlite3
 /spec/tmp/*
 
+app/views/mechas/weapons
 Gemfile.lock
 config/database.yml
 config/s3.yml
