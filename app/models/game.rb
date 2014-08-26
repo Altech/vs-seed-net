@@ -43,6 +43,12 @@ class Game < ActiveRecord::Base
     return false
   end
 
+  def include_unknown_player?
+    return true if video_A1 and video_A1.player.nil?
+    return true if video_A2 and video_A2.player.nil?
+    return false
+  end
+
   def next_game
     if event_id
       Game.where(index_of_event: index_of_event+1, event_id: event_id).first

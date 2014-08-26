@@ -8,6 +8,9 @@ class EventsController < ApplicationController
     @event = Event.find_by_date params[:id]
     if params[:filtering_id].to_i == 0
       @games = @event.games
+    elsif params[:filtering_id].to_i == -1
+      @games = @event.games.select{|game| game.include_unknown_player?}
+      @games = Kaminari.paginate_array(@games)
     else
       @games = @event.games.select{|game| game.include_player?(params[:filtering_id].to_i)}
       @games = Kaminari.paginate_array(@games)

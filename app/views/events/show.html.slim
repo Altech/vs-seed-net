@@ -13,7 +13,7 @@
   
   .filter-by-selection
     | ◆動画を絞る：
-    == select_tag 'foo', options_for_select([['全プレイヤー', 0]] + @event.players.map{|p| [p.name,p.id]})
+    == select_tag 'foo', options_for_select([['全プレイヤー', 0]] + @event.players.map{|p| [p.name,p.id]} + [['その他・不明', -1]])
 
 #replaceable
   - if @games_paginated.total_pages > 1
