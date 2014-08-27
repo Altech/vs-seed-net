@@ -2,8 +2,26 @@
 ## =========== Video Filtering ============
 $ ($) ->
   $('.filter-by-selection select').change ->
+    isPC = parseInt($(window).width()) > spMaxWidth
+    nowLoadingId = if isPC then '#now-loading-at-nav' else '#now-loading-at-filter'
+    $(nowLoadingId).show()
+    $('#invalidate-cover').show()
     path = window.location.pathname + "?filtering_id=" + $(this).val()
-    $('#replaceable').load (path + "&ajax=true")
+    $('#replaceable').load (path + "&ajax=true"), (result) ->
+      $(nowLoadingId).hide()
+      $('#invalidate-cover').hide()
+
+window.setThumbanilEvent = ->
+  $(".thumbnail").click (e) ->
+    if parseInt($(window).width()) > spMaxWidth
+      e.preventDefault()
+      $('#now-loading-at-nav').show()
+      $('#invalidate-cover').show()
+      id = parseInt($(this).attr('data-video-id'))
+      $('#video-modal').load ('/videos/'+ id + '?ajax=true'), (result) ->
+        $('#now-loading-at-nav').hide()
+        $('#invalidate-cover').hide()
+        $('#video-modal').modal({show:true})
 
 ## =========== Show Chart ============
 baseChartData = 

@@ -201,6 +201,7 @@
 }
 @media (min-width: $pc-min-width) {
   .stats {
+
     margin-left: $pc-show-padding;
     margin-right: $pc-show-padding;
     #chart {
@@ -229,4 +230,40 @@
 
 .chart-color-3 {
   color: $chart-3-color;
+}
+
+#invalidate-cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+}
+
+#now-loading-at-nav {
+  $size: 46px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $size + 7;
+  z-index: 1000;
+  background-image: url('/assets/now_loading.gif');
+  background-position: center 7px;
+  background-size: $size $size;
+  background-repeat: no-repeat;
+}
+
+// Used in Smart Phone
+#now-loading-at-filter {
+  $size: 22px;
+  float: right;
+  width: $size + 6;
+  margin-right: 6;
+  height: $size;
+  background-image: url('/assets/now_loading.gif');
+  background-position: left center;
+  background-size: $size $size;
+  background-repeat: no-repeat;
 }

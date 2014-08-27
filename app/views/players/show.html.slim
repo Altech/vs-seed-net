@@ -20,6 +20,7 @@
   .filter-by-selection style='clear: both'
     | ◆動画を絞る：
     == select_tag 'foo', options_for_select([['全ての機体', 0]] + @player.videos.map(&:mecha).uniq.select{|i| !i.nil?}.sort.map{|mecha| [mecha.nickname, mecha.id]})
+    #now-loading-at-filter style="display: none"
 
 #replaceable
   == render partial: 'shared/thumbnails', locals: {videos: @videos}
