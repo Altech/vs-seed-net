@@ -11,7 +11,7 @@
     a name=cost
       .card-container style="#{i.even? ? 'clear: both' : ''}"
         .with-half-transparent
-          .card.mechas style="background-image: url('/assets/cost_#{cost}.png')"
+          .card.mechas style=background_image("cost_#{cost}.png")
               - mechas.each do |mecha|
                 .mecha
                   h2

@@ -55,7 +55,7 @@
     margin: 17px;
   }
   .with-half-transparent {
-    background-image: url('/assets/pc_card_background.png');
+    background-image: asset-url('pc_card_background.png');
     padding: 0;
     margin: 0;
   }
@@ -89,7 +89,7 @@
         border: 1px solid #ccc;
       }
       .vol-of-event {
-        background-image: url('/assets/bg_for_volume.png');
+        background-image: asset-url('bg_for_volume.png');
         background-position: bottom right;
         background-size: contain;
         position: absolute;
@@ -214,7 +214,7 @@
 }
 
 .no-data {
-  background-image: url('/assets/bg_no_data.png');
+  background-image: asset-url('bg_no_data.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -237,7 +237,7 @@
   left: 0;
   height: $size + 7;
   z-index: 1000;
-  background-image: url('/assets/now_loading.gif');
+  background-image: asset-url('now_loading.gif');
   background-position: center 7px;
   background-size: $size $size;
   background-repeat: no-repeat;
@@ -250,7 +250,7 @@
   width: $size + 6;
   margin-right: 6;
   height: $size;
-  background-image: url('/assets/now_loading.gif');
+  background-image: asset-url('now_loading.gif');
   background-position: left center;
   background-size: $size $size;
   background-repeat: no-repeat;

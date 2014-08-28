@@ -14,29 +14,9 @@
 //= require jquery_ujs
 //= require jquery.cookie
 //= require_tree .
+//= require bootstrap
 
 // Cosntants
 pcMinWidth = 881;
 spMaxWidth = 880;
 pcShowPadding = 50;
-
-$(function(){
-  var $setElem = $('.switch'),
-      pcName = '/assets/pc_',
-      spName = '/assets/sp_',
-      replaceWidth = pcMinWidth;
-  
-  $setElem.each(function(){
-    var $this = $(this);
-    function imgSize(){
-      var windowWidth = parseInt($(window).width());
-      if(windowWidth >= replaceWidth) {
-      	$this.attr('src',$this.attr('src').replace(spName,pcName)).css({visibility:'visible'});
-      } else if(windowWidth < replaceWidth) {
-      	$this.attr('src',$this.attr('src').replace(pcName,spName)).css({visibility:'visible'});
-      }
-    }
-    $(window).resize(function(){imgSize();});
-    imgSize();
-  });
-});

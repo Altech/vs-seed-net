@@ -24,4 +24,8 @@ module ApplicationHelper
   def ajax?
     params['ajax'] == 'true'
   end
+
+  def background_image(path)
+    "background-image: url('#{asset_path(path)}')"
+  end
 end

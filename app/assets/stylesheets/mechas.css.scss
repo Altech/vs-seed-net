@@ -72,7 +72,7 @@
       width: 50%;
       min-height: $stat-min-height;
       float: left;
-      background-image: url('/assets/bg_weapon.png');
+      background-image: asset-url('bg_weapon.png');
       background-repeat: no-repeat;
       background-size: contain;
       h3 {

@@ -4,7 +4,7 @@
       == @player.name
   
   .border-top-of-stats.sp
-  .stats style="background-image: url('/assets/pilot_#{@player.pilot.try(:name)}.png')"
+  .stats style=background_image("pilot_#{@player.pilot.try(:id)}.png")
     #chart class=(@stat.size == 0 ? 'no-data' : '')
     #basic-data.pc class=(@player.events.size == 0 ? 'no-data' : '')
       - if @player.events.size > 0

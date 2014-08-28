@@ -6,30 +6,31 @@ html
     meta name="keywords" content="連ザ, 連ザ2, 対戦, 動画"
     link rel="shortcut icon" type="image/png" href="/favicon.png"
     link rel="apple-touch-icon" href="/apple-touch-icon.png"
-    link rel="stylesheet" type="text/css" href="/assets/restricted-bootstrap.css"
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
     script src="http://code.highcharts.com/highcharts.js"
-    script src="/assets/bootstrap.min.js"
   body
     .navbar
       a href="/"
-        img#logo.pc src="/assets/pc_nav_logo.png"
+        img#logo.pc src=asset_path("pc_nav_logo.png")
       ul.menues
         .sp.space _
         a.sp href="/"
           li#home-button
-            img src="/assets/sp_nav_home#{_selected_if(:top)}.png"
+            img src=asset_path("sp_nav_home#{_selected_if(:top)}.png")
         a href=events_path      
           li#events-button
-            img.switch src="/assets/sp_nav_events#{_selected_if(:events)}.png"
+            img.sp src=asset_path("sp_nav_events#{_selected_if(:events)}.png")
+            img.pc src=asset_path("pc_nav_events#{_selected_if(:events)}.png")
         a href=mechas_path
           li#mechas-button
-            img.switch src="/assets/sp_nav_mechas#{_selected_if(:mechas)}.png"
+            img.sp src=asset_path("sp_nav_mechas#{_selected_if(:mechas)}.png")
+            img.pc src=asset_path("pc_nav_mechas#{_selected_if(:mechas)}.png")
         a href=players_path
           li#players-button
-            img.switch src="/assets/sp_nav_players#{_selected_if(:players)}.png"
+            img.sp src=asset_path("sp_nav_players#{_selected_if(:players)}.png")
+            img.pc src=asset_path("pc_nav_players#{_selected_if(:players)}.png")
         .pc.space _
 
     .contents class=params[:controller]

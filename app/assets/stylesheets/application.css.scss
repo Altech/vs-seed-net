@@ -8,6 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require restricted-bootstrap
  *= require_self
  *= require_tree .
  *= require font-awesome
@@ -46,7 +47,6 @@
       float: left;
       img {
         height: $navbar-height;
-        display: block;
         margin-left: auto;
         margin-right: auto;
       }
@@ -100,7 +100,7 @@ body {
 }
 @media (min-width: $pc-min-width) {
   body {
-    background-image: url('/assets/pc_background.jpg');
+    background-image: asset-url('pc_background.jpg');
     background-size: 500px 2400px;
     background-repeat: repeat-y;
     font-size: $pc-text-font-size;

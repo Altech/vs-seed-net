@@ -1,7 +1,7 @@
 .video-nav
   == link_to_previous_video_if_exists video
-    img.prev src="/assets/video_nav_prev#{_invalid_unless(video.previous_video(@context))}.png" data-video-id="#{video.previous_video(@context).try(:id) || ''}"
+    img.prev src=asset_path("video_nav_prev#{_invalid_unless(video.previous_video(@context))}.png") data-video-id="#{video.previous_video(@context).try(:id) || ''}"
   == link_to_partners_video_if_exists video
-    img.exchange src="/assets/video_nav_exchange#{_invalid_unless(video.partners_video)}.png" data-video-id="#{video.partners_video.try(:id) || ''}"
+    img.exchange src=asset_path("video_nav_exchange#{_invalid_unless(video.partners_video)}.png") data-video-id="#{video.partners_video.try(:id) || ''}"
   == link_to_next_video_if_exists video
-    img.next src="/assets/video_nav_next#{_invalid_unless(video.next_video(@context))}.png" data-video-id="#{video.next_video(@context).try(:id) || ''}"
+    img.next src=asset_path("video_nav_next#{_invalid_unless(video.next_video(@context))}.png") data-video-id="#{video.next_video(@context).try(:id) || ''}"

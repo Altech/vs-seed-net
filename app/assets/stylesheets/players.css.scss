@@ -97,19 +97,19 @@
     border-color: $chart-1-color;
     border-style: solid;
     border-width: 1px 1px 1px 3px;
-    background: url('/assets/bg_chart_1.png');
+    background: asset-url('bg_chart_1.png');
   }
   .bar-chart-2 {
     border-color: $chart-2-color;
     border-style: solid;
     border-width: 1px 1px 1px 3px;
-    background: url('/assets/bg_chart_2.png');
+    background: asset-url('bg_chart_2.png');
   }
   .bar-chart-3 {
     border-color: $chart-3-color;
     border-style: solid;
     border-width: 1px 1px 1px 3px;
-    background: url('/assets/bg_chart_3.png');
+    background: asset-url('bg_chart_3.png');
   }    
   ul.bar-chart {
     margin: 0;
