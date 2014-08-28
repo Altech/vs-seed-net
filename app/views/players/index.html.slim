@@ -2,7 +2,7 @@
   - @players.each do |player|
     - stat = @stats[player.id]
     .card-container
-      .card style="background-image: url('/assets/pilot_#{player.pilot.try(:name)}.png')"
+      .card style="background-image: url('/assets/pilot_#{player.pilot.try(:id)}.png')"
         .title-part
           h2
             a href=player_path(player)
