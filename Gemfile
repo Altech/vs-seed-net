@@ -28,7 +28,6 @@ gem 'paperclip'
 gem 'validates_email_format_of'
 
 gem 'i18n_generators'
-gem 'fluent-logger'
 gem 'kaminari'
 
 

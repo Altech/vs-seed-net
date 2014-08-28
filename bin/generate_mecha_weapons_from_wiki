@@ -11,7 +11,7 @@ data_dir = File.dirname(__FILE__) + '/wikis'
 # Dir.entries(data_dir).select{|e| e[0] != '.'}
 
 save_dir = Rails.root + 'app/views/mechas/weapons'
-FileUtils.rm_r save_dir
+FileUtils.rm_r save_dir if save_dir.exist?
 save_dir.mkdir
 
 Dir.entries(data_dir).select{|e| e[0] != '.'}.each do |e|

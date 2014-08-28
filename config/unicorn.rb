@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 worker_processes 2
-working_directory '/home/ec2-user/vs-seed'
+working_directory '/home/ec2-user/vs-seed-net'
 
 listen '/tmp/unicorn.sock'
 pid '/tmp/unicorn.pid'
@@ -9,8 +9,8 @@ timeout 60
 
 preload_app true # ダウンタイムをなくす
 
-stdout_path '/home/ec2-user/vs-seed/log/unicorn.stdout.log'
-stderr_path '/home/ec2-user/vs-seed/log/unicorn.stderr.log'
+stdout_path '/home/ec2-user/vs-seed-net/log/unicorn.stdout.log'
+stderr_path '/home/ec2-user/vs-seed-net/log/unicorn.stderr.log'
 
 GC.respond_to?(:copy_on_write_friendly=) and GC.copy_on_write_friendly = true
 

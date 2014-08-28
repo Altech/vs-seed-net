@@ -17,14 +17,14 @@ class ApplicationController < ActionController::Base
 
   def logging_access
     return if not Rails.env.production?
-    logger = Fluent::Logger::FluentLogger.new(nil, :host => 'localhost')
-    logger.post('production.vs_seed.access',
-                method: request.method,
-                path: request.fullpath,
-                referer: request.referer,
-                agent: request.user_agent,
-                ip: request.ip,
-                player_id: (current_player ? current_player.id : nil))
+    File.open(ENV['HOME'] + '/accesses.log', 'a') {|f|
+      f.puts({
+        method: request.method,
+        path: request.fullpath,
+        referer: request.referer,
+        agent: request.user_agent,
+        ip: request.ip}.to_json)
+    }
   end
 
   before_filter :request_from
