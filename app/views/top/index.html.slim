@@ -1,16 +1,28 @@
-h1.news.pc Information
-
-#twitter-timeline-container
-  a#twitter-timeline.twitter-timeline href="https://twitter.com/vs_seed_net" data-chrome="noheader nofooter transparent" data-tweet-limit="4" data-widget-id="502482454481891330"
+.timelines-container
+  #information-timeline-container
+    / h2 > Information
+    a#information-timeline.twitter-timeline href="https://twitter.com/vs_seed_net" data-chrome="noheader nofooter" data-tweet-limit="4" data-widget-id="502482454481891330"
+  
+  #anonymous-timeline-container.pc
+    / h2 > Anonymous
+    a#anonymous-timeline.twitter-timeline.pc href="https://twitter.com/vs_seed_2ch" data-chrome="noheader nofooter" data-tweet-limit="4" data-widget-id="504903712834191360"
 
 javascript:
   $(function(){
-    var elem = document.getElementById('twitter-timeline');
+    var elem1 = document.getElementById('information-timeline');
+    var elem2 = document.getElementById('anonymous-timeline');
     var width = parseInt($(document).width());
-    elem.setAttribute('width', width-16);
-    if (width > 500) {
-      elem.setAttribute('data-tweet-limit', 8);
+    elem1.setAttribute('width', width-16);
+    if (width < pcMinWidth) {
+      elem1.setAttribute('data-chrome', "noheader nofooter transparent")
+    } else {
+      height = parseInt($(document).height()) - 58 - 30*2;
+      elem1.setAttribute('data-tweet-limit', '');
+      elem2.setAttribute('data-tweet-limit', '');
+      elem1.setAttribute('height', height.toString());
+      elem2.setAttribute('height', height.toString());
     }
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   })
   
