@@ -2,22 +2,16 @@
   - @players.each do |player|
     - stat = @stats[player.id]
     .card-container
-      .with-half-transparent
-        .card style="background-image: url('/assets/pilot_#{player.pilot.try(:name)}.png')"
-          .title-part
-            h2
-              a href=player_path(player)
-                == player.name
-            span.num-of-games （#{player.videos.size}）
-          .stats-summary
-            dl
-              - 0.upto(2) do |i|
-                - if stat[i]
-                  - name , ratio = stat[i]
-                  dt
-                    == name
-                  dd class="chart-color-#{i+1}" style="overflow-x: hidden"
-                    == '■' * [(ratio/4)-1, 0].max + '▶'
-                - else
-                  dt.empty  -  -  -  -  -  -  -
-                  dd
+      .card style="background-image: url('/assets/pilot_#{player.pilot.try(:name)}.png')"
+        .title-part
+          h2
+            a href=player_path(player)
+              == player.name
+          span.num-of-games （#{player.videos.size}）
+        .stats-summary
+          ul.bar-chart
+            - 0.upto(2) do |i|
+              - name , ratio = stat[i]
+              li style="width: #{ratio ? ratio*2 : 0}%;" class="bar-chart-#{i+1}"
+                | #{name}
+                / span #{ratio}%

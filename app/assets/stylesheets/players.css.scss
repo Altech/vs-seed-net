@@ -10,6 +10,7 @@
     background-size: contain;
     
     .stats-summary {
+      overflow-x: hidden;
       dl {
         margin-top: 10px;
         margin-bottom: 0px;
@@ -42,7 +43,6 @@
       padding-top: $sp-padding-for-nav-drop-shadow;
     }
     .card {
-      height: 135px;
       .stats-summary {
         dl {
           dt {
@@ -56,8 +56,11 @@
   @media (min-width: $pc-min-width) {
     $max-width-of-mecha-name: 200px;
     .card {
-      height: 160px;
+      height: 166px;
       width: 462px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
       .stats-summary {
         dl {
           dt {
@@ -87,4 +90,64 @@
     // Hide Pilot Image in Smart Phone
     background-position: -9999px -9999px;
   }
+
+
+  // Bar Chart
+  .bar-chart-1 {
+    border-color: $chart-1-color;
+    border-style: solid;
+    border-width: 1px 1px 1px 3px;
+    background: url('/assets/bg_chart_1.png');
+  }
+  .bar-chart-2 {
+    border-color: $chart-2-color;
+    border-style: solid;
+    border-width: 1px 1px 1px 3px;
+    background: url('/assets/bg_chart_2.png');
+  }
+  .bar-chart-3 {
+    border-color: $chart-3-color;
+    border-style: solid;
+    border-width: 1px 1px 1px 3px;
+    background: url('/assets/bg_chart_3.png');
+  }    
+  ul.bar-chart {
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
+    list-style: none;
+    li {
+      @include ellipsis;
+      color: #444;
+      font-weight: bold;
+      span {
+        padding-right: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        float: right;
+      }
+    }
+  }
+  @media (max-width: $sp-max-width) {
+    ul.bar-chart {
+      li {
+        margin-top: 12px;
+        padding: 8px 4px 6px 5px;
+        font-size: 8pt;
+        line-height: 6px;
+      }
+    }
+  }
+  @media (min-width: $pc-min-width) {
+    ul.bar-chart {
+      li {
+        margin: 16px 0;
+        padding: 7px 0;
+        padding-left: 7px;
+        line-height: 8px;
+        font-size: 13px;
+      }
+    }
+  }
+
 }
