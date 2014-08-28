@@ -1,24 +1,60 @@
-| 対戦会に参加したプレイヤー（ユーザー登録済み）を追加してください。
-.add-participants
-  h3 参加者一覧
-  == @participants.map(&:name).join("、")
-  == form_tag(event_path(@event), method: :put) do |p|
-    == text_field_tag :mail, nil, size: 30, placeholder: 'メールアドレス（,で区切る）'
-    == submit_tag '参加者を追加'
+.data-title
+  h1
+    span.date #{@event.held_at.strftime("%Y年%m月%d日")}
+    span.location.pc-i ＠#{@game_center.location}
 
-- if current_player and current_player.admin?
-  h3 イベントレポート
-  .edit-event-report
-    == form_for(@event_report) do |f|
-      .form-group
-        == f.text_field :event_id, disable: :disable
-      .form-group
-        == f.text_area :body, style: 'width: 400px; height: 250px;'
-      .form-group
-        == f.submit '作成／更新'
+.events
+  .show-participants
+    .header 参加プレイヤー
+    .contents
+      - @event.players.each_with_index do |player,i|
+        a.black href=player_path(player) #{player.name}
+        == '、' unless i+1 == @event.players.size
+    .add-participant style="text-align: left;"
+      == form_tag(event_path(@event), method: :put) do |p|
+        - @players.each do |player|
+          == player.name
+          == player.participate?(@event)
+          == check_box('player', player.id, {}, true, false)
+          == ' | '
+        == submit_tag '更新'
 
-  == form_for(@event) do |f|
-    == f.hidden_field :id
-    == f.label :thumbnail
-    == f.file_field :thumbnail
-    == f.submit 'サムネイルを更新'
+.thumbnails
+  == form_tag(event_path(@event), method: :put) do
+    - @games.each do |game|
+      - video = game.video_A1
+      .thumbnail-container
+        .thumbnail data-video-id=video.id
+          a href=video_path(video.id)
+            == image_tag game.thumbnail.url, class: 'capture'
+          .vol-of-event
+            == "Vol.#{"%03d" % (game.index_of_event+1)}"
+        table.table.table-hover.info
+          tbody
+            - game.videos.each_with_index do |video,i|
+              tr.player
+                td
+                  == "P#{i+1}"
+                td
+                  span.contents
+                    - if video.player
+                      == link_to(video.player.name, player_path(video.player), class: 'no-decoration')
+                    - else
+                      == select_tag "video[#{video.id}][player_id]", options_for_select(@event.players.map{|p| [p.name,p.id]}), include_blank: true
+              tr.mecha
+                td
+                  == "M#{i+1}"
+                td
+                  span.contents
+                    - if video.mecha
+                      ==  link_to video.mecha.full_name, mecha_path(video.mecha), class: 'no-decoration'
+                    - else
+                      == select_tag "video[#{video.id}][mecha_id]", grouped_options_for_select(Mecha.all.group_by(&:cost).map_values{|a| a.map(&:nickname)}), include_blank: true
+    == submit_tag '更新'
+  
+  / .add-participants
+  /   h3 参加者一覧
+  /   == @participants.map(&:name).join("、")
+  /   == form_tag(event_path(@event), method: :put) do |p|
+  /     == text_field_tag :mail, nil, size: 30, placeholder: 'メールアドレス（,で区切る）'
+  /     == submit_tag '参加者を追加'
