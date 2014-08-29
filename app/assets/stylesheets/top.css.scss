@@ -6,6 +6,9 @@
   padding-left: 8px;
   padding-right: 8px;
   max-width: $twitter-max-width;
+  @media (max-width: $sp-max-width) {
+    margin-top: $sp-padding-for-nav-drop-shadow;
+  }
 }
 
 @media (min-width: $pc-min-width) {
