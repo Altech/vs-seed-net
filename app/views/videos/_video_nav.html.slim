@@ -1,7 +1,7 @@
 .video-nav
-  == link_to_previous_video_if_exists video
+  == link_to_previous_video_if_exists video, class: 'ajax-in-pc'
     img.prev src=asset_path("video_nav_prev#{_disabled_unless(video.previous_video(@context))}.png") data-video-id="#{video.previous_video(@context).try(:id) || ''}"
-  == link_to_partners_video_if_exists video
+  == link_to_partners_video_if_exists video, class: 'ajax-in-pc'
     img.exchange src=asset_path("video_nav_exchange#{_disabled_unless(video.partners_video)}.png") data-video-id="#{video.partners_video.try(:id) || ''}"
-  == link_to_next_video_if_exists video
+  == link_to_next_video_if_exists video, class: 'ajax-in-pc'
     img.next src=asset_path("video_nav_next#{_disabled_unless(video.next_video(@context))}.png") data-video-id="#{video.next_video(@context).try(:id) || ''}"

@@ -5,7 +5,6 @@ $ ->
   $("#back-button").click (e) ->
     $('#invalidate-cover').show()
     history.back()
-    backCount += 1
     $('#invalidate-cover').hide()
 
 window.setViewOfBackAndForward = ->
