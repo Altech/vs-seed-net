@@ -27,19 +27,19 @@
 }
 
 // Back and Forward in iOS App
-
-#back-and-forward-in-ios-app {
+#browsing-nav-in-ios-app {
+  $button-size: 44px;
   border: 1px solid #B2B2B2;
   background-color: #F9F9F9;
   position: fixed;
   right: 24px;
   bottom: 24px;
-  width: 116;
-  height: 44;
+  width: $button-size;
+  height: $button-size;
   text-align: center;
   img {
-    width: 58px;
-    height: 44px;
+    width: $button-size;
+    height: $button-size;
     display: block;
     float: left;
   }

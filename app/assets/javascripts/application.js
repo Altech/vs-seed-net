@@ -48,6 +48,6 @@ $(document).on("click", "a", function(e) {
 
 $(function(){
   if (window.navigator.standalone) {
-    $("#back-and-forward-in-ios-app").show();
+    $("#browsing-nav-in-ios-app").show();
   }
 });

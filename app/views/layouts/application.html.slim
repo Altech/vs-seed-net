@@ -42,13 +42,11 @@ html
     .contents#pjax-container class=params[:controller]
       == yield
 
-    #back-and-forward-in-ios-app style="display: none"
+    #browsing-nav-in-ios-app style="display: none"
       javascript:
         setViewOfBackAndForward()
       img#back-button style="display: none" src=asset_path("standalone_back_button.png")
       img#back-button-disabled src=asset_path("standalone_back_button_disabled.png")
-      img#forward-button style="display: none" src=asset_path("standalone_forward_button.png")
-      img#forward-button-disabled src=asset_path("standalone_forward_button_disabled.png")
 
     #invalidate-cover style="display: none"
 

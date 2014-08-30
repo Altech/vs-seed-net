@@ -1,19 +1,11 @@
 ## =========== Back button and Forward button in iOS App ============
 # alert(history.length)
 
-if (window.backCount == undefined)
-  window.backCount = 0
-
 $ ->
   $("#back-button").click (e) ->
     $('#invalidate-cover').show()
     history.back()
     backCount += 1
-    $('#invalidate-cover').hide()
-  $("#forward-button").click (e) ->
-    $('#invalidate-cover').show()
-    history.forward()
-    backCount -= 1
     $('#invalidate-cover').hide()
 
 window.setViewOfBackAndForward = ->
@@ -21,9 +13,6 @@ window.setViewOfBackAndForward = ->
     if history.length > 1
       $('#back-button').show()
       $('#back-button-disabled').hide()
-    if backCount > 0
-      $('#forward-button').show()
-      $('#forward-button-disabled').hide()
   ), 200)
 
 ## =========== Video Filtering ============
