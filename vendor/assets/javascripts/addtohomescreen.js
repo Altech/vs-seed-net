@@ -83,7 +83,11 @@ ath.intl = {
 	zh_tw: {
 		message: '如要把應用程式加至主屏幕, 請點擊%icon, 然後<strong>%action</strong>.',
 		action: { ios: '加至主屏幕', android: '加至主屏幕', windows: '按住啟動' }
-	}
+	},
+        ja_ja: {
+		message: '<span style="margin: 2px; margin-bottom: 3px; border-bottom: 1px solid #444">このアプリのインストール方法</div><div style="margin-top: 26px; margin-bottom: 20px;"> %icon → <strong>%action</strong></div>',
+		action: { ios: 'ホーム画面に追加', android: 'ホーム画面に追加', windows: 'スタートに登録' }
+        }
 };
 
 // Add 2 characters language support (Android mostly)
@@ -128,7 +132,7 @@ _extend(ath, {
 });
 
 // falls back to en_us if language is unsupported
-ath.language = ath.language && ath.language in ath.intl ? ath.language : 'en_us';
+ath.language = ath.language && ath.language in ath.intl ? ath.language : 'ja_ja';
 
 ath.isMobileSafari = ath.isIDevice && _ua.indexOf('Safari') > -1 && _ua.indexOf('CriOS') < 0;
 ath.OS = ath.isIDevice ? 'ios' : ath.isMobileChrome ? 'android' : ath.isMobileIE ? 'windows' : 'unsupported';
