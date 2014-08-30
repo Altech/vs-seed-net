@@ -6,6 +6,10 @@
       - unless cost == 200
         == " / "
 
+javascript:
+  // [TODO] name jump causes page transition and it opens Safari in standalone-mode.
+  if(window.navigator.standalone){$(".mechas .nav-box.sp").hide()}
+
 .cards
   - @mechas_of_costs.each_with_index do |(cost, mechas), i|
     a name=cost
