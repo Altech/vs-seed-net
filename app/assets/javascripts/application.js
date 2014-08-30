@@ -37,6 +37,9 @@ $(document).on("click", "a", function(e) {
   if ($(this).hasClass('ajax-in-pc') && isPC())  return;
   if ($(this).hasClass('ajax-in-sp') && isSP()) return;
 
+  // Do nothing in page link
+  if ($(this).attr("href").match(/^#/)) return;
+
   e.preventDefault();
   $.pjax({
     url: $(this).attr("href"),
