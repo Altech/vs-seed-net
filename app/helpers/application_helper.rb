@@ -17,8 +17,8 @@ module ApplicationHelper
     end
   end
 
-  def _invalid_unless(obj)
-    obj ? '' : '_invalid'
+  def _disabled_unless(obj)
+    obj ? '' : '_disabled'
   end
 
   def ajax?

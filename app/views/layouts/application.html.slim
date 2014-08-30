@@ -6,6 +6,7 @@ html
     meta name="keywords" content="連ザ, 連ザ2, 対戦, 動画"
     meta name="apple-mobile-web-app-capable" content="yes"
     meta name="apple-mobile-web-app-status-bar-style" content="black"
+    meta name="apple-mobile-web-app-title" content="VS-SEED.NET"
     link rel="shortcut icon" type="image/png" href=asset_path("favicon.png")
     link rel="apple-touch-icon" href=asset_path("apple-touch-icon.png")
     = stylesheet_link_tag    "application", media: "all"
@@ -40,6 +41,14 @@ html
 
     .contents#pjax-container class=params[:controller]
       == yield
+
+    #back-and-forward-in-ios-app style="display: none"
+      javascript:
+        setViewOfBackAndForward()
+      img#back-button style="display: none" src=asset_path("standalone_back_button.png")
+      img#back-button-disabled src=asset_path("standalone_back_button_disabled.png")
+      img#forward-button style="display: none" src=asset_path("standalone_forward_button.png")
+      img#forward-button-disabled src=asset_path("standalone_forward_button_disabled.png")
 
     #invalidate-cover style="display: none"
 

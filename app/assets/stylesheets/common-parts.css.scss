@@ -26,6 +26,25 @@
   }
 }
 
+// Back and Forward in iOS App
+
+#back-and-forward-in-ios-app {
+  border: 1px solid #B2B2B2;
+  background-color: #F9F9F9;
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 116;
+  height: 44;
+  text-align: center;
+  img {
+    width: 58px;
+    height: 44px;
+    display: block;
+    float: left;
+  }
+}
+
 // Card
 .card {
   margin-left: 8px;
