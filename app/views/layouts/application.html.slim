@@ -4,6 +4,8 @@ html
     title VS-SEED.NET - 連ザⅡ対戦動画
     meta name="viewport" content="width=420"
     meta name="keywords" content="連ザ, 連ザ2, 対戦, 動画"
+    meta name="apple-mobile-web-app-capable" content="yes"
+    meta name="apple-mobile-web-app-status-bar-style" content="black"
     link rel="shortcut icon" type="image/png" href=asset_path("favicon.png")
     link rel="apple-touch-icon" href=asset_path("apple-touch-icon.png")
     = stylesheet_link_tag    "application", media: "all"
@@ -11,6 +13,9 @@ html
     = csrf_meta_tags
     script src="http://code.highcharts.com/highcharts.js"
   body
+    javascript:
+      window.addToHomescreen()
+
     .navbar
       a href="/"
         img#logo.pc src=asset_path("pc_nav_logo.png")
@@ -33,7 +38,7 @@ html
             img.pc src=asset_path("pc_nav_players#{_selected_if(:players)}.png")
         .pc.space _
 
-    .contents class=params[:controller]
+    .contents#pjax-container class=params[:controller]
       == yield
 
     #invalidate-cover style="display: none"

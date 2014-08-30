@@ -1,6 +1,7 @@
 class MechasController < ApplicationController
   def index
     @mechas_of_costs = Mecha.find(:all).group_by(&:cost)
+    render layout: false if request.headers['X-PJAX']
   end
 
   def show
@@ -12,6 +13,7 @@ class MechasController < ApplicationController
     end
     @stat = calc_stat(@mecha)
     render layout: false if ajax?
+    render layout: false if request.headers['X-PJAX']
   end
 
   private

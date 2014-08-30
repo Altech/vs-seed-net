@@ -12,6 +12,7 @@ class PlayersController < ApplicationController
     @players.select{|player| @stats[player.id].nil?}.each do |player|
       @stats[player.id] = calc_stat(player, :ratio)
     end
+    render layout: false if request.headers['X-PJAX']
   end
 
   def show
@@ -23,6 +24,7 @@ class PlayersController < ApplicationController
     end
     @stat = calc_stat(@player)
     render layout: false if ajax?
+    render layout: false if request.headers['X-PJAX']
   end
 
   def new

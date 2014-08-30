@@ -1,9 +1,7 @@
-
 ## =========== Video Filtering ============
 $ ($) ->
   $('.filter-by-selection select').change ->
-    isPC = parseInt($(window).width()) > spMaxWidth
-    nowLoadingId = if isPC then '#now-loading-at-nav' else '#now-loading-at-filter'
+    nowLoadingId = if isPC() then '#now-loading-at-nav' else '#now-loading-at-filter'
     $(nowLoadingId).show()
     $('#invalidate-cover').show()
     path = window.location.pathname + "?filtering_id=" + $(this).val()
@@ -13,7 +11,7 @@ $ ($) ->
 
 window.setThumbanilEvent = ->
   $(".thumbnail").click (e) ->
-    if parseInt($(window).width()) > spMaxWidth
+    if isPC()
       e.preventDefault()
       $('#now-loading-at-nav').show()
       $('#invalidate-cover').show()

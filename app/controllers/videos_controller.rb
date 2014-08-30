@@ -9,6 +9,7 @@ class VideosController < ApplicationController
     if ajax?
       render partial: 'show_modal', layout: false and return
     end
+    render layout: false if request.headers['X-PJAX']
   end
 
   # exclude validation of edit authority for simplicity

@@ -13,11 +13,35 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.cookie
+//= require jquery.pjax
 //= require addtohomescreen
 //= require_tree .
 //= require bootstrap
 
 // Cosntants
 pcMinWidth = 881;
-spMaxWidth = 880;
+spMaxWidth = pcMinWidth - 1;
 pcShowPadding = 50;
+
+function isPC() {
+  return (parseInt($(window).width()) > spMaxWidth);
+}
+
+function isSP() {
+  return (($(window).width()) <= spMaxWidth);
+}
+
+$(document).on("click", "a", function(e) {
+  // Do nothing if another ajax is hooked
+  if ($(this).hasClass('ajax')) return;
+  if ($(this).hasClass('ajax-in-pc') && isPC())  return;
+  if ($(this).hasClass('ajax-in-sp') && isSP()) return;
+
+  e.preventDefault();
+  $.pjax({
+    url: $(this).attr("href"),
+    container: "#pjax-container",
+    fragment: "#pjax-container",
+    timeout: 1000
+  });
+});

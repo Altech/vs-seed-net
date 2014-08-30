@@ -2,6 +2,7 @@
 class EventsController < ApplicationController
   def index
     @events = Event.limit(20)
+    render layout: false if request.headers['X-PJAX']
   end
 
   def show
@@ -18,6 +19,7 @@ class EventsController < ApplicationController
     @games_paginated = @games.page(params[:page]).per(20)
     @game_center = @event.game_center
     render layout: false if ajax?
+    render layout: false if request.headers['X-PJAX']
   end
 
   def edit
