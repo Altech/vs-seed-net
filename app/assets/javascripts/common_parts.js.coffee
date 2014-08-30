@@ -71,7 +71,7 @@ baseChartData =
 
     series: [
       type: "pie"
-      name: "Browser share"
+      name: "機体選択率"
       data: null
     ]
 
