@@ -1,5 +1,4 @@
 ## =========== Back button and Forward button in iOS App ============
-# alert(history.length)
 
 $ ->
   $("#back-button").click (e) ->

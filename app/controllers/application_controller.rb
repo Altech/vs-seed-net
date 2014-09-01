@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
     return if not Rails.env.production?
     File.open(ENV['HOME'] + '/accesses.log', 'a') {|f|
       f.puts({
+        time: Time.now.to_s,
         method: request.method,
         path: request.fullpath,
         referer: request.referer,

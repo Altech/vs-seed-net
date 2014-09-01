@@ -18,11 +18,11 @@ javascript:
 
   var player;
   function onYouTubeIframeAPIReady() {
-    var width = parseInt($(window).width());
-    if (width >= pcMinWidth)
-      width = width - 2*pcShowPadding
+    var width;
+    if (isPC())
+      width = parseInt($(window).width()) - 2*pcShowPadding;
     if (width >= 1050)
-      width = 1050
+      width = 1050;
     player = new YT.Player('player', {
       width: width,
       height: (width/16.0)*9,
