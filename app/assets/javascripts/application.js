@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.cookie
 //= require jquery.pjax
+//= require highcharts
 //= require addtohomescreen
 //= require_tree .
 //= require bootstrap
