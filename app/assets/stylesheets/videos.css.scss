@@ -1,8 +1,11 @@
 @import "utilities";
 
 .videos {
-  #player {
-    margin-bottom: 20px;
+  #player-container {
+    text-align: center;
+    #player {
+      margin-bottom: 20px;
+    }
   }
 
   .video-nav {
