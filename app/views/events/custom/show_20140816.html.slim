@@ -26,6 +26,10 @@
         / == ' '  
         a href="http://rzjc.vs-seed.net" target="_blank" [特設サイト]
   
+  javascript:
+    // [TODO] name jump causes page transition and it opens Safari in standalone-mode.
+    if(window.navigator.standalone){$(".rzjc2014 .nav-box.sp").hide()}
+
   #replaceable
     - blocks = {'Aブロック予選' => @games[0..12], 'Bブロック予選' => @games[13..23], 'Cブロック予選' => @games[24..35], '決勝トーナメント' => @games[36..-1]}
     - blocks.each do |title, games|
