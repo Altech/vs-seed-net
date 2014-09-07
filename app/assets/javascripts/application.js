@@ -33,6 +33,7 @@ function isSP() {
 }
 
 $(document).on("click", "a", function(e) {
+  if ($(this).attr('target') == '_blank') return;
   // Do nothing if another ajax is hooked
   if ($(this).hasClass('ajax')) return;
   if ($(this).hasClass('ajax-in-pc') && isPC())  return;
