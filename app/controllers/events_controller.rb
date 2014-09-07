@@ -16,10 +16,14 @@ class EventsController < ApplicationController
       @games = @event.games.select{|game| game.include_player?(params[:filtering_id].to_i)}
       @games = Kaminari.paginate_array(@games)
     end
-    @games_paginated = @games.page(params[:page]).per(20)
     @game_center = @event.game_center
-    render layout: false if ajax?
-    render layout: false if request.headers['X-PJAX']
+    if (Rails.root + "app/views/events/custom/show_#{@event.held_at.strftime("%Y%m%d")}.html.slim").exist?
+      render file: "events/custom/show_#{@event.held_at.strftime("%Y%m%d")}"
+    elsif ajax?
+      render layout: false
+    elsif request.headers['X-PJAX']
+      render layout: false
+    end
   end
 
   def edit

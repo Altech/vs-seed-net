@@ -85,4 +85,44 @@
   .nav-box {
     margin-bottom: $sp-show-padding;
   }
+
+  .rzjc2014 {
+    .nav-box {
+      font-size: 12pt;
+      font-family: sans-serif;
+      text-align: left;
+      ul {
+        margin: 11px 10px 8px 10px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+    h1 {
+      padding-left: 30px;
+      padding-right: 30px;
+      img {
+        display: block;
+        margin-top: 6px;
+        margin-left: auto;
+        margin-right: auto;
+        @media (max-width: $sp-max-width) {
+          width: 200px;
+        }
+        @media (min-width: $pc-min-width) {
+          width: 300px;
+        }
+      }
+    }
+    h3 {
+      font-size: 28pt;
+      text-align: center;
+      clear: both;
+      a {
+        color: black;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826134804) do
+ActiveRecord::Schema.define(version: 20140906180418) do
 
   create_table "comments", force: true do |t|
     t.integer  "video_id",   null: false
@@ -104,14 +104,16 @@ ActiveRecord::Schema.define(version: 20140826134804) do
   add_index "mecha_names", ["name"], name: "index_mecha_names_on_name", unique: true, using: :btree
 
   create_table "mechas", force: true do |t|
-    t.integer  "full_name_id", null: false
-    t.integer  "nickname_id",  null: false
+    t.integer  "full_name_id",   null: false
+    t.integer  "nickname_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cost"
     t.string   "external_url"
+    t.integer  "abbrev_name_id"
   end
 
+  add_index "mechas", ["abbrev_name_id"], name: "index_mechas_on_abbrev_name_id", using: :btree
   add_index "mechas", ["full_name_id"], name: "index_mechas_on_full_name_id", using: :btree
   add_index "mechas", ["nickname_id"], name: "index_mechas_on_nickname_id", using: :btree
 
@@ -202,12 +204,13 @@ ActiveRecord::Schema.define(version: 20140826134804) do
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
   create_table "videos", force: true do |t|
-    t.string   "youtube_video_id", null: false
+    t.string   "youtube_video_id"
     t.boolean  "win_or_lose"
     t.integer  "mecha_id"
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nico_video_id"
   end
 
   add_index "videos", ["mecha_id"], name: "index_videos_on_mecha_id", using: :btree

@@ -17,11 +17,12 @@
     #now-loading-at-filter style="display: none"
 
 #replaceable
-  - if @games_paginated.total_pages > 1
+  - games_paginated = @games.page(params[:page]).per(20)
+  - if games_paginated.total_pages > 1
     .nav-box.sp
-      == '◁ ' if @games_paginated.first_page?
-      == paginate @games_paginated
-      == ' ▷' if @games_paginated.last_page?
+      == '◁ ' if games_paginated.first_page?
+      == paginate games_paginated
+      == ' ▷' if games_paginated.last_page?
   
-  - [@games, @games_paginated].each_with_index do |games, i|
+  - [@games, games_paginated].each_with_index do |games, i|
     == render partial: 'shared/thumbnails', locals: {games: games, thumbnails_class: (i == 0 ? 'pc' : 'sp')}

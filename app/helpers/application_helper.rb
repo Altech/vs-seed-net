@@ -28,4 +28,8 @@ module ApplicationHelper
   def background_image(path)
     "background-image: url('#{asset_path(path)}')"
   end
+
+  def nicovideo_path(video)
+    video.nico_video_id ? "http://www.nicovideo.jp/watch/#{video.nico_video_id}" : nil
+  end
 end
