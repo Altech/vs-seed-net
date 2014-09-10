@@ -18,11 +18,9 @@ class EventsController < ApplicationController
     end
     @game_center = @event.game_center
     if (Rails.root + "app/views/events/custom/show_#{@event.held_at.strftime("%Y%m%d")}.html.slim").exist?
-      render file: "events/custom/show_#{@event.held_at.strftime("%Y%m%d")}"
-    elsif ajax?
-      render layout: false
-    elsif request.headers['X-PJAX']
-      render layout: false
+      render file: "events/custom/show_#{@event.held_at.strftime("%Y%m%d")}", layout: !(ajax?||request.headers['X-PJAX'])
+    else
+      render layout: !(ajax?||request.headers['X-PJAX'])
     end
   end
 
