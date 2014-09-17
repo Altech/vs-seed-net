@@ -2,12 +2,9 @@
   .nav-box.sp
     ul
       - %w[Aブロック予選 Bブロック予選 Cブロック予選 決勝トーナメント].each do |title|
-        - if not title == '決勝トーナメント'
-          a href="##{title}"
-            == title
-          == " / "
-        - else
+        a href="##{title}"
           == title
+        == " / " if not title == '決勝トーナメント'
 
   - unless ajax?
     .data-title
