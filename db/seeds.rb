@@ -1,38 +1,37 @@
-ActiveRecord::Base.transaction do
-  if false
-    Mecha.delete_all
-    MechaName.delete_all
+require 'csv'
 
-    require 'csv'
-    csv = CSV.parse(File.read(Rails.root + 'db/seeds/mecha.csv'))
+def gen_csv(name)
+  CSV.parse(File.read(Rails.root + "db/seeds/#{name}.csv"))
+end
 
-    csv.each do |row|
-      cost, full_name, nickname = row[0].to_i, row[1].strip, row[2].strip
-      abbrev_names = row[3..-1].map(&:strip)
-      ids = []
-      
-      ids << MechaName.create!(name: full_name).id
-      if full_name == nickname
-        ids << ids.first
-      else
-        ids << MechaName.create!(name: nickname).id
-      end
-      abbrev_names.each do |abbrev_name|
-        next if abbrev_name == full_name or abbrev_name == nickname
-        ids << MechaName.create!(name: abbrev_name).id
-      end
-      mecha = Mecha.create!(cost: cost, full_name_id: ids[0], nickname_id: ids[1])
-      ids.each do |id|
-        MechaName.find(id).update_attribute(:mecha_id, mecha.id)
-      end
-    end
+def seed_mecha(row)
+  cost, full_name, nickname, abbrev_name = row.map(&:strip)
+  cost = cost.to_i
+
+  full_name, nickname, abbrev_name =
+    [full_name, nickname, abbrev_name].map{|name|
+    MechaName.find_by_name(name) || MechaName.create!(name: name)
+  }
+  full_name_id, nickname_id, abbrev_name_id = [full_name, nickname, abbrev_name].map(&:id)
+
+  mecha = Mecha.find_by_name(full_name) || Mecha.create!(cost: cost, full_name_id: full_name_id, nickname_id: nickname_id)
+
+  mecha.update_attribute(:nickname_id, nickname_id)
+  mecha.update_attribute(:abbrev_name_id, abbrev_name_id)
+
+  [full_name, nickname, abbrev_name].each do |name|
+    name.update_attribute(:mecha_id, mecha.id)
   end
+end
 
+ActiveRecord::Base.transaction do
+  gen_csv('mecha').each(&method(:seed_mecha))
+
+  # [TODO] make idenpotent
   if false
     Pilot.delete_all
 
-    require 'csv'
-    csv = CSV.parse(File.read(Rails.root + 'db/seeds/pilot.csv'))
+    csv = gen_csv('pilot')
     csv.each do |row|
       group = row[0]
       pilots = row[1..-1]
@@ -42,9 +41,9 @@ ActiveRecord::Base.transaction do
     end
   end
 
+  # [TODO] make idenpotent
   if false
-    require 'csv'
-    csv = CSV.parse(File.read(Rails.root + 'db/seeds/wiki_url.csv'))
+    csv = gen_csv('wiki_url')
     csv.each do |row|
       name, url = row[0], row[1]
       puts name

@@ -3,7 +3,12 @@ class Mecha < ActiveRecord::Base
   has_many :videos
 
   def self.find_by_name(name)
-    MechaName.find_by_name(name).mecha
+    case name
+    when String
+      MechaName.find_by_name(name).try(:mecha)
+    when MechaName
+      MechaName.find_by_name(name.name).try(:mecha)
+    end
   end
 
   def to_param
@@ -16,6 +21,10 @@ class Mecha < ActiveRecord::Base
 
   def nickname
     MechaName.find(nickname_id).name
+  end
+
+  def abbrev_name
+    MechaName.find(abbrev_name_id).name
   end
 
   def sorted_videos
