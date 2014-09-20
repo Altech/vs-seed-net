@@ -36,6 +36,32 @@
   }
 }
 
+// More　Fine Specification
+@media (max-width: $sps-max-width){
+  .sps {
+    display: block;
+  }
+  .spl {
+    display: none;
+  }
+}
+@media (min-width: $spl-min-width) and (max-width: $sp-max-width){
+  .spl {
+    display: block;
+  }
+  .sps {
+    display: none;
+  }
+}
+@media (min-width: $pc-min-width){
+  .spl {
+    display: none;
+  }
+  .sps {
+    display: none;
+  }
+}
+
 @mixin base-show-padding {
   @media (max-width: $sp-max-width) {
     padding-left: $sp-show-padding;

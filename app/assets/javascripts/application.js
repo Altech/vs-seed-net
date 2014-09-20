@@ -22,6 +22,9 @@
 // Cosntants
 pcMinWidth = 881;
 spMaxWidth = pcMinWidth - 1;
+splMinWidth = spMaxWidth;
+splMinWidth = 401;
+spsMaxWidth = splMinWidth - 1;
 pcShowPadding = 50;
 
 function isPC() {
@@ -30,6 +33,14 @@ function isPC() {
 
 function isSP() {
   return (($(window).width()) <= spMaxWidth);
+}
+
+function isSPL() {
+  return (splMinWidth <= ($(window).width())) && (($(window).width()) <= splMaxWidth);
+}
+
+function isSPS() {
+  return (($(window).width()) <= spsMaxWidth);
 }
 
 $(document).on("click", "a", function(e) {
