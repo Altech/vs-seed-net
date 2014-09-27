@@ -38,15 +38,17 @@ class Game < ActiveRecord::Base
 
   def include_player?(player_or_id)
     player = Player.find(player_or_id) unless Player === player_or_id
-    return true if video_A1 and video_A1.player and video_A1.player == player
-    return true if video_A2 and video_A2.player and video_A2.player == player
-    return false
+    (video_A1.try(:player) and video_A1.player == player) or
+    (video_A2.try(:player) and video_A2.player == player) or
+    (video_B1.try(:player) and video_B1.player == player) or
+    (video_B2.try(:player) and video_B2.player == player)
   end
 
   def include_unknown_player?
-    return true if video_A1 and video_A1.player.nil?
-    return true if video_A2 and video_A2.player.nil?
-    return false
+    (video_A1 and video_A1.player.nil?) or
+    (video_A2 and video_A2.player.nil?) or
+    (video_B1 and video_B1.player.nil?) or
+    (video_B2 and video_B2.player.nil?)
   end
 
   def next_game
