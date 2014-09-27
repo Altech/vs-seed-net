@@ -17,7 +17,7 @@
     #now-loading-at-filter style="display: none"
 
 #replaceable
-  - games_paginated = @games.page(params[:page]).per(20)
+  - games_paginated = Kaminari.paginate_array(@games).page(params[:page]).per(20)
   - if games_paginated.total_pages > 1
     .nav-box.sp
       == '◁ ' if games_paginated.first_page?

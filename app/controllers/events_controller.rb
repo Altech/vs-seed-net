@@ -7,15 +7,14 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_date params[:id]
-    if params[:filtering_id].to_i == 0
-      @games = @event.games
-    elsif params[:filtering_id].to_i == -1
-      @games = @event.games.select{|game| game.include_unknown_player?}
-      @games = Kaminari.paginate_array(@games)
-    else
-      @games = @event.games.select{|game| game.include_player?(params[:filtering_id].to_i)}
-      @games = Kaminari.paginate_array(@games)
-    end
+    @games = case params[:filtering_id].to_i
+             when 0
+               @event.games
+             when -1
+               @event.games.select{|game| game.include_unknown_player?}
+             else
+               @event.games.select{|game| game.include_player?(params[:filtering_id].to_i)}
+             end
     @game_center = @event.game_center
     if (Rails.root + "app/views/events/custom/show_#{@event.held_at.strftime("%Y%m%d")}.html.slim").exist?
       render file: "events/custom/show_#{@event.held_at.strftime("%Y%m%d")}", layout: !(ajax?||request.headers['X-PJAX'])

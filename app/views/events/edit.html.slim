@@ -49,7 +49,7 @@
                     - if video.mecha
                       ==  link_to video.mecha.full_name, mecha_path(video.mecha), class: 'no-decoration'
                     - else
-                      == select_tag "video[#{video.id}][mecha_id]", grouped_options_for_select(mechas_selection), include_blank: true
+                      == select_tag "video[#{video.id}][mecha_id]", grouped_options_for_select(@mechas_selection), include_blank: true
     == submit_tag '更新'
   
   / .add-participants
