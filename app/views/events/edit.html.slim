@@ -40,7 +40,7 @@
                     - if video.player
                       == link_to(video.player.name, player_path(video.player), class: 'no-decoration')
                     - else
-                      == select_tag "video[#{video.id}][player_id]", options_for_select(@event.players.map{|p| [p.name,p.id]}), include_blank: true
+                      == select_tag "video[#{video.id}][player_id]", options_for_select(@players_selection), include_blank: true
               tr.mecha
                 td
                   == "M#{i+1}"
@@ -49,7 +49,7 @@
                     - if video.mecha
                       ==  link_to video.mecha.full_name, mecha_path(video.mecha), class: 'no-decoration'
                     - else
-                      == select_tag "video[#{video.id}][mecha_id]", grouped_options_for_select(Mecha.all.group_by(&:cost).map_values{|a| a.map(&:nickname)}), include_blank: true
+                      == select_tag "video[#{video.id}][mecha_id]", grouped_options_for_select(mechas_selection), include_blank: true
     == submit_tag '更新'
   
   / .add-participants

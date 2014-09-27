@@ -30,6 +30,10 @@ class EventsController < ApplicationController
     @game_center = @event.game_center
     @players = Player.all.select{|player| !player.participate?(@event)}
     @participants = @event.players
+
+    # Cache
+    @players_selection = @event.players.map{|p| [p.name,p.id]}
+    @mechas_selection = Mecha.all.group_by(&:cost).map_values{|a| a.map(&:nickname)}
   end
 
   def update
