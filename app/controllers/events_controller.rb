@@ -8,19 +8,19 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_date params[:id]
     @game_center = @event.game_center
-    case params[:filtering_id].to_i
-    when 0
-      @games = @event.games
-    when -1
-      @videos = @event.games
-        .select{|game| game.include_unknown_player?}
-        .map{|game| game.viewpoint_of_unknown_player}
-    else
-      player_id = params[:filtering_id].to_i
-      @videos = @event.games
-        .select{|game| game.include_player?(player_id)}
-        .map{|game| game.viewpoint_of(player_id)}
-    end
+    @videos = case params[:filtering_id].to_i
+              when 0
+                @event.games.map(&:video_A1)
+              when -1
+                @event.games
+                  .select{|game| game.include_unknown_player?}
+                  .map{|game| game.viewpoint_of_unknown_player}
+              else
+                player_id = params[:filtering_id].to_i
+                @event.games
+                  .select{|game| game.include_player?(player_id)}
+                  .map{|game| game.viewpoint_of(player_id)}
+              end
     if (Rails.root + "app/views/events/custom/show_#{@event.held_at.strftime("%Y%m%d")}.html.slim").exist?
       render file: "events/custom/show_#{@event.held_at.strftime("%Y%m%d")}", layout: !(ajax?||request.headers['X-PJAX'])
     else

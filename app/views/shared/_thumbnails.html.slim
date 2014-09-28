@@ -1,18 +1,30 @@
-- thumbnails_class ||= ''
-- games ||= nil
-- videos ||= nil
-- enum = games ? games : videos
+- paginated_in_sp ||= true
 
-.thumbnails class=thumbnails_class
-  - enum.each do |e|
-    - game = games ? e : e.game
-    - video = games ? game.video_A1 : e
+- if paginated_in_sp
+  - paginated = Kaminari.paginate_array(videos).page(params[:page]).per(20)
+  - if paginated.total_pages > 1
+    .nav-box.sp.padding-as-bottom-margin
+      == '◁ ' if paginated.first_page?
+      == paginate paginated
+      == ' ▷' if paginated.last_page?
+
+.thumbnails.pc
+  - videos.each do |video|
     .thumbnail-container
       .thumbnail data-video-id=video.id
         a.ajax-in-pc href=video_path(video.id)
-          == image_tag game.thumbnail.url, class: 'capture'
+          == image_tag video.game.thumbnail.url, class: 'capture'
         .vol-of-event
-          == "Vol.#{"%03d" % (game.index_of_event+1)}"
+          == "Vol.#{"%03d" % (video.game.index_of_event+1)}"
+
+.thumbnails.sp
+  - (paginated_in_sp ? paginated : videos).each do |video|
+    .thumbnail-container
+      .thumbnail data-video-id=video.id
+        a.ajax-in-pc href=video_path(video.id)
+          == image_tag video.game.thumbnail.url, class: 'capture'
+        .vol-of-event
+          == "Vol.#{"%03d" % (video.game.index_of_event+1)}"
 
 .bootstrap-environment
   #video-modal.modal.fade.video-modal aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"

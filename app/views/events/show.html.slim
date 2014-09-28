@@ -17,12 +17,4 @@
     #now-loading-at-filter style="display: none"
 
 #replaceable
-  - paginated = Kaminari.paginate_array(@games || @videos).page(params[:page]).per(20)
-  - if paginated.total_pages > 1
-    .nav-box.sp
-      == '◁ ' if paginated.first_page?
-      == paginate paginated
-      == ' ▷' if paginated.last_page?
-  
-  - [(@games || @videos), paginated].each_with_index do |array, i|
-    == render partial: 'shared/thumbnails', locals: {(@games ? :games : :videos) => array, :thumbnails_class => (i == 0 ? 'pc' : 'sp')}
+  == render partial: 'shared/thumbnails', locals: {videos: @videos}

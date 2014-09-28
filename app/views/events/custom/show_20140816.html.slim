@@ -19,8 +19,6 @@
       .header 参加チーム
       .contents
         | アベショウカイ、アベンジャーズ、ゾンビッチ最終巻9月22日発売！、連ザ久々、婚活ブラザーズ、渋館の無い夏 2nd、絶対覚醒、北の侍、記念参加、ぴぃきーん(町田勢)、相方仕事なう、サファリから来ました、斡旋1、マミさん、ジャケさん交際記念杯　
-        / a href="http://rzjc.vs-seed.net/teams" target="_blank" [詳細一覧]
-        / == ' '
         nobr
           | #[
           a href="http://rzjc.vs-seed.net" target="_blank" 特設サイト
@@ -31,19 +29,16 @@
     if(window.navigator.standalone){$(".rzjc2014 .nav-box.sp").hide()}
 
   #replaceable
-    - blocks = {'Aブロック予選' => @games[0..12], 'Bブロック予選' => @games[13..23], 'Cブロック予選' => @games[24..35], '決勝トーナメント' => @games[36..-1]}
-    - blocks.each do |title, games|
-      - next unless games
+    - blocks = {'Aブロック予選' => @videos[0..12], 'Bブロック予選' => @videos[13..23], 'Cブロック予選' => @videos[24..35], '決勝トーナメント' => @videos[36..-1]}
+    - blocks.each do |title, videos|
       h3
         a name=title
           == title
       .thumbnails
-        - games.each do |e|
-          - game = games ? e : e.game
-          - video = games ? game.video_A1 : e
+        - videos.each do |video|
           .thumbnail-container
             .thumbnail data-video-id=video.id
               a href=nicovideo_path(video) target="_blank"
-                == image_tag game.thumbnail.url, class: 'capture'
+                == image_tag video.game.thumbnail.url, class: 'capture'
               .vol-of-event
-                == "Vol.#{"%03d" % (game.index_of_event+1)}"
+                == "Vol.#{"%03d" % (video.game.index_of_event+1)}"

@@ -14,6 +14,15 @@
   }
 }
 
+.padding-as-bottom-margin {
+  @media (max-width: $sp-max-width) {
+    margin-bottom: $sp-show-padding;
+  }
+  @media (min-width: $pc-min-width) {
+    margin-bottom: $pc-show-padding;
+  }
+}
+
 .filter-by-selection {
   @include base-show-margin;
   @media (max-width: $sp-max-width) {
