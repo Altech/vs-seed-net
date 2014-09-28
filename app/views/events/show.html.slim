@@ -17,12 +17,12 @@
     #now-loading-at-filter style="display: none"
 
 #replaceable
-  - games_paginated = Kaminari.paginate_array(@games).page(params[:page]).per(20)
-  - if games_paginated.total_pages > 1
+  - paginated = Kaminari.paginate_array(@games || @videos).page(params[:page]).per(20)
+  - if paginated.total_pages > 1
     .nav-box.sp
-      == '◁ ' if games_paginated.first_page?
-      == paginate games_paginated
-      == ' ▷' if games_paginated.last_page?
+      == '◁ ' if paginated.first_page?
+      == paginate paginated
+      == ' ▷' if paginated.last_page?
   
-  - [@games, games_paginated].each_with_index do |games, i|
-    == render partial: 'shared/thumbnails', locals: {games: games, thumbnails_class: (i == 0 ? 'pc' : 'sp')}
+  - [(@games || @videos), paginated].each_with_index do |array, i|
+    == render partial: 'shared/thumbnails', locals: {(@games ? :games : :videos) => array, :thumbnails_class => (i == 0 ? 'pc' : 'sp')}
