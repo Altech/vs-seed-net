@@ -71,6 +71,20 @@ class Video < ActiveRecord::Base
     end
   end
 
+  def another_viewpoint
+    if game
+      videos = game.videos
+      return nil if videos.size == 1
+
+      if self == videos.last
+        videos.first
+      else
+        i = videos.index(self)
+        videos[i+1]
+      end
+    end
+  end
+
   def is_last_video_of_event
     next_video ? false : true
   end
@@ -84,18 +98,18 @@ class Video < ActiveRecord::Base
   end
 
   def game
-    @game || (seat ? @game = Game.send("find_by_#{seat}_video_id", id) : nil)
+    @game || (seat ? @game : nil)
   end
 
   def seat
     @seat || begin
-               @seat = if    Game.find_by_a1_video_id(id)
+               @seat = if    @game = Game.find_by_a1_video_id(id)
                          :a1
-                       elsif Game.find_by_a2_video_id(id)
+                       elsif @game = Game.find_by_a2_video_id(id)
                          :a2
-                       elsif Game.find_by_b1_video_id(id)
+                       elsif @game = Game.find_by_b1_video_id(id)
                          :b1
-                       elsif Game.find_by_b2_video_id(id)
+                       elsif @game = Game.find_by_b2_video_id(id)
                          :b2
                        end
              end

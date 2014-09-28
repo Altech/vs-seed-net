@@ -23,9 +23,9 @@ module VideosHelper
     end
   end
 
-  def partners_video_path(video)
-    if video.partners_video
-      video_path(video.partners_video)
+  def another_viewpoint_path(video)
+    if video.another_viewpoint
+      video_path(video.another_viewpoint)
     else
       '#'
     end
@@ -42,14 +42,6 @@ module VideosHelper
   def link_to_previous_video_if_exists(video, opt = {}, &block)
     if @video.previous_video(@context)
       content_tag(:a, capture(&block), opt.merge(href: previous_video_path(@video)))
-    else
-      capture(&block)
-    end
-  end
-
-  def link_to_partners_video_if_exists(video, opt = {}, &block)
-    if @video.partners_video
-      content_tag(:a, capture(&block), opt.merge(href: partners_video_path(@video)))
     else
       capture(&block)
     end
