@@ -43,12 +43,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def check_logined
-    unless current_player
-      redirect_to '/login'
-    end
-  end
-
   def ajax?
     params['ajax'] == 'true'
   end

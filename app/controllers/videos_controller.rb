@@ -4,8 +4,6 @@ class VideosController < ApplicationController
     @event = @video.game.event
     @game = @video.game
 
-    @favorite = current_player.favorite(@video) if current_player
-
     if ajax?
       render partial: 'show_modal', layout: false and return
     end

@@ -10,26 +10,11 @@ class Player < ActiveRecord::Base
   validates :password, length: { minimum: 8, maximum: 20 }, allow_blank: true
 
   belongs_to :pilot
-  has_many :favorites
   has_many :videos
   has_and_belongs_to_many :events, join_table: :event_participants
 
   def to_param
     name
-  end
-
-  def favorite?(video)
-    id = case video
-         when Video
-           video.id
-         else
-           video
-         end
-    favorites.any?{|f| f.video_id == id}
-  end
-
-  def favorite(video)
-    Favorite.where(player_id: id, video_id: video.id).first
   end
 
   def name_with_pilot
