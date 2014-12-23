@@ -1,13 +1,13 @@
 .video-nav
   == link_to_previous_video_if_exists video, class: 'ajax-in-pc'
     img.prev src=asset_path("video_nav_prev#{_disabled_unless(video.previous_video(@context))}.png") data-video-id="#{video.previous_video(@context).try(:id) || ''}"
-  - case video.game.videos.size
-  - when 1
+  - game = video.game
+  - if game.videos.size == 1
     img.exchange src=asset_path("video_nav_exchange_disabled.png")
-  - when 2
+  - elsif game.videos.size == 2 and game.video_A1 and game.video_A2
     == link_to partners_video_path(video), class: 'ajax-in-pc'
       img.exchange src=asset_path("video_nav_exchange.png") data-video-id=video.partners_video.try(:id)
-  - when 3..4
+  - else
     == link_to another_viewpoint_path(video), class: 'ajax-in-pc'
       img.exchange src=asset_path("video_nav_focused_#{video.seat}.png") data-video-id=video.another_viewpoint.try(:id)
   == link_to_next_video_if_exists video, class: 'ajax-in-pc'
